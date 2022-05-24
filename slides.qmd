@@ -1,0 +1,89 @@
+---
+title: "Topic Title"
+subtitle: "Witty Commentary"
+author: Rodney J. Dyer
+format: revealjs
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Some Title
+
+::: {layout-ncol="2"}
+### List One
+
+-   Item A
+-   Item B
+-   Item C
+
+### List Two
+
+-   Item X
+-   Item Y
+-   Item Z
+:::
+
+## Another Slide
+
+::: {layout-ncol="2"}
+### The code
+
+```{r eval=FALSE, echo=TRUE}
+hist( rnorm(1200) )
+```
+
+### The Plot
+
+```{r echo=FALSE}
+hist( rnorm( 1200 ) )
+```
+:::
+
+## And another slide
+
+::: {layout-ncol="2"}
+-   Item X
+-   Item Y
+-   Item Z
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida eu erat et fring. Morbi congue augue vel eros ullamcorper, eget convallis tortor sagittis. Fusce sodales viverra mauris a fringilla. Donec feugiat, justo eu blandit placerat, enim dui volutpat turpis, eu dictum lectus urna eu urna. Mauris sed massa ornare, interdum ipsum a, semper massa.
+:::
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r echo=TRUE}
+px <- 0.75
+py <- 0.25
+m <- 0.1
+ret <- rep(NA,100)
+ret[1] <- py
+for( i in 2:100) {
+  ret[i] <- (1-m)*ret[(i-1)] + px * m   
+}
+```
+
+## Results
+
+```{r}
+plot( ret, type="l")
+```
+
+## Questions
+
+::: {layout-ncol="2"}
+If you have any questions, please feel free to either post them as an "Issue" on your copy of this GitHub Repository, post to the [Canvas](https://canvas.vcu.edu) discussion board for the class, or drop me an [email](mailto://rjdyer@vcu.edu).
+
+![](media/peter_sellers.gif){.middle fig-alt="Peter Sellers looking bored" fig-align="center" width="500"}
+:::

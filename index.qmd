@@ -1,0 +1,23 @@
+---
+title: "Topic"
+editor: visual
+---
+
+## Topic
+
+> Description of the topic and why it is important
+
+## Student Learning Objectives
+
+-   *Learning Objective 1*
+-   *Learning Objective 2*
+-   *Learning Objective 3*
+
+## Content
+
+-   [Slides](slides.html) - The slides for this topic.
+-   [Narrative](narrative.html) - A longer discussion of this topic with several examples.
+-   [In Class Activity](in-class.html) - A short in-class activity to explore some of the more dynamic aspects of this topic.
+-   [Homework](homework.html) - The homework for this specific topic.
+-   External resources
+-   Example Data sets
