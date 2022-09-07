@@ -1,12 +1,367 @@
 ---
-title: "Topic Title"
-subtitle: "Witty Commentary"
+title: "Data Containers"
+subtitle: "A place for everything"
 author: Rodney J. Dyer
-format: revealjs
-editor: visual
+format: 
+  revealjs:
+    background-transition: fade
+    theme: default
+    logo: "media/ces_logo.png"
+editor: source
+execute: 
+  echo: true
+title-slide-attributes: 
+  data-background-image: "media/contour.png"
+  data-background-position: "right"
+  data-background-size: initial
 ---
 
-## Quarto
+
+# Vectors {background-color="black" background-image="media/contour.png" background-size="initial" background-position="right"}
+
+
+## A Vector
+
+A vector is a storage container for data of a uniform data class type.
+
+```{r}
+x <- c( 1, 2, 3, 4 )
+```
+
+::: {.fragment}
+
+All programmers are lazy and know that the fewer key presses you have to make, the less likely an error will be introduced.  So the function named `combine` is represented as `c()`. 
+
+
+```{r}
+x
+```
+
+Its job is to smush a bunch of data into a simple container.
+:::
+
+
+## Accessing Elements
+
+A vector contains similar data types and each element can be accessed using numerical indices nested with square brackets `[` & `]`.[^1]
+
+```{r}
+x[2]
+```
+
+[^1]: It should be noted that indices in all R data containers start at 1 for the first element (not 0 like many other languages derived from C).
+
+
+## Introspection
+
+Because `x` is a vector AND it contains `numeric` data, the introspection operators for both vector and numeric will return `TRUE`.
+
+&nbsp;
+
+::: {layout-ncol="2"}
+```{r}
+is.vector( x )
+```
+
+
+```{r}
+is.numeric( x )
+```
+:::
+
+&nbsp;
+
+The data in `x` ARE both vectors and numeric types.
+
+
+## Other Data Types
+
+As long as the base data type is the exact same, vectors will always work properly.
+
+```{r}
+c("A", "B", "C", "The Cat jumped over the moon")
+c( TRUE, FALSE, FALSE, TRUE)
+```
+
+## {{< fa blender >}} No Mixing Allowed 
+
+You **CANNOT** mix data types in a single vector and keep the same kinds of data. `R` will coerce to a *least common data type* so that they are all of the same type.
+
+```{r}
+c( 1, TRUE, FALSE, 23)
+```
+
+&nbsp;
+
+```{r}
+c( 1, TRUE, "FALSE", 23)
+```
+
+## Sequences
+
+Sometimes it is helpful to make a a sequence of values in a vector.  `R` has some built-in functionality here for that.
+
+&nbsp;
+
+::: {layout-ncol="2"}
+### Sequence Operator
+```{r}
+w <- 1:6
+w
+```
+
+
+### The `seq()` function
+```{r}
+x <- seq(10,30, by=3)
+x
+```
+:::
+
+
+::: {.fragment}
+&nbsp;
+
+::: {layout-ncol="2"}
+### LETTERS
+```{r}
+y <- LETTERS[1:5]
+y
+```
+
+
+### The `seq()` function (again)
+```{r}
+z <- seq(10,30, length.out = 6)
+z
+```
+:::
+
+:::
+
+
+## Vector Operators
+
+Data within vectors can be subjected to unary opertors.
+
+&nbsp;
+
+```{r}
+-z
+```
+
+&nbsp;
+
+```{r}
+!z
+```
+
+## Vector Operators
+
+As well as binary operators.
+
+&nbsp;
+
+```{r}
+w + z 
+```
+
+
+```{r}
+z^w
+```
+
+
+## Recycling Rule
+
+If you attempt to perform a binary operator on two vectors whose lengths are different, it will *recycle* the values in the shorter one.
+
+```{r}
+c(1,2,3) + c(10,20,30,40,50,60)
+```
+
+::: {.fragment}
+&nbsp;
+
+But if the lengths are not clean multiples, `R` will give you a warning (but still give you an answer).
+
+```{r}
+c(1,2,3,4) + c(10,20,30,40,50,60)
+```
+
+:::
+
+
+
+
+
+# Matrices {background-color="black" background-image="media/contour.png" background-size="initial" background-position="right"}
+
+
+## {{< fa blender >}} 2-Dimensional Vectors
+
+For some mathematical operations, we need to work with matrices.  These are another 'general' container but with dimensions for *rows* and *columns* of data.
+
+::: {layout-ncol="2"}
+```{r}
+matrix( 1:9, ncol=3 )
+```
+
+
+```{r}
+matrix( LETTERS[1:9], nrow=3)
+```
+:::
+
+## {{< fa blender >}} 2-Dimensional Vectors
+
+Creating matrices are done columnwise, if you want them to be rowwise, you have to ask for it.
+
+::: {layout-ncol="2"}
+```{r}
+matrix( 1:9, ncol=3 )
+```
+
+
+```{r}
+matrix( 1:9, ncol=3, byrow = TRUE )
+```
+:::
+
+## Indices
+
+Just like vectors, the square brackets are used to access values within a matrix.  However, there are now two indices, one for the row and one for the column.
+
+&nbsp;
+
+::: {layout-ncol="2"}
+```{r}
+X <- matrix( 1:9, ncol=3, byrow = TRUE )
+X
+```
+
+
+::: {.fragment}
+```{r}
+X[1,3] <- 42
+X
+```
+:::
+:::
+
+
+## Slicing
+
+You can get an entire row or column using what is called a slice index.
+
+
+```{r}
+X
+```
+
+&nbsp;
+
+:::{.fragment}
+:::{layout-ncol="2"}
+```{r}
+X[,2]
+```
+
+
+```{r}
+X[1,]
+```
+
+:::
+:::
+
+## Matrix Operators
+
+Arithamatic operators on matrices work the same way (as long as they are matrices of the proper number of rows and columns).
+
+&nbsp;
+
+:::{.layout-ncol="2"}
+```{r}
+X <- matrix( 1:4, ncol=2)
+X
+```
+
+
+```{r}
+Y <- matrix( c(3,5,7,9), ncol=2 )
+Y
+```
+:::
+
+## Binary Operators
+
+
+```{r}
+X + Y
+```
+
+```{r}
+X * Y
+```
+
+This is element-wise multiplication (aka a Kronecker Product).
+
+
+## Matrix Multiplication
+
+Matrix multiplication is a bit more complicated as it is a slightly more involved {{< fa regular hand-point-right >}} {{< fa regular hand-point-down >}}.
+
+&nbsp;
+
+
+```{r}
+X %*% Y 
+```
+
+
+
+# Lists {background-color="black" background-image="media/contour.png" background-size="initial" background-position="right"}
+
+
+## {{< fa bars >}} Lists 
+
+Lists are more versatile containers in that they *allow you to store different kinds of data* in them.
+
+By default, they are numerically indexed .
+
+```{r}
+lst <- list( "Bob", 32, TRUE )
+lst
+```
+
+## Double Square Brackets
+
+Notice that lists use two sets of square brackets instead of one—to differentiate itself from a normal vector
+
+```{r}
+lst[[1]] 
+lst
+```
+
+
+
+# Data Frames {background-color="black" background-image="media/contour.png" background-size="initial" background-position="right"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Quarto 
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 

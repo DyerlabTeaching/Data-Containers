@@ -154,7 +154,7 @@ x
 names(iris.test)
 ```
 
-Because of this, we can easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text.  All you have to do is address the components of the analysis as in-text r citation.  Here is an example where I include the values of:
+Because of this, we can easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
 
 ```{r}
 iris.test$estimate
@@ -168,13 +168,11 @@ Here is an example paragraph (see the raw quarto document to see the formatting)
 
 ## Data Frames
 
-
 ```{r}
 x <- 1:10
 y <- LETTERS[11:20]
 z <- sample( c(TRUE,FALSE), size=10, replace=TRUE )
 ```
-
 
 ```{r}
 df <- data.frame( TheNums = x,
@@ -184,22 +182,18 @@ df <- data.frame( TheNums = x,
 df
 ```
 
-
 ```{r}
 summary( df )
 ```
-
 
 ```{r}
 names( df )
 ```
 
-
 ```{r}
 df$TheLetters
 class( df$TheLetters )
 ```
-
 
 Indexing, by named column and by `[row,col]` values.
 
@@ -208,22 +202,18 @@ df$TheLetters[3]
 df[3,2]
 ```
 
-
 ```{r}
 dim( df )
 nrow( df )
 ncol( df )
 ```
 
-
 ### Loading Data
-
 
 ```{r}
 #| eval: false
 library( readr )
 ```
-
 
 ```{r}
 #| echo: false
@@ -233,19 +223,15 @@ if( !require(readr)) {
 }
 ```
 
-
-
 ```{r}
 url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv?token=GHSAT0AAAAAABYCMZEFK5KI5I2YGMJ6A7PKYYY5LEQ"
 ```
-
 
 ```{r}
 #| message: false
 beetles <- read_csv( url )
 summary( beetles )
 ```
-
 
 ```{r}
 #| eval: false
@@ -260,14 +246,12 @@ if( !require( leaflet ) ) {
 }
 ```
 
-
 ```{r}
 beetles %>%
   leaflet() %>%
   addProviderTiles(provider = providers$Esri.WorldTerrain) %>%
   addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
 ```
-
 
 ## Questions
 

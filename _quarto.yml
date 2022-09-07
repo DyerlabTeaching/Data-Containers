@@ -1,5 +1,5 @@
 project:
-  title: "Dyerlab-Template"
+  title: "Data Containers"
   output-dir: docs
 
 format:
@@ -17,6 +17,9 @@ format:
   revealjs:
     self-contained: true
     code-fold: false
+    execute:
+      echo: true
+      warning: true
     code-overflow: wrap
     footer: "[Dyerlab](https://dyerlab.org)"
   
