@@ -4,18 +4,270 @@ format: html
 editor: visual
 ---
 
-## Topic
+> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. In this topic, we examine some of the more basic
 
-Insert rationale for topic here.
-
-## Data Types
+## Vectors
 
 ```{r}
-x <- rnorm(100)
-hist(x)
+x <- c(1,2,3)
+x
 ```
 
-`This section is where you fill in all the information`
+```{r}
+class(x)
+```
+
+```{r}
+length(x)
+```
+
+```{r}
+is.vector( x ) && is.numeric( x )
+```
+
+```{r}
+1:10 -> y
+y
+```
+
+```{r}
+seq(1,10,by=3)
+```
+
+```{r}
+seq( 119, 121, length.out = 6)
+```
+
+```{r}
+x[3]
+```
+
+```{r}
+x[5]
+```
+
+```{r}
+x[2] <- 42
+x
+```
+
+```{r}
+x[7] <- 43
+x
+```
+
+```{r}
+x <- 1:5
+y <- rpois(5,2)
+x
+y
+```
+
+```{r}
+x + y 
+```
+
+```{r}
+x^y
+```
+
+*recycling rule*
+
+```{r}
+z <- 1:10
+x + z
+```
+
+## Matrices
+
+```{r}
+X <- matrix( 1:9, nrow=3, ncol=3 )
+X
+```
+
+```{r}
+X[2,2] <- 42
+X
+```
+
+```{r}
+Y <- t(X)
+Y
+```
+
+```{r}
+X + Y
+```
+
+```{r}
+X * Y
+```
+
+```{r}
+X %*% Y
+```
+
+## Lists
+
+```{r}
+lst <- list("A","B",323423.3, pi, TRUE)
+lst
+```
+
+```{r}
+lst[[2]] <- "C"
+lst
+```
+
+### Named Lists
+
+```{r}
+myInfo <- list()
+myInfo["First Name"] <- "Rodney"
+myInfo["Second Name"] <- "Dyer"
+myInfo["Favorite Number"] <- 42
+myInfo["Vegitarian"] <- FALSE
+
+```
+
+```{r}
+myInfo
+```
+
+```{r}
+myInfo$Homes <- c("RVA","Oly","SEA")
+myInfo
+```
+
+```{r}
+names(myInfo)
+```
+
+### Analysis Output
+
+```{r}
+iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )
+x
+```
+
+```{r}
+names(iris.test)
+```
+
+Because of this, we can easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text.  All you have to do is address the components of the analysis as in-text r citation.  Here is an example where I include the values of:
+
+```{r}
+iris.test$estimate
+iris.test$statistic
+iris.test$p.value
+```
+
+Here is an example paragraph (see the raw quarto document to see the formatting).
+
+> There was a significant relationship between sepal and petal length (Pearson Correlation, $\rho =$ `r format(iris.test["estimate"], digits=3)`, $t =$ `r format(iris.test["statistic"], digits=3)`, P = `r format(iris.test["p.value"],digits=3)`).
+
+## Data Frames
+
+
+```{r}
+x <- 1:10
+y <- LETTERS[11:20]
+z <- sample( c(TRUE,FALSE), size=10, replace=TRUE )
+```
+
+
+```{r}
+df <- data.frame( TheNums = x,
+                  TheLetters = y,
+                  TF = z
+                  )
+df
+```
+
+
+```{r}
+summary( df )
+```
+
+
+```{r}
+names( df )
+```
+
+
+```{r}
+df$TheLetters
+class( df$TheLetters )
+```
+
+
+Indexing, by named column and by `[row,col]` values.
+
+```{r}
+df$TheLetters[3]
+df[3,2]
+```
+
+
+```{r}
+dim( df )
+nrow( df )
+ncol( df )
+```
+
+
+### Loading Data
+
+
+```{r}
+#| eval: false
+library( readr )
+```
+
+
+```{r}
+#| echo: false
+if( !require(readr)) { 
+  install.pacakges("readr")
+  library( readr )
+}
+```
+
+
+
+```{r}
+url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv?token=GHSAT0AAAAAABYCMZEFK5KI5I2YGMJ6A7PKYYY5LEQ"
+```
+
+
+```{r}
+#| message: false
+beetles <- read_csv( url )
+summary( beetles )
+```
+
+
+```{r}
+#| eval: false
+library( leaflet )
+```
+
+```{r}
+#| echo: false
+if( !require( leaflet ) ) { 
+  install.packages("leaflet")
+  library( leaflet)
+}
+```
+
+
+```{r}
+beetles %>%
+  leaflet() %>%
+  addProviderTiles(provider = providers$Esri.WorldTerrain) %>%
+  addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
+```
+
 
 ## Questions
 

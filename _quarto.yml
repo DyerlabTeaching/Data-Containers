@@ -9,9 +9,7 @@ format:
     toc-location: right
     html-math-method: katex
     self-contained: true
-    code-fold: true
     code-overflow: wrap
-    code-summary: Show the code
     code-block-border-left: "#31BAE9"
     citations-hover: true
     footnotes-hover: true
