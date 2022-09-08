@@ -344,96 +344,264 @@ lst[[1]]
 lst
 ```
 
+## Why The Double Brackets?
+
+
+This is because *technically*, the first element in the list is an also a list and what we are trying to get from that is the first element inside that contained list.  
+
+```{r}
+c( class(lst), class(lst[1]), class(lst[[1]]) )
+```
+
+
+
+
+## Named Lists
+
+Lists can be made *more friendly* to you by using actual names for the *keys* associated with each *value*.  In some languages, like python, these are referred to as *dictionaries*.
+
+```{r}
+info <- list("Name" = "Bob", "Age" = 42)
+info
+```
+
+:::{.fragment}
+Notice the use of the \$ in the output
+:::
+
+## Named Lists
+
+This \$ notation is used to easily grab the contents of the list at that *slot*.
+
+&nbsp;
+
+```{r}
+info$Name <- "Robert"
+info
+```
+
+## Named Lists
+
+As well as to add new entries to the list directly.
+
+&nbsp;
+
+```{r}
+info$PassedDyersClass <- TRUE
+info
+```
+
+
+## Square Brackets Also Work
+
+You can also use the double brackets AND the name of the key as a reference.  
+
+```{r}
+info[["Name"]]
+```
+
+:::{.fragment}
+However this is even more work and looks a bit *less elegant* than the \$ notation.  Also, if you look at the order of operations, you'll see that the  \$ notation has a higher precedence in operations than the single or double brackets (see `?Syntax`).
+:::
+
+
+
+## Lists are Ubiquitous
+
+In `R`, you will most likely work with list objects as analysis results rather than as a container to keep your data.  Almost all analyses return their values as a list with the included components.  Here is an example.
+
+```{r}
+summary( iris )
+```
+
+
+
+## Correlation
+
+Here is a quick correlation between the sepal and pedal lengths in some `iris` data set.
+
+```{r}
+iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )
+iris.test
+```
+
+
+## Packaging of Results
+
+```{r}
+is.list( iris.test )
+class( iris.test )
+```
+
+## What is hidden inside?
+
+```{r}
+#| echo: false
+df <- as.data.frame( unlist( iris.test ) ) 
+names(df) <- "Values"
+df
+```
+
+
+
+## Custom Printing
+
+Printing results show the components of the analysis in a way that makes sense because while it is a list
+
+```{r}
+iris.test
+class( iris.test )
+```
+
+
+## Benefits
+
+This is awesome because it makes it *much* easier to use something like the values stored in `iris.test` to insert the data from our analyses directly (inline) into our text.  
+
+
+> There was a significant relationship between sepal and petal length (`r iris.test$method`, $\rho =$ `r format(iris.test["estimate"], digits=3)`, $t =$ `r format(iris.test["statistic"], digits=3)`, P = `r format(iris.test["p.value"],digits=3)`).
 
 
 # Data Frames {background-color="black" background-image="media/contour.png" background-size="initial" background-position="right"}
 
 
 
+## The *Lingua Franca* of Data Analysis
 
+The main container that almost all of your data will be contained in is the `data.frame`.
 
-
-
-
-
-
-
-
-
-
-## Quarto 
-
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
-
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Some Title
-
-::: {layout-ncol="2"}
-### List One
-
--   Item A
--   Item B
--   Item C
-
-### List Two
-
--   Item X
--   Item Y
--   Item Z
+:::{.incremental}
+- Similar to a spreadsheet
+- Each column as the same data type (e.g., `weight`, `longitude`, `survived`) 
+- Each row has all the observations for a given entity.
 :::
 
-## Another Slide
 
-::: {layout-ncol="2"}
-### The code
+## Example
 
-```{r eval=FALSE, echo=TRUE}
-hist( rnorm(1200) )
-```
-
-### The Plot
-
-```{r echo=FALSE}
-hist( rnorm( 1200 ) )
-```
-:::
-
-## And another slide
-
-::: {layout-ncol="2"}
--   Item X
--   Item Y
--   Item Z
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida eu erat et fring. Morbi congue augue vel eros ullamcorper, eget convallis tortor sagittis. Fusce sodales viverra mauris a fringilla. Donec feugiat, justo eu blandit placerat, enim dui volutpat turpis, eu dictum lectus urna eu urna. Mauris sed massa ornare, interdum ipsum a, semper massa.
-:::
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r echo=TRUE}
-px <- 0.75
-py <- 0.25
-m <- 0.1
-ret <- rep(NA,100)
-ret[1] <- py
-for( i in 2:100) {
-  ret[i] <- (1-m)*ret[(i-1)] + px * m   
-}
-```
-
-## Results
+Lets consider the following data as indiviudal vectors.
 
 ```{r}
-plot( ret, type="l")
+names <- c("Bob","Alice","Jane")
+homework.1 <- c(0.78, 0.95, 0.82)
+homework.2 <- c(NA, 0.89, 0.92)
 ```
+
+## Example
+
+These can be put into a `data.frame` as:
+
+```{r}
+gradebook <- data.frame( names, homework.1, homework.2 )
+gradebook
+```
+
+## Example
+
+Each column in a `data.frame` is a self-contained set of data **all of the same type** and as such can be summarized.
+
+```{r}
+summary( gradebook )
+```
+
+
+## Named Columns
+
+Just like in a list, the columns of a `data.frame` are accessed by their names, and we can use the \$ notation.
+
+```{r}
+names(gradebook)
+gradebook$homework.1
+is.na( gradebook$homework.2 )
+```
+
+## Indexing of Elements
+
+The easiest way to index values in a `data.frame` is to use the \$ notation to grab the column (as a `vector` object) and then to use the square brackets to access a specific element.
+
+```{r}
+gradebook$homework.2[1]
+gradebook$homework.2[1] <- 0.85
+gradebook
+```
+
+
+## Indexing of Elements
+
+You can also use the numerical indices for both *row* and *column* in the `data.frame` (n.b., it is row first then column).
+
+```{r}
+gradebook
+```
+
+&nbsp;
+
+```{r}
+gradebook[2,1]
+```
+
+
+## Dimensions 
+
+The size of the elements contained in a `data.frame` are then relevant.
+
+
+```{r}
+dim( gradebook )
+nrow( gradebook )
+ncol( gradebook )
+```
+
+## External Data
+
+You will almost never create `data.frame` objects *de novo* but instead load data in from some external resource.  There are several functions that simplify this within `tidyverse` so let's make sure we have it loaded into memory.
+
+&nbsp;
+
+```{r}
+#| message: false
+library( tidyverse )
+```
+
+## Example Data
+
+Here is a CSV file that is contained in this repository.  Since it is a public repository, we can access it from within GitHub using a URL.
+
+```{r}
+url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+beetles <- read_csv( url )
+```
+
+
+
+## Example Data
+
+
+::: {layout-ncol="2"}
+### *Araptus attenuatus*
+
+![](media/beetles.png)
+
+
+### Data 
+
+```{r}
+dim( beetles )
+head( beetles )
+```
+:::
+
+
+## Example Data 
+
+```{r}
+#| echo: false
+beetles %>%
+  leaflet::leaflet() %>%
+  leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) %>%
+  leaflet::addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
+```
+
 
 ## Questions
 
