@@ -1,5 +1,5 @@
 ---
-title: "Narrative Title"
+title: "Basic Data Containers in R"
 format: html
 editor: visual
 ---
@@ -8,53 +8,123 @@ editor: visual
 
 ## Vectors
 
+Vectors are the most basic data container in `R`.  They *must* contain data of the exact same type and are constructed using the `combine()` function, which is abbreviated as `c()` because good programmers are lazy programmers. [^1]
+
+Here is an example with some numbers.
 ```{r}
 x <- c(1,2,3)
 x
 ```
 
+
+Vectors can contain any of the base data types.
+
 ```{r}
-class(x)
+y <- c(TRUE, TRUE, FALSE, FALSE)
+y
 ```
+
+```{r}
+z <- c("Bob","Alice","Thomas")
+z
+```
+
+
+
+Each vector has an inherent length representing the number of elements it contains.
 
 ```{r}
 length(x)
 ```
 
+### Introspection
+
+When asked, a vector reports the class of itself as the type of data contained within it.
+
+```{r}
+class(x)
+class(y)
+class(z)
+```
+
+however, a `vector` is also a data type.  As such, it has the `is.vector()` function.  So this `x` can be both a vector and a numeric.
+
 ```{r}
 is.vector( x ) && is.numeric( x )
 ```
+
+### Sequences
+
+There are a lot of times when we require a sequnce of values and it would get a bit tedious to type them all out manually.  `R` has several options for creating vectors that are comprised of a sequence of values.
+
+The easiest type is the colon operator, that will generate a seqeunce of numerical values from the number on the left to the number on the right
 
 ```{r}
 1:10 -> y
 y
 ```
 
+It also works in the other direction (descending).
+
+```{r}
+10:1
+```
+
+However, it is only available to make a sequences where the increment from one value to the next is `1`.
+
+
+```{r}
+3.2:5.7
+```
+
+For more fine-grained control, we can use the function `seq()` to iterate across a range of values and specify either the step size (here from 1-10 by 3's)
+
 ```{r}
 seq(1,10,by=3)
 ```
+
+OR the length of the response and it will figure out the step size to give you the right number of elements.
 
 ```{r}
 seq( 119, 121, length.out = 6)
 ```
 
+
+### Indexing & Access
+
+To access and change values within a vector, we used square brackets and the number of the entry of interest.  It should be noted that in `R`, the first element of a vector is # 1.  
+
+So, to get to the third element of the `x` vector, we would:
+
 ```{r}
 x[3]
 ```
 
+If you ask for values in the vector off the end (e.g., the index is beyond the length of the vector) it will return missing data.
+
 ```{r}
 x[5]
 ```
+
+In addition to getting the values from a vector, assignment of individual values proceeds similarily.
+
 
 ```{r}
 x[2] <- 42
 x
 ```
 
+If you assign a value to a vector that is way off the end, it will fill in the intermediate values wtih `NA` for you.
+
+
 ```{r}
 x[7] <- 43
 x
 ```
+
+### Vector Operations
+
+Just like individual values for each data type, vectors of these data types can also be operated using the same operators.  Consider the two vectors `x` (a sequence) and `y` (a random selection from a Poisson distribution), both with 5 elements.
 
 ```{r}
 x <- 1:5
@@ -63,56 +133,120 @@ x
 y
 ```
 
+Mathematics operations are done element-wise.  Here is an example using addition.
+
 ```{r}
 x + y 
 ```
+
+as well as exponents.
 
 ```{r}
 x^y
 ```
 
-*recycling rule*
+If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector.  Here is an example with the 5-element `x` and the a new 10-element `z`.  Notice how the values in x are repeated in the addition operaiton.
 
 ```{r}
 z <- 1:10
 x + z
 ```
 
+If the two vectors are not multiples of each other in length, it will still recycle the shorter one but will also give you a warning that the two vectors are not conformant (just a FYI).
+
+```{r}
+#| warning: true
+x + 1:8
+```
+
+The operations used are dependent upon the base data type.  For example, the following `character` values can be passed along to the `paste()` function to put each of the elements in the first vectoer with the corresponding values in the second vector (and specifying the separator).  
+
+```{r}
+a <- c("Bob","Alice","Thomas")
+b <- c("Biologist","Chemist","Mathematician")
+paste( a, b, sep=" is a ")
+```
+
+So, in addition to being able to work on individual values, *all functions are also vector functions*.
+
 ## Matrices
+
+A `matrix` is a 2-dimensional container for the same kind of data as well.  The two dimensions are represented as *rows* and *columns* in a rectangular configuration.  Here I will make a 3x3 vector consisting of a sequence of numbers from 1 to 9.
 
 ```{r}
 X <- matrix( 1:9, nrow=3, ncol=3 )
 X
 ```
 
+It is a bit redundant to have both `nrow` and `ncol` with `nrow * ncol = length(sequence)`, you can just specify one of them and it will work out the other dimension.
+
+### Indexing
+
+Just like a vector, matrices use square brackets and the row & column number (in that order) to access indiviudal elements.  Also, just like vectors, both rows and columns start at 1 (not zero).  So to replace the value in the second row and second column with the number `42`, we do this.
+
 ```{r}
 X[2,2] <- 42
 X
 ```
+
+Matrices are actually structures fundamental to things like linear algebra.  As such, there are many operations that can be applied to matrices, both unary and binary.
+
+A *transpose* is a translation of a matrix that switches the rows and columns.  In `R` it is done by the function `t()`.  Here I use this to define another matrix.
 
 ```{r}
 Y <- t(X)
 Y
 ```
 
+Binary operators using the normal operators in the top row of your keyboard are generally element-wise operations.  Here the addition of these two matrices require:  
+1. Both matrices have the same number of rows.  
+2. Both matrices have the same number of columns.  
+3. Both matrices have the same internal data types.  
+
+Here is an example of addition (notic how the resulting [1,1] object is equal to X[1,1] + Y[1,1])
+
 ```{r}
 X + Y
 ```
+
+The same for element-wise multiplication.  
 
 ```{r}
 X * Y
 ```
 
+However, there is another kind of matrix mutliplication that sums the product or rows and columns.  Since this is also a variety of multiplication but is carried out differently, we need to use a different operator.  Here the matrix mutliplication operator is denoted as the combination of characters `%*%`.  
+
 ```{r}
 X %*% Y
 ```
 
+This operation has a few different constraints:
+
+1. The number of columns in the left matrix must equal the number of rows in the right one.
+2. The resulting matrix will have the number of rows equal to that of the right matrix.
+3. The resulting matrix will have the number of columns equal to that of the left matrix.
+4. The resulting element at the $i$ $j$ position is the sum of the multipliation of the elements in the $i^{th}$ row of the left matrix and the $j^{th}$ column of the right one.
+
+So the resulting element in `[1,3]` position is found by $1*3 + 4*6 + 7*9 = 90$.
+
 ## Lists
+
+Lists are a more flexible container type.  Here, lists can contain different types of data in a single list.  Here is an example of a list made with a few `character` vluaes, a `numeric`, a `constant`, and a `logical` value.
 
 ```{r}
 lst <- list("A","B",323423.3, pi, TRUE)
+```
+
+When you print out a list made like this, it will indicate each element as a numeric value in **double square brackets**.  
+
+```{r}
 lst
 ```
+
+### Indexing
+
+Indexing values in a list can be done using these numbers.  To get and reset the values in the second element of the list, one would:
 
 ```{r}
 lst[[2]] <- "C"
@@ -121,40 +255,120 @@ lst
 
 ### Named Lists
 
+Lists can be more valuable if we use names for the *keys* instead of just numbers.  Here, I make an empty list and then assign values to it using names (as character values) in square brakets.
+
 ```{r}
 myInfo <- list()
 myInfo["First Name"] <- "Rodney"
 myInfo["Second Name"] <- "Dyer"
 myInfo["Favorite Number"] <- 42
-myInfo["Vegitarian"] <- FALSE
-
 ```
+
+When showing named lists, it prints included items as:
 
 ```{r}
 myInfo
 ```
+
+In addition to the square bracket approach, we can also use as \$ notation to add elements to the list (like shown above).
+
+```{r}
+myInfo$Vegitarian <- FALSE
+```
+
+Both are equivallent.
+
+```{r}
+myInfo
+```
+
+In addition to having different data types, you can also have different sized data types inside a list.  Here I add a vector (a valid data type as shown above) to the list.
 
 ```{r}
 myInfo$Homes <- c("RVA","Oly","SEA")
 myInfo
 ```
 
+To access these values, we can use a combination of \$ notation and `[]` on the resulting vector.
+
+```{r}
+myInfo$Homes[2]
+```
+
+When elements in a list are defined using named keys, the list itself can be asked for the keys using `names()`.
+
+
 ```{r}
 names(myInfo)
 ```
 
+This can be helpful at times when you did not create the list yourself and want to see what is inside of them.
+
+### Spaces in Names
+
+As you see above, this list has *keys* such as "First Name" and "Vegitarian".  The first one has a *space* inside of it whereas the second one does not.  This is a challenge.  If we were to try to use the first key as 
+
+```{r}
+#| error: true
+myInfo$First Name
+```
+
+
+It gives you an error.  For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).
+
+```{r}
+myInfo$`First Name`
+```
+
+So feel free to use names that make sense, but if you do, you'll need to treat them a bit specially using the backticks.
+
 ### Analysis Output
+
+By far, the most common location for lists is when you do some kind of analysis.  Almost all analyses return the restuls as a special kind of list.
+
+Here is an example looking at some data from three species of Iris on the lengths and width of sepal and petals.  The data look like:
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-iris
+#| fig-cap: The distribution of sepal and petal lengths from three species of Iris.
+library( ggplot2 )
+iris |>
+  ggplot( aes(Sepal.Length, Petal.Length, color=Species) ) + 
+  geom_point() +
+  theme_minimal()
+```
+
+We can look at the correlation between two variable using the built-in `cor.test()` function.  
 
 ```{r}
 iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )
-x
 ```
+
+We can print the output and it will format the results in a proper way.
+
+```{r}
+iris.test
+```
+
+However, the elements in the `iris.test` are simply a list.
 
 ```{r}
 names(iris.test)
 ```
 
-Because of this, we can easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
+If fact, the contents of the output are just keys and values, even though when we printed it all out, it was formatted as a much more informative output.
+
+```{r}
+#| echo: false
+as.data.frame( unlist( iris.test) ) -> df
+names(df) <- "Values"
+gt::gt(df, rownames_to_stub = TRUE)
+```
+
+We will come back to this special kind of printing later when discussing functions but for now, lets just consider how cool this is because we can access the raw values of the analysis directly.  We an also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
 
 ```{r}
 iris.test$estimate
@@ -166,13 +380,20 @@ Here is an example paragraph (see the raw quarto document to see the formatting)
 
 > There was a significant relationship between sepal and petal length (Pearson Correlation, $\rho =$ `r format(iris.test["estimate"], digits=3)`, $t =$ `r format(iris.test["statistic"], digits=3)`, P = `r format(iris.test["p.value"],digits=3)`).
 
+
 ## Data Frames
+
+The `data.frame` is the most common container for all the data you'll be working with in `R`.  It is *kind of* like a spreadsheet in that each column of data is the same kind of data measured on all objects (e.g., weight, survival, population, etc.) and each row represents one observation that has a bunch of different kinds of measurements associated with it.
+
+Here is an example with three different data types (the z is a random sample of TRUE/FALSE equal in length to the other elements).
 
 ```{r}
 x <- 1:10
 y <- LETTERS[11:20]
 z <- sample( c(TRUE,FALSE), size=10, replace=TRUE )
 ```
+
+I can put them into a `data.frame` object as:
 
 ```{r}
 df <- data.frame( TheNums = x,
@@ -182,25 +403,38 @@ df <- data.frame( TheNums = x,
 df
 ```
 
+Since each column is its own 'type' we can easily get a summary of the elements within it using `summary()`.
+
 ```{r}
 summary( df )
 ```
 
+And depending upon the data type, the output may give numerical, counts, or just description of the contents.
+
+### Indexing
+
+Just like a list, a `data.frame` can be defined as having named columns.  The distinction here is that each column should have the same number of elements in it, whereas a list may have differnet lengths to the elements.
+
+
 ```{r}
 names( df )
 ```
+
+And like the list, we can easily use the \$ operator to access the vectors components.
 
 ```{r}
 df$TheLetters
 class( df$TheLetters )
 ```
 
-Indexing, by named column and by `[row,col]` values.
+Indexing and grabbing elements can be done by either the column name (with \$) and a square bracket OR by the `[row,col]` indexing like the matrix above.
 
 ```{r}
 df$TheLetters[3]
 df[3,2]
 ```
+
+Just like a matrix, the dimensions of the `data.frame` is defined by the number of rows and columns.
 
 ```{r}
 dim( df )
@@ -210,49 +444,53 @@ ncol( df )
 
 ### Loading Data
 
-```{r}
-#| eval: false
-library( readr )
-```
+By far, you will most often NOT be making data by hand but instead will be loading it from external locations.  here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic.  As this is a public repository, we can get a direct URL to the file.  For simplicity, I'll load in tidyverse and use some helper functions contained therein.
 
 ```{r}
-#| echo: false
-if( !require(readr)) { 
-  install.pacakges("readr")
-  library( readr )
-}
+library( tidyverse )
 ```
 
-```{r}
-url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv?token=GHSAT0AAAAAABYCMZEFK5KI5I2YGMJ6A7PKYYY5LEQ"
-```
+The URL for this repository is
 
 ```{r}
-#| message: false
+url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+```
+
+And we can read it in directly (as long as we have an internet connection) as:
+
+
+```{r}
 beetles <- read_csv( url )
+```
+
+Notice how the funtion tells us a few things about the data.
+
+The data itself consists of:
+
+```{r}
 summary( beetles )
 ```
 
+which looks like:
+
 ```{r}
-#| eval: false
+beetles
+```
+
+
+We can quickly use these data and make an interactive labeled map of it in a few lines of code (click on a marker).
+
+```{r}
 library( leaflet )
-```
-
-```{r}
-#| echo: false
-if( !require( leaflet ) ) { 
-  install.packages("leaflet")
-  library( leaflet)
-}
-```
-
-```{r}
 beetles %>%
   leaflet() %>%
-  addProviderTiles(provider = providers$Esri.WorldTerrain) %>%
+  addProviderTiles(provider = providers$Esri.WorldTopo) %>%
   addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
 ```
 
 ## Questions
 
 If you have any questions for me specifically on this topic, please post as an Issue in your repository, otherwise consider posting to the discussion board on [Canvas](https://canvas.vcu.edu).
+
+
+[^1]: The more lines of code that you write, the more likely there will be either a grammatical error (easier to find) or a logical one (harder to find).
