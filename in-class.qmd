@@ -7,8 +7,9 @@ format:
 editor: visual
 ---
 
-## Overview & Objective
+## Examples
 
+<<<<<<< HEAD
 This in-class file is used for demonstrating individual examples related to this topic and is kept as a persistent record of examples provided during lectures.
 
 ## The Data
@@ -28,3 +29,6 @@ url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/d
 ## Lists
 
 ## Data Frames
+=======
+This file is intended to be used for in-class examples that I provide as part of the lecture. This way, all the example stuff I do can be made available to you. It will be reformatted at the end of the semester so if you want to keep it as examples, do not pull a new version after the class is finished.
+>>>>>>> 899d2edd5703899c84456219b0f120a5f78f72f9
