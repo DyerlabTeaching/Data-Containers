@@ -1,5 +1,5 @@
 ---
-title: "In Class Activity"
+title: "In Class Components - Data Containers"
 format: 
   html:
     code-tools: true
@@ -9,20 +9,22 @@ editor: visual
 
 ## Overview & Objective
 
-Put an overview of the activity to be done here.
+This in-class file is used for demonstrating individual examples related to this topic and is kept as a persistent record of examples provided during lectures.
 
 ## The Data
 
-Insert the part here about adding the data
+There are two data sets used for this example; The *iris* data set (that comes with R) and data from the following url that has some sampling site locales for a species of bark beetle, *Araptus attenuatus* that we will be using throughout the semester.
 
-## The Topic
+![The Sonoran desert bark beetle, Araptus attenuatus.](media/beetles.png){#fig-araptus}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt lobortis feugiat vivamus at augue. Massa id neque aliquam vestibulum morbi. Sed blandit libero volutpat sed cras ornare arcu dui vivamus. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi. Euismod in pellentesque massa placerat duis. Senectus et netus et malesuada fames ac turpis. Velit laoreet id donec ultrices tincidunt arcu non. Pharetra convallis posuere morbi leo urna molestie at elementum. Enim ut tellus elementum sagittis vitae et leo duis.
+```{r}
+url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+```
 
-Egestas dui id ornare arcu odio ut sem nulla pharetra. Consectetur a erat nam at lectus. Vulputate dignissim suspendisse in est ante in nibh. Vitae suscipit tellus mauris a diam maecenas sed. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Nunc mi ipsum faucibus vitae aliquet. Ornare suspendisse sed nisi lacus sed viverra. Viverra mauris in aliquam sem fringilla. Aliquet lectus proin nibh nisl condimentum id venenatis. Nulla facilisi cras fermentum odio. Eu non diam phasellus vestibulum lorem sed. Mollis aliquam ut porttitor leo a.
+## Vectors
 
-Est ante in nibh mauris cursus mattis. Tincidunt vitae semper quis lectus nulla at volutpat. Non enim praesent elementum facilisis leo vel fringilla est. Odio morbi quis commodo odio aenean. Integer malesuada nunc vel risus commodo viverra. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Volutpat maecenas volutpat blandit aliquam. Viverra vitae congue eu consequat ac felis donec et odio. Ut porttitor leo a diam sollicitudin tempor. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices.
+## Matrices
 
-Donec ultrices tincidunt arcu non sodales. Magna sit amet purus gravida. Velit euismod in pellentesque massa. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Enim facilisis gravida neque convallis a. Elementum eu facilisis sed odio morbi quis commodo. Duis at tellus at urna condimentum mattis pellentesque. Malesuada fames ac turpis egestas integer eget aliquet nibh. Tempor nec feugiat nisl pretium fusce id velit ut tortor. Sed felis eget velit aliquet. Tincidunt nunc pulvinar sapien et ligula ullamcorper. Arcu ac tortor dignissim convallis aenean et. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Libero justo laoreet sit amet cursus sit amet dictum sit.
+## Lists
 
-Bibendum ut tristique et egestas quis. Lectus sit amet est placerat. Faucibus et molestie ac feugiat sed lectus vestibulum mattis. In hac habitasse platea dictumst quisque. Nunc mi ipsum faucibus vitae aliquet. Risus pretium quam vulputate dignissim suspendisse. Vitae turpis massa sed elementum tempus egestas sed sed. Molestie at elementum eu facilisis sed odio morbi. Viverra maecenas accumsan lacus vel facilisis volutpat est. Sodales ut eu sem integer vitae justo. Duis tristique sollicitudin nibh sit amet commodo nulla. Diam vel quam elementum pulvinar etiam non quam lacus suspendisse. Leo in vitae turpis massa sed elementum tempus egestas.
+## Data Frames
