@@ -7630,21 +7630,21 @@ function asArray(value) {
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 4 1 2</code></pre>
+<pre><code>[1] 2 2 3 4 2</code></pre>
 </div>
 </div>
 <p>Mathematics operations are done element-wise. Here is an example using addition.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 5 7 5 7</code></pre>
+<pre><code>[1] 3 4 6 8 7</code></pre>
 </div>
 </div>
 <p>as well as exponents.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  1  8 81  4 25</code></pre>
+<pre><code>[1]   1   4  27 256  25</code></pre>
 </div>
 </div>
 <p>If the lengths of the vectors are not the same <code>R</code> will implement a <em>recycling rule</em> where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element <code>x</code> and the a new 10-element <code>z</code>. Notice how the values in x are repeated in the addition operaiton.</p>
@@ -7961,12 +7961,12 @@ sample estimates:
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="fbilhefoyn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wgkuvwpbgu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fbilhefoyn .gt_table {
+#wgkuvwpbgu .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -7991,7 +7991,7 @@ sample estimates:
   border-left-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_heading {
+#wgkuvwpbgu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -8003,7 +8003,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_title {
+#wgkuvwpbgu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -8015,7 +8015,7 @@ sample estimates:
   border-bottom-width: 0;
 }
 
-#fbilhefoyn .gt_subtitle {
+#wgkuvwpbgu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -8027,13 +8027,13 @@ sample estimates:
   border-top-width: 0;
 }
 
-#fbilhefoyn .gt_bottom_border {
+#wgkuvwpbgu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_col_headings {
+#wgkuvwpbgu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -8048,7 +8048,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_col_heading {
+#wgkuvwpbgu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8068,7 +8068,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#fbilhefoyn .gt_column_spanner_outer {
+#wgkuvwpbgu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8080,15 +8080,15 @@ sample estimates:
   padding-right: 4px;
 }
 
-#fbilhefoyn .gt_column_spanner_outer:first-child {
+#wgkuvwpbgu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fbilhefoyn .gt_column_spanner_outer:last-child {
+#wgkuvwpbgu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fbilhefoyn .gt_column_spanner {
+#wgkuvwpbgu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -8100,7 +8100,7 @@ sample estimates:
   width: 100%;
 }
 
-#fbilhefoyn .gt_group_heading {
+#wgkuvwpbgu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8125,7 +8125,7 @@ sample estimates:
   vertical-align: middle;
 }
 
-#fbilhefoyn .gt_empty_group_heading {
+#wgkuvwpbgu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -8140,15 +8140,15 @@ sample estimates:
   vertical-align: middle;
 }
 
-#fbilhefoyn .gt_from_md > :first-child {
+#wgkuvwpbgu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fbilhefoyn .gt_from_md > :last-child {
+#wgkuvwpbgu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fbilhefoyn .gt_row {
+#wgkuvwpbgu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8167,7 +8167,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#fbilhefoyn .gt_stub {
+#wgkuvwpbgu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8180,7 +8180,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#fbilhefoyn .gt_stub_row_group {
+#wgkuvwpbgu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8194,11 +8194,11 @@ sample estimates:
   vertical-align: top;
 }
 
-#fbilhefoyn .gt_row_group_first td {
+#wgkuvwpbgu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fbilhefoyn .gt_summary_row {
+#wgkuvwpbgu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -8208,16 +8208,16 @@ sample estimates:
   padding-right: 5px;
 }
 
-#fbilhefoyn .gt_first_summary_row {
+#wgkuvwpbgu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_first_summary_row.thick {
+#wgkuvwpbgu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fbilhefoyn .gt_last_summary_row {
+#wgkuvwpbgu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8227,7 +8227,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_grand_summary_row {
+#wgkuvwpbgu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -8237,7 +8237,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#fbilhefoyn .gt_first_grand_summary_row {
+#wgkuvwpbgu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8247,11 +8247,11 @@ sample estimates:
   border-top-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_striped {
+#wgkuvwpbgu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fbilhefoyn .gt_table_body {
+#wgkuvwpbgu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -8260,7 +8260,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_footnotes {
+#wgkuvwpbgu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -8274,7 +8274,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_footnote {
+#wgkuvwpbgu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -8283,7 +8283,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#fbilhefoyn .gt_sourcenotes {
+#wgkuvwpbgu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -8297,7 +8297,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#fbilhefoyn .gt_sourcenote {
+#wgkuvwpbgu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -8305,36 +8305,36 @@ sample estimates:
   padding-right: 5px;
 }
 
-#fbilhefoyn .gt_left {
+#wgkuvwpbgu .gt_left {
   text-align: left;
 }
 
-#fbilhefoyn .gt_center {
+#wgkuvwpbgu .gt_center {
   text-align: center;
 }
 
-#fbilhefoyn .gt_right {
+#wgkuvwpbgu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fbilhefoyn .gt_font_normal {
+#wgkuvwpbgu .gt_font_normal {
   font-weight: normal;
 }
 
-#fbilhefoyn .gt_font_bold {
+#wgkuvwpbgu .gt_font_bold {
   font-weight: bold;
 }
 
-#fbilhefoyn .gt_font_italic {
+#wgkuvwpbgu .gt_font_italic {
   font-style: italic;
 }
 
-#fbilhefoyn .gt_super {
+#wgkuvwpbgu .gt_super {
   font-size: 65%;
 }
 
-#fbilhefoyn .gt_two_val_uncert {
+#wgkuvwpbgu .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -8343,31 +8343,31 @@ sample estimates:
   margin-left: 0.1em;
 }
 
-#fbilhefoyn .gt_footnote_marks {
+#wgkuvwpbgu .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#fbilhefoyn .gt_asterisk {
+#wgkuvwpbgu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fbilhefoyn .gt_slash_mark {
+#wgkuvwpbgu .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#fbilhefoyn .gt_fraction_numerator {
+#wgkuvwpbgu .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#fbilhefoyn .gt_fraction_denominator {
+#wgkuvwpbgu .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -8451,13 +8451,13 @@ sample estimates:
 <div class="cell-output cell-output-stdout">
 <pre><code>   TheNums TheLetters    TF
 1        1          K FALSE
-2        2          L FALSE
-3        3          M FALSE
-4        4          N FALSE
-5        5          O  TRUE
-6        6          P FALSE
-7        7          Q  TRUE
-8        8          R  TRUE
+2        2          L  TRUE
+3        3          M  TRUE
+4        4          N  TRUE
+5        5          O FALSE
+6        6          P  TRUE
+7        7          Q FALSE
+8        8          R FALSE
 9        9          S FALSE
 10      10          T  TRUE</code></pre>
 </div>
@@ -8468,8 +8468,8 @@ sample estimates:
 <div class="cell-output cell-output-stdout">
 <pre><code>    TheNums       TheLetters            TF         
  Min.   : 1.00   Length:10          Mode :logical  
- 1st Qu.: 3.25   Class :character   FALSE:6        
- Median : 5.50   Mode  :character   TRUE :4        
+ 1st Qu.: 3.25   Class :character   FALSE:5        
+ Median : 5.50   Mode  :character   TRUE :5        
  Mean   : 5.50                                     
  3rd Qu.: 7.75                                     
  Max.   :10.00                                     </code></pre>
@@ -8590,8 +8590,8 @@ dbl (2): Longitude, Latitude
 <span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>Esri.WorldTopo) <span class="sc">%&gt;%</span></span>
 <span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>( <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,<span class="at">popup =</span> <span class="sc">~</span>Stratum )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-b206af6be02b0c90eefa" style="width:100%;height:464px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b206af6be02b0c90eefa">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-833ee767e595ee65082b" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-833ee767e595ee65082b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
