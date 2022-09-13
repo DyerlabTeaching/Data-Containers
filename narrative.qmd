@@ -8,14 +8,16 @@ editor: visual
 
 ## Vectors
 
-Vectors are the most basic data container in `R`.  They *must* contain data of the exact same type and are constructed using the `combine()` function, which is abbreviated as `c()` because good programmers are lazy programmers. [^1]
+Vectors are the most basic data container in `R`. They *must* contain data of the exact same type and are constructed using the `combine()` function, which is abbreviated as `c()` because good programmers are lazy programmers. [^1]
+
+[^1]: The more lines of code that you write, the more likely there will be either a grammatical error (easier to find) or a logical one (harder to find).
 
 Here is an example with some numbers.
+
 ```{r}
 x <- c(1,2,3)
 x
 ```
-
 
 Vectors can contain any of the base data types.
 
@@ -28,8 +30,6 @@ y
 z <- c("Bob","Alice","Thomas")
 z
 ```
-
-
 
 Each vector has an inherent length representing the number of elements it contains.
 
@@ -47,7 +47,7 @@ class(y)
 class(z)
 ```
 
-however, a `vector` is also a data type.  As such, it has the `is.vector()` function.  So this `x` can be both a vector and a numeric.
+however, a `vector` is also a data type. As such, it has the `is.vector()` function. So this `x` can be both a vector and a numeric.
 
 ```{r}
 is.vector( x ) && is.numeric( x )
@@ -55,7 +55,7 @@ is.vector( x ) && is.numeric( x )
 
 ### Sequences
 
-There are a lot of times when we require a sequnce of values and it would get a bit tedious to type them all out manually.  `R` has several options for creating vectors that are comprised of a sequence of values.
+There are a lot of times when we require a sequnce of values and it would get a bit tedious to type them all out manually. `R` has several options for creating vectors that are comprised of a sequence of values.
 
 The easiest type is the colon operator, that will generate a seqeunce of numerical values from the number on the left to the number on the right
 
@@ -71,7 +71,6 @@ It also works in the other direction (descending).
 ```
 
 However, it is only available to make a sequences where the increment from one value to the next is `1`.
-
 
 ```{r}
 3.2:5.7
@@ -89,10 +88,9 @@ OR the length of the response and it will figure out the step size to give you t
 seq( 119, 121, length.out = 6)
 ```
 
-
 ### Indexing & Access
 
-To access and change values within a vector, we used square brackets and the number of the entry of interest.  It should be noted that in `R`, the first element of a vector is # 1.  
+To access and change values within a vector, we used square brackets and the number of the entry of interest. It should be noted that in `R`, the first element of a vector is \# 1.
 
 So, to get to the third element of the `x` vector, we would:
 
@@ -108,14 +106,12 @@ x[5]
 
 In addition to getting the values from a vector, assignment of individual values proceeds similarily.
 
-
 ```{r}
 x[2] <- 42
 x
 ```
 
 If you assign a value to a vector that is way off the end, it will fill in the intermediate values wtih `NA` for you.
-
 
 ```{r}
 x[7] <- 43
@@ -124,7 +120,7 @@ x
 
 ### Vector Operations
 
-Just like individual values for each data type, vectors of these data types can also be operated using the same operators.  Consider the two vectors `x` (a sequence) and `y` (a random selection from a Poisson distribution), both with 5 elements.
+Just like individual values for each data type, vectors of these data types can also be operated using the same operators. Consider the two vectors `x` (a sequence) and `y` (a random selection from a Poisson distribution), both with 5 elements.
 
 ```{r}
 x <- 1:5
@@ -133,7 +129,7 @@ x
 y
 ```
 
-Mathematics operations are done element-wise.  Here is an example using addition.
+Mathematics operations are done element-wise. Here is an example using addition.
 
 ```{r}
 x + y 
@@ -145,7 +141,7 @@ as well as exponents.
 x^y
 ```
 
-If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector.  Here is an example with the 5-element `x` and the a new 10-element `z`.  Notice how the values in x are repeated in the addition operaiton.
+If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element `x` and the a new 10-element `z`. Notice how the values in x are repeated in the addition operaiton.
 
 ```{r}
 z <- 1:10
@@ -159,7 +155,7 @@ If the two vectors are not multiples of each other in length, it will still recy
 x + 1:8
 ```
 
-The operations used are dependent upon the base data type.  For example, the following `character` values can be passed along to the `paste()` function to put each of the elements in the first vectoer with the corresponding values in the second vector (and specifying the separator).  
+The operations used are dependent upon the base data type. For example, the following `character` values can be passed along to the `paste()` function to put each of the elements in the first vectoer with the corresponding values in the second vector (and specifying the separator).
 
 ```{r}
 a <- c("Bob","Alice","Thomas")
@@ -171,7 +167,7 @@ So, in addition to being able to work on individual values, *all functions are a
 
 ## Matrices
 
-A `matrix` is a 2-dimensional container for the same kind of data as well.  The two dimensions are represented as *rows* and *columns* in a rectangular configuration.  Here I will make a 3x3 vector consisting of a sequence of numbers from 1 to 9.
+A `matrix` is a 2-dimensional container for the same kind of data as well. The two dimensions are represented as *rows* and *columns* in a rectangular configuration. Here I will make a 3x3 vector consisting of a sequence of numbers from 1 to 9.
 
 ```{r}
 X <- matrix( 1:9, nrow=3, ncol=3 )
@@ -182,40 +178,40 @@ It is a bit redundant to have both `nrow` and `ncol` with `nrow * ncol = length(
 
 ### Indexing
 
-Just like a vector, matrices use square brackets and the row & column number (in that order) to access indiviudal elements.  Also, just like vectors, both rows and columns start at 1 (not zero).  So to replace the value in the second row and second column with the number `42`, we do this.
+Just like a vector, matrices use square brackets and the row & column number (in that order) to access indiviudal elements. Also, just like vectors, both rows and columns start at 1 (not zero). So to replace the value in the second row and second column with the number `42`, we do this.
 
 ```{r}
 X[2,2] <- 42
 X
 ```
 
-Matrices are actually structures fundamental to things like linear algebra.  As such, there are many operations that can be applied to matrices, both unary and binary.
+Matrices are actually structures fundamental to things like linear algebra. As such, there are many operations that can be applied to matrices, both unary and binary.
 
-A *transpose* is a translation of a matrix that switches the rows and columns.  In `R` it is done by the function `t()`.  Here I use this to define another matrix.
+A *transpose* is a translation of a matrix that switches the rows and columns. In `R` it is done by the function `t()`. Here I use this to define another matrix.
 
 ```{r}
 Y <- t(X)
 Y
 ```
 
-Binary operators using the normal operators in the top row of your keyboard are generally element-wise operations.  Here the addition of these two matrices require:  
-1. Both matrices have the same number of rows.  
-2. Both matrices have the same number of columns.  
-3. Both matrices have the same internal data types.  
+Binary operators using the normal operators in the top row of your keyboard are generally element-wise operations. Here the addition of these two matrices require:\
+1. Both matrices have the same number of rows.\
+2. Both matrices have the same number of columns.\
+3. Both matrices have the same internal data types.
 
-Here is an example of addition (notic how the resulting [1,1] object is equal to X[1,1] + Y[1,1])
+Here is an example of addition (notic how the resulting \[1,1\] object is equal to X\[1,1\] + Y\[1,1\])
 
 ```{r}
 X + Y
 ```
 
-The same for element-wise multiplication.  
+The same for element-wise multiplication.
 
 ```{r}
 X * Y
 ```
 
-However, there is another kind of matrix mutliplication that sums the product or rows and columns.  Since this is also a variety of multiplication but is carried out differently, we need to use a different operator.  Here the matrix mutliplication operator is denoted as the combination of characters `%*%`.  
+However, there is another kind of matrix mutliplication that sums the product or rows and columns. Since this is also a variety of multiplication but is carried out differently, we need to use a different operator. Here the matrix mutliplication operator is denoted as the combination of characters `%*%`.
 
 ```{r}
 X %*% Y
@@ -223,22 +219,22 @@ X %*% Y
 
 This operation has a few different constraints:
 
-1. The number of columns in the left matrix must equal the number of rows in the right one.
-2. The resulting matrix will have the number of rows equal to that of the right matrix.
-3. The resulting matrix will have the number of columns equal to that of the left matrix.
-4. The resulting element at the $i$ $j$ position is the sum of the multipliation of the elements in the $i^{th}$ row of the left matrix and the $j^{th}$ column of the right one.
+1.  The number of columns in the left matrix must equal the number of rows in the right one.
+2.  The resulting matrix will have the number of rows equal to that of the right matrix.
+3.  The resulting matrix will have the number of columns equal to that of the left matrix.
+4.  The resulting element at the $i$ $j$ position is the sum of the multipliation of the elements in the $i^{th}$ row of the left matrix and the $j^{th}$ column of the right one.
 
 So the resulting element in `[1,3]` position is found by $1*3 + 4*6 + 7*9 = 90$.
 
 ## Lists
 
-Lists are a more flexible container type.  Here, lists can contain different types of data in a single list.  Here is an example of a list made with a few `character` vluaes, a `numeric`, a `constant`, and a `logical` value.
+Lists are a more flexible container type. Here, lists can contain different types of data in a single list. Here is an example of a list made with a few `character` vluaes, a `numeric`, a `constant`, and a `logical` value.
 
 ```{r}
 lst <- list("A","B",323423.3, pi, TRUE)
 ```
 
-When you print out a list made like this, it will indicate each element as a numeric value in **double square brackets**.  
+When you print out a list made like this, it will indicate each element as a numeric value in **double square brackets**.
 
 ```{r}
 lst
@@ -246,7 +242,7 @@ lst
 
 ### Indexing
 
-Indexing values in a list can be done using these numbers.  To get and reset the values in the second element of the list, one would:
+Indexing values in a list can be done using these numbers. To get and reset the values in the second element of the list, one would:
 
 ```{r}
 lst[[2]] <- "C"
@@ -255,7 +251,7 @@ lst
 
 ### Named Lists
 
-Lists can be more valuable if we use names for the *keys* instead of just numbers.  Here, I make an empty list and then assign values to it using names (as character values) in square brakets.
+Lists can be more valuable if we use names for the *keys* instead of just numbers. Here, I make an empty list and then assign values to it using names (as character values) in square brakets.
 
 ```{r}
 myInfo <- list()
@@ -282,7 +278,7 @@ Both are equivallent.
 myInfo
 ```
 
-In addition to having different data types, you can also have different sized data types inside a list.  Here I add a vector (a valid data type as shown above) to the list.
+In addition to having different data types, you can also have different sized data types inside a list. Here I add a vector (a valid data type as shown above) to the list.
 
 ```{r}
 myInfo$Homes <- c("RVA","Oly","SEA")
@@ -297,7 +293,6 @@ myInfo$Homes[2]
 
 When elements in a list are defined using named keys, the list itself can be asked for the keys using `names()`.
 
-
 ```{r}
 names(myInfo)
 ```
@@ -306,15 +301,15 @@ This can be helpful at times when you did not create the list yourself and want 
 
 ### Spaces in Names
 
-As you see above, this list has *keys* such as "First Name" and "Vegitarian".  The first one has a *space* inside of it whereas the second one does not.  This is a challenge.  If we were to try to use the first key as 
+As you see above, this list has *keys* such as "First Name" and "Vegitarian". The first one has a *space* inside of it whereas the second one does not. This is a challenge. If we were to try to use the first key as
 
 ```{r}
 #| error: true
+#| eval: false
 myInfo$First Name
 ```
 
-
-It gives you an error.  For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).
+Would give you an error (if I ran the chunck but I cannot because it is an error and won't let me compile this document if I do). For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).
 
 ```{r}
 myInfo$`First Name`
@@ -324,9 +319,9 @@ So feel free to use names that make sense, but if you do, you'll need to treat t
 
 ### Analysis Output
 
-By far, the most common location for lists is when you do some kind of analysis.  Almost all analyses return the restuls as a special kind of list.
+By far, the most common location for lists is when you do some kind of analysis. Almost all analyses return the restuls as a special kind of list.
 
-Here is an example looking at some data from three species of Iris on the lengths and width of sepal and petals.  The data look like:
+Here is an example looking at some data from three species of Iris on the lengths and width of sepal and petals. The data look like:
 
 ```{r}
 #| echo: false
@@ -341,7 +336,7 @@ iris |>
   theme_minimal()
 ```
 
-We can look at the correlation between two variable using the built-in `cor.test()` function.  
+We can look at the correlation between two variable using the built-in `cor.test()` function.
 
 ```{r}
 iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )
@@ -368,7 +363,7 @@ names(df) <- "Values"
 gt::gt(df, rownames_to_stub = TRUE)
 ```
 
-We will come back to this special kind of printing later when discussing functions but for now, lets just consider how cool this is because we can access the raw values of the analysis directly.  We an also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
+We will come back to this special kind of printing later when discussing functions but for now, lets just consider how cool this is because we can access the raw values of the analysis directly. We an also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
 
 ```{r}
 iris.test$estimate
@@ -380,10 +375,9 @@ Here is an example paragraph (see the raw quarto document to see the formatting)
 
 > There was a significant relationship between sepal and petal length (Pearson Correlation, $\rho =$ `r format(iris.test["estimate"], digits=3)`, $t =$ `r format(iris.test["statistic"], digits=3)`, P = `r format(iris.test["p.value"],digits=3)`).
 
-
 ## Data Frames
 
-The `data.frame` is the most common container for all the data you'll be working with in `R`.  It is *kind of* like a spreadsheet in that each column of data is the same kind of data measured on all objects (e.g., weight, survival, population, etc.) and each row represents one observation that has a bunch of different kinds of measurements associated with it.
+The `data.frame` is the most common container for all the data you'll be working with in `R`. It is *kind of* like a spreadsheet in that each column of data is the same kind of data measured on all objects (e.g., weight, survival, population, etc.) and each row represents one observation that has a bunch of different kinds of measurements associated with it.
 
 Here is an example with three different data types (the z is a random sample of TRUE/FALSE equal in length to the other elements).
 
@@ -413,8 +407,7 @@ And depending upon the data type, the output may give numerical, counts, or just
 
 ### Indexing
 
-Just like a list, a `data.frame` can be defined as having named columns.  The distinction here is that each column should have the same number of elements in it, whereas a list may have differnet lengths to the elements.
-
+Just like a list, a `data.frame` can be defined as having named columns. The distinction here is that each column should have the same number of elements in it, whereas a list may have differnet lengths to the elements.
 
 ```{r}
 names( df )
@@ -444,7 +437,7 @@ ncol( df )
 
 ### Loading Data
 
-By far, you will most often NOT be making data by hand but instead will be loading it from external locations.  here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic.  As this is a public repository, we can get a direct URL to the file.  For simplicity, I'll load in tidyverse and use some helper functions contained therein.
+By far, you will most often NOT be making data by hand but instead will be loading it from external locations. here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic. As this is a public repository, we can get a direct URL to the file. For simplicity, I'll load in tidyverse and use some helper functions contained therein.
 
 ```{r}
 library( tidyverse )
@@ -457,7 +450,6 @@ url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/d
 ```
 
 And we can read it in directly (as long as we have an internet connection) as:
-
 
 ```{r}
 beetles <- read_csv( url )
@@ -477,7 +469,6 @@ which looks like:
 beetles
 ```
 
-
 We can quickly use these data and make an interactive labeled map of it in a few lines of code (click on a marker).
 
 ```{r}
@@ -491,6 +482,3 @@ beetles %>%
 ## Questions
 
 If you have any questions for me specifically on this topic, please post as an Issue in your repository, otherwise consider posting to the discussion board on [Canvas](https://canvas.vcu.edu).
-
-
-[^1]: The more lines of code that you write, the more likely there will be either a grammatical error (easier to find) or a logical one (harder to find).

@@ -7630,21 +7630,21 @@ function asArray(value) {
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 2 3 4 2</code></pre>
+<pre><code>[1] 0 2 2 3 2</code></pre>
 </div>
 </div>
 <p>Mathematics operations are done element-wise. Here is an example using addition.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 4 6 8 7</code></pre>
+<pre><code>[1] 1 4 5 7 7</code></pre>
 </div>
 </div>
 <p>as well as exponents.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]   1   4  27 256  25</code></pre>
+<pre><code>[1]  1  4  9 64 25</code></pre>
 </div>
 </div>
 <p>If the lengths of the vectors are not the same <code>R</code> will implement a <em>recycling rule</em> where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element <code>x</code> and the a new 10-element <code>z</code>. Notice how the values in x are repeated in the addition operaiton.</p>
@@ -7899,15 +7899,10 @@ $Homes
 <p>As you see above, this list has <em>keys</em> such as “First Name” and “Vegitarian”. The first one has a <em>space</em> inside of it whereas the second one does not. This is a challenge. If we were to try to use the first key as</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>myInfo<span class="sc">$</span>First Name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error: &lt;text&gt;:1:14: unexpected symbol
-1: myInfo$First Name
-                 ^</code></pre>
 </div>
-</div>
-<p>It gives you an error. For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).</p>
+<p>Would give you an error (if I ran the chunck but I cannot because it is an error and won’t let me compile this document if I do). For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>myInfo<span class="sc">$</span><span class="st">`</span><span class="at">First Name</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>myInfo<span class="sc">$</span><span class="st">`</span><span class="at">First Name</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;Rodney&quot;</code></pre>
 </div>
@@ -7930,11 +7925,11 @@ $Homes
 </div>
 <p>We can look at the correlation between two variable using the built-in <code>cor.test()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>iris.test <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>iris.test <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can print the output and it will format the results in a proper way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>iris.test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>iris.test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson&#39;s product-moment correlation
@@ -7951,7 +7946,7 @@ sample estimates:
 </div>
 <p>However, the elements in the <code>iris.test</code> are simply a list.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris.test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris.test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;statistic&quot;   &quot;parameter&quot;   &quot;p.value&quot;     &quot;estimate&quot;    &quot;null.value&quot; 
 [6] &quot;alternative&quot; &quot;method&quot;      &quot;data.name&quot;   &quot;conf.int&quot;   </code></pre>
@@ -7961,12 +7956,12 @@ sample estimates:
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="wgkuvwpbgu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bdmifijjqd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wgkuvwpbgu .gt_table {
+#bdmifijjqd .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -7991,7 +7986,7 @@ sample estimates:
   border-left-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_heading {
+#bdmifijjqd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -8003,7 +7998,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_title {
+#bdmifijjqd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -8015,7 +8010,7 @@ sample estimates:
   border-bottom-width: 0;
 }
 
-#wgkuvwpbgu .gt_subtitle {
+#bdmifijjqd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -8027,13 +8022,13 @@ sample estimates:
   border-top-width: 0;
 }
 
-#wgkuvwpbgu .gt_bottom_border {
+#bdmifijjqd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_col_headings {
+#bdmifijjqd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -8048,7 +8043,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_col_heading {
+#bdmifijjqd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8068,7 +8063,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#wgkuvwpbgu .gt_column_spanner_outer {
+#bdmifijjqd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8080,15 +8075,15 @@ sample estimates:
   padding-right: 4px;
 }
 
-#wgkuvwpbgu .gt_column_spanner_outer:first-child {
+#bdmifijjqd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wgkuvwpbgu .gt_column_spanner_outer:last-child {
+#bdmifijjqd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wgkuvwpbgu .gt_column_spanner {
+#bdmifijjqd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -8100,7 +8095,7 @@ sample estimates:
   width: 100%;
 }
 
-#wgkuvwpbgu .gt_group_heading {
+#bdmifijjqd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8125,7 +8120,7 @@ sample estimates:
   vertical-align: middle;
 }
 
-#wgkuvwpbgu .gt_empty_group_heading {
+#bdmifijjqd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -8140,15 +8135,15 @@ sample estimates:
   vertical-align: middle;
 }
 
-#wgkuvwpbgu .gt_from_md > :first-child {
+#bdmifijjqd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wgkuvwpbgu .gt_from_md > :last-child {
+#bdmifijjqd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wgkuvwpbgu .gt_row {
+#bdmifijjqd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8167,7 +8162,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#wgkuvwpbgu .gt_stub {
+#bdmifijjqd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8180,7 +8175,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#wgkuvwpbgu .gt_stub_row_group {
+#bdmifijjqd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -8194,11 +8189,11 @@ sample estimates:
   vertical-align: top;
 }
 
-#wgkuvwpbgu .gt_row_group_first td {
+#bdmifijjqd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wgkuvwpbgu .gt_summary_row {
+#bdmifijjqd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -8208,16 +8203,16 @@ sample estimates:
   padding-right: 5px;
 }
 
-#wgkuvwpbgu .gt_first_summary_row {
+#bdmifijjqd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_first_summary_row.thick {
+#bdmifijjqd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wgkuvwpbgu .gt_last_summary_row {
+#bdmifijjqd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8227,7 +8222,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_grand_summary_row {
+#bdmifijjqd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -8237,7 +8232,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#wgkuvwpbgu .gt_first_grand_summary_row {
+#bdmifijjqd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -8247,11 +8242,11 @@ sample estimates:
   border-top-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_striped {
+#bdmifijjqd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wgkuvwpbgu .gt_table_body {
+#bdmifijjqd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -8260,7 +8255,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_footnotes {
+#bdmifijjqd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -8274,7 +8269,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_footnote {
+#bdmifijjqd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -8283,7 +8278,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#wgkuvwpbgu .gt_sourcenotes {
+#bdmifijjqd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -8297,7 +8292,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#wgkuvwpbgu .gt_sourcenote {
+#bdmifijjqd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -8305,36 +8300,36 @@ sample estimates:
   padding-right: 5px;
 }
 
-#wgkuvwpbgu .gt_left {
+#bdmifijjqd .gt_left {
   text-align: left;
 }
 
-#wgkuvwpbgu .gt_center {
+#bdmifijjqd .gt_center {
   text-align: center;
 }
 
-#wgkuvwpbgu .gt_right {
+#bdmifijjqd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wgkuvwpbgu .gt_font_normal {
+#bdmifijjqd .gt_font_normal {
   font-weight: normal;
 }
 
-#wgkuvwpbgu .gt_font_bold {
+#bdmifijjqd .gt_font_bold {
   font-weight: bold;
 }
 
-#wgkuvwpbgu .gt_font_italic {
+#bdmifijjqd .gt_font_italic {
   font-style: italic;
 }
 
-#wgkuvwpbgu .gt_super {
+#bdmifijjqd .gt_super {
   font-size: 65%;
 }
 
-#wgkuvwpbgu .gt_two_val_uncert {
+#bdmifijjqd .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -8343,31 +8338,31 @@ sample estimates:
   margin-left: 0.1em;
 }
 
-#wgkuvwpbgu .gt_footnote_marks {
+#bdmifijjqd .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#wgkuvwpbgu .gt_asterisk {
+#bdmifijjqd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wgkuvwpbgu .gt_slash_mark {
+#bdmifijjqd .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#wgkuvwpbgu .gt_fraction_numerator {
+#bdmifijjqd .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#wgkuvwpbgu .gt_fraction_denominator {
+#bdmifijjqd .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -8411,17 +8406,17 @@ sample estimates:
 </div>
 <p>We will come back to this special kind of printing later when discussing functions but for now, lets just consider how cool this is because we can access the raw values of the analysis directly. We an also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      cor 
 0.8717538 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>statistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>statistic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       t 
 21.64602 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>iris.test<span class="sc">$</span>p.value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.038667e-47</code></pre>
 </div>
@@ -8437,39 +8432,39 @@ sample estimates:
 <p>The <code>data.frame</code> is the most common container for all the data you’ll be working with in <code>R</code>. It is <em>kind of</em> like a spreadsheet in that each column of data is the same kind of data measured on all objects (e.g., weight, survival, population, etc.) and each row represents one observation that has a bunch of different kinds of measurements associated with it.</p>
 <p>Here is an example with three different data types (the z is a random sample of TRUE/FALSE equal in length to the other elements).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> LETTERS[<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>]</span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sample</span>( <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="at">size=</span><span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> LETTERS[<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>]</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sample</span>( <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="at">size=</span><span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I can put them into a <code>data.frame</code> object as:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">TheNums =</span> x,</span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">TheLetters =</span> y,</span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">TF =</span> z</span>
-<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>                  )</span>
-<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">TheNums =</span> x,</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">TheLetters =</span> y,</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">TF =</span> z</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   TheNums TheLetters    TF
-1        1          K FALSE
+1        1          K  TRUE
 2        2          L  TRUE
 3        3          M  TRUE
 4        4          N  TRUE
-5        5          O FALSE
-6        6          P  TRUE
-7        7          Q FALSE
+5        5          O  TRUE
+6        6          P FALSE
+7        7          Q  TRUE
 8        8          R FALSE
-9        9          S FALSE
-10      10          T  TRUE</code></pre>
+9        9          S  TRUE
+10      10          T FALSE</code></pre>
 </div>
 </div>
 <p>Since each column is its own ‘type’ we can easily get a summary of the elements within it using <code>summary()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    TheNums       TheLetters            TF         
  Min.   : 1.00   Length:10          Mode :logical  
- 1st Qu.: 3.25   Class :character   FALSE:5        
- Median : 5.50   Mode  :character   TRUE :5        
+ 1st Qu.: 3.25   Class :character   FALSE:3        
+ Median : 5.50   Mode  :character   TRUE :7        
  Mean   : 5.50                                     
  3rd Qu.: 7.75                                     
  Max.   :10.00                                     </code></pre>
@@ -8480,44 +8475,44 @@ sample estimates:
 <h3 class="anchored" data-anchor-id="indexing-2">Indexing</h3>
 <p>Just like a list, a <code>data.frame</code> can be defined as having named columns. The distinction here is that each column should have the same number of elements in it, whereas a list may have differnet lengths to the elements.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;TheNums&quot;    &quot;TheLetters&quot; &quot;TF&quot;        </code></pre>
 </div>
 </div>
 <p>And like the list, we can easily use the $ operator to access the vectors components.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>TheLetters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>TheLetters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>( df<span class="sc">$</span>TheLetters )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>( df<span class="sc">$</span>TheLetters )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;character&quot;</code></pre>
 </div>
 </div>
 <p>Indexing and grabbing elements can be done by either the column name (with $) and a square bracket OR by the <code>[row,col]</code> indexing like the matrix above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>TheLetters[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>TheLetters[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;M&quot;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">3</span>,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">3</span>,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;M&quot;</code></pre>
 </div>
 </div>
 <p>Just like a matrix, the dimensions of the <code>data.frame</code> is defined by the number of rows and columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10  3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>( df )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -8527,15 +8522,15 @@ sample estimates:
 <h3 class="anchored" data-anchor-id="loading-data">Loading Data</h3>
 <p>By far, you will most often NOT be making data by hand but instead will be loading it from external locations. here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic. As this is a public repository, we can get a direct URL to the file. For simplicity, I’ll load in tidyverse and use some helper functions contained therein.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( tidyverse )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( tidyverse )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The URL for this repository is</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And we can read it in directly (as long as we have an internet connection) as:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>beetles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>( url )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>beetles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>( url )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 39 Columns: 3
 ── Column specification ────────────────────────────────────────────────────────
@@ -8550,7 +8545,7 @@ dbl (2): Longitude, Latitude
 <p>Notice how the funtion tells us a few things about the data.</p>
 <p>The data itself consists of:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( beetles )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( beetles )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Stratum            Longitude         Latitude    
  Length:39          Min.   :-114.3   Min.   :23.08  
@@ -8563,7 +8558,7 @@ dbl (2): Longitude, Latitude
 </div>
 <p>which looks like:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>beetles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>beetles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 39 × 3
    Stratum Longitude Latitude
@@ -8584,14 +8579,14 @@ dbl (2): Longitude, Latitude
 </div>
 <p>We can quickly use these data and make an interactive labeled map of it in a few lines of code (click on a marker).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( leaflet )</span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>beetles <span class="sc">%&gt;%</span></span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>Esri.WorldTopo) <span class="sc">%&gt;%</span></span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>( <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,<span class="at">popup =</span> <span class="sc">~</span>Stratum )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( leaflet )</span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>beetles <span class="sc">%&gt;%</span></span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>Esri.WorldTopo) <span class="sc">%&gt;%</span></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>( <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,<span class="at">popup =</span> <span class="sc">~</span>Stratum )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-833ee767e595ee65082b" style="width:100%;height:464px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-833ee767e595ee65082b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bbb0716484c1270925a2" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bbb0716484c1270925a2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
