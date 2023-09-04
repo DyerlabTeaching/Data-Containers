@@ -6,7 +6,6 @@ format:
   revealjs:
     background-transition: fade
     theme: default
-    logo: "media/ces_logo.png"
 editor: source
 execute: 
   echo: true
@@ -592,10 +591,9 @@ head( beetles )
 :::
 
 
-## Example Data 
+## Example Data {.smaller}
 
 ```{r}
-#| echo: false
 beetles %>%
   leaflet::leaflet() %>%
   leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) %>%

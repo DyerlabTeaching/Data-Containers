@@ -9,7 +9,6 @@ editor: visual
 
 ## Examples
 
-
 This in-class file is used for demonstrating individual examples related to this topic and is kept as a persistent record of examples provided during lectures.
 
 ## The Data
@@ -29,8 +28,3 @@ url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/d
 ## Lists
 
 ## Data Frames
-
-
-
-
-
