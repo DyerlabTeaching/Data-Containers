@@ -17,7 +17,7 @@ There are two data sets used for this example; The *iris* data set (that comes w
 
 ![The Sonoran desert bark beetle, *Araptus attenuatus*.](https://www.flickr.com/photo_download.gne?id=53265526303&secret=d41e1a61fd&size=s&source=photoPageEngagement){#fig-araptus}
 
-For this creature, we will be using some data I have stored on Google Drive in a spreadsheet.  Instead of downloading the data for everyone, I have shared a URL to it where we can get to it in `R` directly.  In terms of reproducable research, this is *a good thing.*™
+For this creature, we will be using some data I have stored on Google Drive in a spreadsheet. Instead of downloading the data for everyone, I have shared a URL to it where we can get to it in `R` directly. In terms of reproducable research, this is *a good thing.*™
 
 ```{r}
 url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
