@@ -41,5 +41,3 @@ Content for this topic includes both slides and a longer narrative.
 If you need to contact me, I am available at:
 
 -   Email: [rjdyer\@vcu.edu](mailto://rjdyer@vcu.edu)
-
--   Twitter: [\@dyerlab](https://twitter.com/dyerlab/)
