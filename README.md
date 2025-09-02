@@ -36,6 +36,7 @@ Content for this topic includes both slides and a longer narrative.
 
 -   [Slides](https://dyerlabteaching.github.io/Data-Containers/slides.html#/title-slide) covering data containers
 -   A longer [narrative](https://dyerlabteaching.github.io/Data-Containers/narrative.html) that goes into more depth on each of the constituent container types.
+-   An [In Class](https://dyerlabteaching.github.io/Data-Containers/in-class.html) activity
 
 ## Contact Information
 
