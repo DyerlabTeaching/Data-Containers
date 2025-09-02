@@ -16,17 +16,19 @@ We rarely work with a single datum and instead work with tons of data. As such, 
 
 ## Student Learning Objectives
 
-At the end of this topic, you should be able to:
+This module has the following learning objectives.
 
--   Understand the basic types of data containers available for your data in R and know when one type is preferable over another.
+### Apply and analyze data container structures
 
--   Create, *de novo* data representations for each type.
+> Learners will correctly construct and manipulate core R data containers (vectors, matrices, lists, and data frames), and evaluate when each structure is most appropriate for storing and analyzing population genetic data.
 
--   Import data from files or internet resources into common data types.
+-   Bloom’s Levels: *Apply* (construct, manipulate), *Analyze* (distinguish, evaluate).
 
--   Access, edit, update, and delete constituent data components of common data types.
+### Integrate data containers into reproducible workflows
 
--   Save data to file as either binary R data files or as text files.
+> Learners will import, access, update, and export data across multiple container types, developing analysis-ready R objects that support downstream population genetic workflows.
+
+-   Bloom’s Levels: *Apply* (import, edit, export), *Create* (develop workflow-ready structures).
 
 ## Content
 
