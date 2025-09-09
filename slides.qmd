@@ -590,10 +590,22 @@ head( beetles )
 ```
 :::
 
+## Let's Make a Map!
+
+The `leaflet` map package is one way to make a quick interactive map based on raw *Latitude* and *Longitude* columns.
+
+```{r}
+#| eval: false 
+#| 
+install.packages("leaflet")
+```
+
+
 
 ## Example Data {.smaller}
 
 ```{r}
+
 beetles %>%
   leaflet::leaflet() %>%
   leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) %>%
