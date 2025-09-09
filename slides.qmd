@@ -596,7 +596,6 @@ The `leaflet` map package is one way to make a quick interactive map based on ra
 
 ```{r}
 #| eval: false 
-#| 
 install.packages("leaflet")
 ```
 
@@ -605,7 +604,6 @@ install.packages("leaflet")
 ## Example Data {.smaller}
 
 ```{r}
-
 beetles %>%
   leaflet::leaflet() %>%
   leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) %>%
