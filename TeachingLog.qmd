@@ -6,8 +6,8 @@ editor: visual
 ## Population Genetics
 
 -   9-4: Got to [here](https://dyerlabteaching.github.io/Data-Containers/slides.html#/example-data-1) in the lecture. Started talking about the fig/fig wasp system and stopped.
--   9-9: Pick up at the end of the slides and walk through examples for in-class activity.
+-   9-9: Pick up at the end of the slides and walk through examples for in-class activity (start @ 43).
 
 ## Data Literacy
 
--   9-9:
+-   9-9: Start talking about Containers. Do the in-class activity along the way.

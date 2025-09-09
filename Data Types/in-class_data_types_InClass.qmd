@@ -1,0 +1,211 @@
+---
+title: "Data Types In Class Activity"
+author: "YOUR NAME HERE"
+format: 
+  html:
+    code-tools: true
+    toc: false
+    exec: true
+    echo: true
+---
+
+[Dyer's Webpage](https://rodneydyer.com)
+
+![THe Mayor's Place](Mayor.jpeg)
+
+
+## Overview & Objective
+
+This is the first foray into how to actually use `R` and focuses on understanding some of the most basic data types.
+
+## Student Learning Objectives
+
+At the end of this topic, you should be able to:  
+
+ - Describe characteristics of numeric, character, logical, and date data types.  
+ - Use introspection and coercion for basic data types. 
+ - Perform operations on included data types.  
+
+
+## Activity
+
+The following markdown has a set of questions followed by a chunk for you to put in code to answer the question.  Fill them all out as indicated.
+
+
+### Numeric Data
+
+What is your favorite number
+
+```{r}
+myFavoriteNumber <- 3.2+3i
+myFavoriteNumber
+```
+
+
+The ancient Egyptians were quite cleaver at engineering and building things.  The [Rhind Papyrus](https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus), which dates to 1650 BCE, indicates that they estimated the ratio between the circumference and the diameter of a circle to be 256 divided by 81.  Create a variable that estimates the papyrus version of pi.  Compare it to the value of the real version of pi (in `R`, we use `pi` a built-in variable.) Mathematically is the previous version greater or less than what we use now? 
+
+```{r}
+pi
+papyrusPi <- 256 / 81
+papyrusPi
+
+pi - papyrusPi -> piDiff
+piDiff
+
+piDiff/pi 
+
+```
+
+The papyrus version is `r papyrusPi` and our version is `r pi`.
+
+
+
+
+
+
+
+The function `sqrt()` provides you the square root of a number. Assign a variable named `root2` to hold the value of `sqrt(2)`.  Show the value of this variable.
+
+```{r}
+root2 <- sqrt( 2 ) 
+root2 
+```
+
+
+Can I do this? `r yes <- 23`?
+
+
+`r yes`?
+
+
+
+What is the value contained in the variable below named `sqrOfNegative2`?  Is this what you would expect for the square of -2? Why or why not?
+
+```{r}
+sqrOfNegative2 <- -2^2
+sqrOfNegative2
+```
+
+
+
+### Character Data
+
+Create variables for your first and last names (and give them proper variable names).
+
+```{r}
+firstName <- "Rodney"
+lastName <- 'Dyer'
+
+firstName
+lastName
+```
+
+
+Combine these variables into a single variable `fullName` using `paste()`.
+
+```{r}
+paste( firstName, lastName )
+paste( lastName, firstName, sep = ", " ) -> fullName 
+```
+
+
+Use the functions `print()` and `cat()` to display `fullName`.  Do these two functions produce identical output?  Explain.
+
+```{r}
+print( fullName )
+cat( fullName )
+
+
+
+
+```
+
+
+Create a new variable, `properName`, which is your last name, a comma and space, followed by your first name (see the help for `paste()` and in particular the `sep` argument.)  Use the variables above instead of writing out the letters for your names.
+
+> See Above 
+
+The function `nchar()` returns the number of characters in a character variable.  Use it on your `properName`.  How many characters are in your name?
+
+```{r}
+nchar( fullName )
+length( fullName )
+```
+
+
+### Logical Data 
+
+Create the variables `trueResult` and `falseResult` and assign them the approprite values.
+
+```{r}
+trueResult <- TRUE
+falseResult <- FALSE 
+
+trueResult
+falseResult
+
+```
+
+
+Using the variables `trueResult` and `falseResult` to demonstrate logical operators for *equality*, *inequality*, and *negation*.
+
+```{r}
+trueResult == falseResult
+trueResult != falseResult
+!trueResult
+```
+
+
+Using the variables `trueResult` and `falseResult` demonstrate AND operator in R for all pairwise combinations (e.g, for the and operator, show how to evaluate `trueResult` and `trueResult`, `trueResult` and `falseResult`, `falseResult` and `trueResult`, and `falseResult` and `falseResult`)
+
+```{r}
+trueResult & trueResult
+trueResult | falseResult
+```
+
+Do the same as the previous question for the appropriate OR operator.
+
+```{r}
+
+```
+
+
+In the example above for the square root, the variable `root2` has the square root of the number $2$.  Create a variable called `two` that multiples `root2 * root2`.  
+
+```{r}
+(root2 * root2) -  2
+
+
+```
+
+
+Does the new variable, `two` equal `2` (test using equality operator do not look at it).
+
+```{r}
+
+```
+
+
+
+### Dates
+
+
+When did you first become a college student?  Create a variable representing this date.
+
+```{r}
+library( lubridate)
+
+dyerCollege <- mdy("09/01/1990")
+dyerCollege
+
+```
+
+
+How many days was it between then and now?
+
+```{r}
+today() - dyerCollege
+
+```
+
+
