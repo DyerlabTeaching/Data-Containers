@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+editor: visual
+---
+
+## Examples
+
+```{r}
+#| echo: false
+
+library( tidyverse )
+url <- url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+beetles <- read_csv( url )
+```
