@@ -478,7 +478,3 @@ beetles %>%
   addProviderTiles(provider = providers$Esri.WorldTopo) %>%
   addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
 ```
-
-## Questions
-
-If you have any questions for me specifically on this topic, please post as an Issue in your repository, otherwise consider posting to the discussion board on [Canvas](https://canvas.vcu.edu).
