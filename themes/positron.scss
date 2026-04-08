@@ -1,0 +1,12 @@
+// ── Positron theme ────────────────────────────────────────────
+// GitHub dark blue-black, high-contrast tech palette.
+// Sync hex values with: theme_dyerlab.R (.dyerlab_themes$positron)
+
+$brand-bg:     #0d1117;
+$brand-fg:     #c9d1d9;
+$brand-h1:     #ff7b72;   // H1  — muted coral
+$brand-h2:     #ffa657;   // H2  — warm amber
+$brand-h3:     #79c0ff;   // H3  — soft blue
+$brand-h4:     #f0883e;   // H4  — orange
+$brand-h5:     #c9d1d9;   // H5  — = fg (blends with body text)
+$brand-accent: #a5d6ff;   // em, links, inline code, borders — pale blue

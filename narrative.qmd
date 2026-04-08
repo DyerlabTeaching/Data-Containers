@@ -1,0 +1,32 @@
+---
+title: "Learning Module Narrative"
+format: dyerlab-html
+---
+
+```{r}
+#| label: setup
+#| include: false
+source("_extensions/dyerlab/theme_dyerlab.R")
+library(ggplot2)
+theme_set(theme_dyerlab())
+```
+
+## Topic
+
+Insert rationale for topic here.
+
+## Data Types
+
+```{r}
+#| fig-alt: "Histogram of 100 random normal values"
+x <- rnorm(100)
+ggplot(data.frame(x = x), aes(x)) +
+  geom_histogram(fill = "#00A08A", color = NA, bins = 20) +
+  labs(title = "Example Plot", x = "Value", y = "Count")
+```
+
+`This section is where you fill in all the information`
+
+## Questions
+
+If you have any questions for me specifically on this topic, please post as an Issue in your repository, otherwise consider posting to the discussion board on [Canvas](https://canvas.vcu.edu).

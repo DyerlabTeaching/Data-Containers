@@ -1,0 +1,26 @@
+---
+title: "In Class Activity"
+format: dyerlab-html
+---
+
+```{r}
+#| label: setup
+#| include: false
+source("_extensions/dyerlab/theme_dyerlab.R")
+library(ggplot2)
+theme_set(theme_dyerlab())
+```
+
+## Context
+
+
+
+## Logistics & Resources
+
+
+
+## Activity
+
+```{r}
+# Your code here
+```

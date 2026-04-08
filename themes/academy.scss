@@ -1,0 +1,12 @@
+// ── Academy theme ─────────────────────────────────────────────
+// Dark navy background, Darjeeling1 heading palette.
+// Sync hex values with: theme_dyerlab.R (.dyerlab_themes$academy)
+
+$brand-bg:     #121929;
+$brand-fg:     #DCE5F0;
+$brand-h1:     #FF0000;   // H1  — Darjeeling1[1]
+$brand-h2:     #F2AD00;   // H2  — Darjeeling1[3]
+$brand-h3:     #00A08A;   // H3  — Darjeeling1[2]
+$brand-h4:     #F98400;   // H4  — Darjeeling1[4]
+$brand-h5:     #DCE5F0;   // H5  — = fg (blends with body text)
+$brand-accent: #5BBCD6;   // em, links, inline code, borders — Darjeeling1[5]

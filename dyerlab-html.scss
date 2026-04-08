@@ -1,0 +1,137 @@
+/*-- scss:rules --*/
+
+// Palette variables ($brand-*) are defined in current-theme.scss.
+
+// ── CSS custom properties ─────────────────────────────────────
+// Use as var(--brand-h2) etc. in style="" attributes anywhere in content.
+:root {
+  --brand-bg:     #{$brand-bg};
+  --brand-fg:     #{$brand-fg};
+  --brand-h1:     #{$brand-h1};
+  --brand-h2:     #{$brand-h2};
+  --brand-h3:     #{$brand-h3};
+  --brand-h4:     #{$brand-h4};
+  --brand-h5:     #{$brand-h5};
+  --brand-accent: #{$brand-accent};
+}
+// Bootstrap defaults are overridden via direct CSS rules below.
+
+$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+$font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono",
+                   Menlo, Courier, monospace;
+
+// ── Body & layout ─────────────────────────────────────────────
+body {
+  font-family: $font-family-sans;
+  background-color: $brand-bg;
+  color: $brand-fg;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// ── Headings ──────────────────────────────────────────────────
+h1, .h1 { color: $brand-h1;    font-weight: 600; font-family: $font-family-sans; }
+h2, .h2 { color: $brand-h2;   font-weight: 600; font-family: $font-family-sans; }
+h3, .h3 { color: $brand-h3;   font-weight: 600; font-family: $font-family-sans; }
+h4, .h4 { color: $brand-h4; font-weight: 600; font-family: $font-family-sans; }
+h5, .h5 { color: $brand-h5;   font-weight: 600; font-family: $font-family-sans; }
+h6, .h6 { color: $brand-fg;  font-weight: 600; font-family: $font-family-sans; }
+
+// ── Emphasis ──────────────────────────────────────────────────
+em { color: $brand-accent; font-style: italic; }
+
+// ── Links ─────────────────────────────────────────────────────
+a {
+  color: $brand-accent;
+  text-decoration: none;
+  &:hover { color: lighten($brand-accent, 12%); text-decoration: underline; }
+}
+
+// ── TOC ───────────────────────────────────────────────────────
+#TOC {
+  border-left: 2px solid $brand-h3;
+  padding-left: 0.75rem;
+  background-color: $brand-bg;
+
+  a {
+    color: rgba($brand-fg, 0.75);
+    &:hover { color: $brand-fg; }
+    &.active { color: $brand-h3; font-weight: 600; }
+  }
+}
+
+// ── Code ──────────────────────────────────────────────────────
+// Quarto owns fg/bg colors via highlight-style — we only add structure/brand
+
+// Inline code
+code:not(pre code) {
+  color: $brand-accent;
+  background-color: rgba($brand-accent, 0.1);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  font-size: 0.88em;
+  font-family: $font-family-mono;
+}
+
+// Code block wrapper
+div.sourceCode {
+  border-left: 3px solid $brand-accent;
+  border-radius: 4px;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+pre, pre.sourceCode {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.75em 1em;
+  font-family: $font-family-mono;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+// Cell output area (plain text output, not syntax-highlighted)
+div.cell-output pre {
+  border-left: 3px solid rgba($brand-fg, 0.2);
+  font-size: 0.82em;
+}
+
+// ── Callout blocks ────────────────────────────────────────────
+.callout {
+  border-left-width: 4px;
+  background-color: lighten($brand-bg, 4%);
+}
+.callout-note     { border-left-color: $brand-accent;   }
+.callout-tip      { border-left-color: $brand-h3;   }
+.callout-warning  { border-left-color: $brand-h4; }
+.callout-caution  { border-left-color: $brand-h2;   }
+.callout-important { border-left-color: $brand-h1;   }
+
+// ── Tables ────────────────────────────────────────────────────
+table {
+  color: $brand-fg;
+  border-color: rgba($brand-fg, 0.12);
+}
+thead { border-bottom: 2px solid $brand-h2; }
+tr:nth-child(even) { background-color: lighten($brand-bg, 3%); }
+th { color: $brand-h2; font-weight: 600; }
+
+// ── Horizontal rule ───────────────────────────────────────────
+hr { border-color: rgba($brand-fg, 0.12); }
+
+// ── Quarto chrome ─────────────────────────────────────────────
+#quarto-content    { background-color: $brand-bg; }
+.sidebar           { background-color: $brand-bg; }
+
+.navbar {
+  background-color: darken($brand-bg, 3%);
+  border-bottom: 1px solid rgba($brand-fg, 0.12);
+}
+
+.nav-footer {
+  border-top: 1px solid rgba($brand-fg, 0.12);
+  color: rgba($brand-fg, 0.6);
+  font-size: 0.85rem;
+}
