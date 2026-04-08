@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+
+// ── Active theme: dyerlab-base ──────────────────────────
+// To switch: run _extensions/dyerlab/switch-theme.sh <name>
+// Available themes: academy dyerlab-base dyerlab-navy-burgundy positron 
+
+
+$brand-bg:     #ffffff;    // White: Petals
+$brand-fg:     #050505;    // Near-black: High contrast text
+$brand-h1:     #1a2d42;    // Deep Sapphire Blue: Dark sky
+$brand-h2:     #3a5d7d;    // Deep Sky Blue: Classic professional
+$brand-h3:     #5282b2;    // Cerulean: Lighter sky
+$brand-h4:     #6b7a5e;    // Muted Olive/Sage: Flower sepals
+$brand-h5:     #c3D898;    // H5  — tea grean
+$brand-accent: #96262b;    // Sepal-tip Red
+
+// ── RevealJS variables (derived from brand palette above) ─────
+$backgroundColor:          $brand-bg;
+$mainColor:                $brand-fg;
+$headingColor:             $brand-h2;
+$linkColor:                $brand-accent;
+$linkColorHover:           lighten($brand-accent, 12%);
+$selectionColor:           $brand-bg;
+$selectionBackgroundColor: $brand-h3;
+
+$mainFont:             -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                       "Helvetica Neue", Arial, sans-serif;
+$headingFont:          $mainFont;
+$codeFont:             "SFMono-Regular", Consolas, "Liberation Mono",
+                       Menlo, Courier, monospace;
+
+$mainFontSize:         32px;
+$headingTextTransform: none;
+$headingTextShadow:    none;
+$headingFontWeight:    600;
+$headingLetterSpacing: -0.01em;

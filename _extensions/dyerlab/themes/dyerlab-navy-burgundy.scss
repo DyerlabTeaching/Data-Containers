@@ -1,0 +1,12 @@
+// ── Dyerlab-Base theme ────────────────────────────────────────
+// Clean white/black base with three accent heading colors.
+// Sync hex values with: theme_dyerlab.R (.dyerlab_themes$`dyerlab-base`)
+
+$brand-bg:     #ffffff;
+$brand-fg:     #000000;
+$brand-h1:     #1c3144;   // H1  — = fg
+$brand-h2:     #1c3144;   // H2  — dark navy
+$brand-h3:     #70161E;   // H3  — burgundy
+$brand-h4:     #7ea16b;   // H4  — sage grean
+$brand-h5:     #c3D898;   // H5  — tea grean
+$brand-accent: #7d2b32;   // em, links, inline code, borders — wine plum

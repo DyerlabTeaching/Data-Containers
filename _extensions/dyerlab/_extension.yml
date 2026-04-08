@@ -1,0 +1,38 @@
+title: Dyerlab Branding
+author: Rodney Dyer
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  formats:
+    html:
+      theme: [current-theme.scss, dyerlab-html.scss]
+      highlight-style: arrow
+      toc: true
+      toc-title: Contents
+      toc-location: right
+      html-math-method: katex
+      code-overflow: wrap
+      code-block-border-left: "#5BBCD6"
+      citations-hover: true
+      footnotes-hover: true
+      link-external-icon: true
+      self-contained: true
+      format-links: false
+    revealjs:
+      resources:
+        - assets/contour.png
+      title-slide-attributes:
+        data-background-image: "_extensions/dyerlab/assets/contour.png"
+        data-background-position: "right"
+        data-background-size: "initial"
+      theme: [current-theme.scss, dyerlab-revealjs.scss]
+      highlight-style: arrow
+      self-contained: true
+      code-fold: false
+      code-overflow: wrap
+      footer: "[Dyerlab](https://rodneydyer.com)"
+      format-links: false
+      transition: fade
+      background-transition: fade
+      slide-number: true
+      show-slide-number: speaker

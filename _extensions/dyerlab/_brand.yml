@@ -1,0 +1,22 @@
+meta:
+  name: Dyerlab Teaching
+
+color:
+  palette:
+    navy:   "#121929"   # background
+    white:  "#DCE5F0"   # foreground / body text
+    red:    "#FF0000"   # H1  — Darjeeling1[1]
+    teal:   "#00A08A"   # H3  — Darjeeling1[2]
+    gold:   "#F2AD00"   # H2  — Darjeeling1[3]
+    orange: "#F98400"   # H4  — Darjeeling1[4]
+    blue:   "#5BBCD6"   # H5 / <em>  — Darjeeling1[5]
+  background: navy
+  foreground: white
+  primary: teal
+
+typography:
+  fonts:
+    - family: sans-serif
+      source: system
+  base-size: 1rem
+  line-height: 1.6

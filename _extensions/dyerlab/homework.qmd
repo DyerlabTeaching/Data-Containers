@@ -1,0 +1,41 @@
+---
+title: "Learning Module Homework"
+author: "YOUR NAME HERE"
+format: dyerlab-html
+---
+
+```{r}
+#| label: setup
+#| include: false
+source("_extensions/dyerlab/theme_dyerlab.R")
+library(ggplot2)
+theme_set(theme_dyerlab())
+```
+
+## Impetus
+
+
+
+## Resources & Logistics
+
+
+
+## Activity
+
+```{r}
+# Your code here
+hist( rnorm( 1000) ) 
+```
+
+
+
+```{r}
+library( tidyverse ) 
+
+iris |> 
+    ggplot( aes(x=Sepal.Width, fill=Species) ) +
+    geom_density( alpha = 0.75) + 
+    xlab("Sepal Width (cm)") + 
+    ylab("Frequency")
+
+```

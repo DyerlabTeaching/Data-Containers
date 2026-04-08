@@ -1,0 +1,193 @@
+/*-- scss:rules --*/
+
+// All defaults ($brand-*, RevealJS vars) live in current-theme.scss.
+
+// ── CSS custom properties ─────────────────────────────────────
+// Use as var(--brand-bg) etc. in style="" attributes on slide content.
+// Note: does NOT work in background-color="" slide attributes (JS limitation)
+// — use .section-divider class for slide backgrounds instead.
+:root {
+  --brand-bg:     #{$brand-bg};
+  --brand-fg:     #{$brand-fg};
+  --brand-h1:     #{$brand-h1};
+  --brand-h2:     #{$brand-h2};
+  --brand-h3:     #{$brand-h3};
+  --brand-h4:     #{$brand-h4};
+  --brand-h5:     #{$brand-h5};
+  --brand-accent: #{$brand-accent};
+}
+
+// ── Section-divider slide class ───────────────────────────────
+// Usage: # Section Title {.section-divider}
+// RevealJS automatically copies custom classes from the <section> to the 
+// full-screen <div class="slide-background"> element!
+.reveal .slide-background.section-divider {
+  background-color: $brand-h2 !important;
+  background-image: url('../../../../../_extensions/dyerlab/assets/contour.png') !important;
+  background-size: initial !important;
+  background-position: right center !important;
+  background-repeat: no-repeat !important;
+}
+
+.reveal section.section-divider {
+  h1 {
+    color: $brand-bg !important;
+    font-size: 2.4em;
+  }
+  p, li { color: $brand-bg; }
+}
+
+// ── Headings per level ────────────────────────────────────────
+// H1 — title slide title + section divider
+.reveal h1 {
+  color: $brand-h1;
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+// H2 — every regular slide title
+.reveal h2 {
+  color: $brand-h2;
+  font-size: 1.4em;
+  border-bottom: 2px solid rgba($brand-h2, 0.35);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em;
+}
+
+// H3 — column headings, sub-section labels
+.reveal h3 {
+  color: $brand-h3;
+  font-size: 1.0em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// H4, H5
+.reveal h4 { color: $brand-h4; font-size: 0.95em; }
+.reveal h5 { color: $brand-h5;   font-size: 0.9em;  }
+
+// ── Emphasis ──────────────────────────────────────────────────
+.reveal em { color: $brand-accent; font-style: italic; }
+
+// ── Body text ─────────────────────────────────────────────────
+.reveal .slides { color: $brand-fg; }
+
+.reveal p,
+.reveal li {
+  line-height: 1.5;
+}
+
+// ── Links ─────────────────────────────────────────────────────
+.reveal a {
+  color: $brand-accent;
+  &:hover { color: lighten($brand-accent, 12%); }
+}
+
+// ── Code ──────────────────────────────────────────────────────
+// Quarto owns fg/bg colors via highlight-style — we only add structure/brand
+
+// Inline code
+.reveal code:not(pre code) {
+  color: $brand-accent;
+  background-color: rgba($brand-accent, 0.12);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+// Code block wrapper
+.reveal div.sourceCode {
+  border-left: 3px solid $brand-accent;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0.5em 0;
+  overflow: hidden;
+}
+
+// pre element
+.reveal pre,
+.reveal pre.sourceCode {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0.75em 1em;
+}
+
+// code inside pre
+.reveal pre code,
+.reveal pre.sourceCode code {
+  font-size: 0.75em;
+  line-height: 1.45;
+  max-height: 480px;
+}
+
+// ── Section divider slides (H1 + background-color="black") ────
+.reveal section[data-background-color="black"] h1,
+.reveal section[data-background-image] h1 {
+  color: $brand-h1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+// ── Two-column layout ─────────────────────────────────────────
+.reveal .columns {
+  gap: 2em;
+}
+
+.reveal .column h3 {
+  color: $brand-h3;
+  border-bottom: 1px solid rgba($brand-h3, 0.35);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+// ── Footer ────────────────────────────────────────────────────
+.reveal .slide-number {
+  color: rgba($brand-fg, 0.45);
+  font-size: 0.65em;
+  background-color: transparent;
+}
+
+.reveal .footer {
+  color: rgba($brand-fg, 0.45);
+  font-size: 0.65em;
+
+  a {
+    color: rgba($brand-accent, 0.7);
+    &:hover { color: $brand-accent; }
+  }
+}
+
+// ── Progress bar ──────────────────────────────────────────────
+.reveal .progress {
+  color: $brand-h3;
+  height: 3px;
+}
+
+// ── Tables ────────────────────────────────────────────────────
+.reveal table {
+  font-size: 0.8em;
+  border-collapse: collapse;
+
+  th {
+    color: $brand-h3;
+    border-bottom: 2px solid $brand-h3;
+    padding: 0.4em 0.8em;
+  }
+
+  td {
+    border-bottom: 1px solid rgba($brand-fg, 0.12);
+    padding: 0.4em 0.8em;
+  }
+
+  tr:nth-child(even) td {
+    background-color: lighten($brand-bg, 3%);
+  }
+}
+
+// ── Fragments (animated reveals) ─────────────────────────────
+.reveal .fragment.highlight-current-blue.current-fragment {
+  color: $brand-accent;
+}

@@ -1,0 +1,13 @@
+project:
+  title: "Dyerlab Branding"
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+format:
+  dyerlab-html: default
+  dyerlab-revealjs: default
+
+execute:
+  warning: false
+  message: false

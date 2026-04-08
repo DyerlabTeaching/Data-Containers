@@ -1,0 +1,136 @@
+---
+title: "Title"
+subtitle: "&nbsp;"
+author: Rodney Dyer, PhD
+format: dyerlab-revealjs
+---
+
+```{r}
+#| label: setup
+#| include: false
+source("_extensions/dyerlab/theme_dyerlab.R")
+library(ggplot2)
+theme_set(theme_dyerlab())
+```
+
+
+# Section Divider {.section-divider}
+
+
+
+<!-- Title + text -->
+## Slide Title
+
+This is some content.
+
+
+## A Slide with Code
+
+```{r}
+#| echo: false
+#| fig-alt: "Histogram of 1200 random normal values"
+ggplot(data.frame(x = rnorm(1200)), aes(x)) +
+  geom_histogram( bins = 30) +
+  labs(x = "Value", y = "Count")
+```
+
+
+
+<!-- Two columns: variable width with fragment reveal -->
+## Two Columns
+
+:::: {.columns}
+
+::: {.column width="30%"}
+Narrow content
+:::
+
+::: {.column width="70%"}
+::: {.fragment}
+Wide content revealed on click
+:::
+:::
+
+::::
+
+
+<!-- Two columns: equal with H3 column headers -->
+## Column Comparison
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Left Heading
+
+- Item A
+- Item B
+- Item C
+:::
+
+::: {.column width="50%"}
+### Right Heading
+
+- Item X
+- Item Y
+- Item Z
+:::
+
+::::
+
+
+<!-- Code example (shown) + executed output (hidden) -->
+## Code & Output
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### The Code
+
+```{r}
+#| eval: false
+#| echo: true
+hist(rnorm(1200))
+```
+:::
+
+::: {.column width="50%"}
+### The Plot
+
+```{r}
+#| echo: false
+#| fig-alt: "Histogram of 1200 random normal values"
+ggplot(data.frame(x = rnorm(1200)), aes(x)) +
+  geom_histogram( bins = 30) +
+  labs(x = "Value", y = "Count")
+```
+:::
+
+::::
+
+
+<!-- Code-only slide -->
+## Code
+
+```{r}
+#| echo: true
+px  <- 0.75
+py  <- 0.25
+m   <- 0.1
+ret <- rep(NA, 100)
+ret[1] <- py
+for (i in 2:100) {
+  ret[i] <- (1 - m) * ret[(i - 1)] + px * m
+}
+```
+
+
+<!-- Results slide -->
+## Results
+
+```{r}
+#| fig-alt: "Line plot showing allele frequency converging over 100 generations"
+ggplot(data.frame(gen = seq_along(ret), freq = ret), aes(gen, freq)) +
+  geom_line( linewidth = 1) +
+  labs(title = "Allele Frequency over Time",
+       x = "Generation", y = "Frequency")
+```
