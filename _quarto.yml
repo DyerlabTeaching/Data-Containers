@@ -1,27 +1,8 @@
 project:
   title: "Data Containers"
   output-dir: docs
+  pre-render: _extensions/dyerlab/update-extension.sh
 
 format:
-  html:
-    toc: true
-    toc-title: Contents
-    toc-location: right
-    html-math-method: katex
-    self-contained: true
-    code-overflow: wrap
-    code-block-border-left: "#31BAE9"
-    citations-hover: true
-    footnotes-hover: true
-    link-external-icon: true
-  revealjs:
-    self-contained: true
-    code-fold: false
-    execute:
-      echo: true
-      warning: true
-    code-overflow: wrap
-    footer: "[Dyerlab](https://dyerlab.org)"
-  
-
-
+  dyerlab-html: default
+  dyerlab-revealjs: default
