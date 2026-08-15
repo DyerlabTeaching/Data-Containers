@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. In this topic, we examine some of the more basic
+> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. <mark>In this topic, we examine some of the more basic</mark>
 
 ## Vectors
 
@@ -55,9 +55,9 @@ is.vector( x ) && is.numeric( x )
 
 ### Sequences
 
-There are a lot of times when we require a sequnce of values and it would get a bit tedious to type them all out manually. `R` has several options for creating vectors that are comprised of a sequence of values.
+There are a lot of times when we require a sequence of values and it would get a bit tedious to type them all out manually. `R` has several options for creating vectors that are comprised of a sequence of values.
 
-The easiest type is the colon operator, that will generate a seqeunce of numerical values from the number on the left to the number on the right
+The easiest type is the colon operator, that will generate a sequence of numerical values from the number on the left to the number on the right.
 
 ```{r}
 1:10 -> y
@@ -70,7 +70,7 @@ It also works in the other direction (descending).
 10:1
 ```
 
-However, it is only available to make a sequences where the increment from one value to the next is `1`.
+However, it is only available to make a sequence where the increment from one value to the next is `1`.
 
 ```{r}
 3.2:5.7
@@ -90,7 +90,7 @@ seq( 119, 121, length.out = 6)
 
 ### Indexing & Access
 
-To access and change values within a vector, we used square brackets and the number of the entry of interest. It should be noted that in `R`, the first element of a vector is \# 1.
+To access and change values within a vector, we use square brackets and the number of the entry of interest. It should be noted that in `R`, the first element of a vector is \# 1.
 
 So, to get to the third element of the `x` vector, we would:
 
@@ -104,14 +104,14 @@ If you ask for values in the vector off the end (e.g., the index is beyond the l
 x[5]
 ```
 
-In addition to getting the values from a vector, assignment of individual values proceeds similarily.
+In addition to getting the values from a vector, assignment of individual values proceeds similarly.
 
 ```{r}
 x[2] <- 42
 x
 ```
 
-If you assign a value to a vector that is way off the end, it will fill in the intermediate values wtih `NA` for you.
+If you assign a value to a vector that is way off the end, it will fill in the intermediate values with `NA` for you.
 
 ```{r}
 x[7] <- 43
@@ -141,7 +141,7 @@ as well as exponents.
 x^y
 ```
 
-If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element `x` and the a new 10-element `z`. Notice how the values in x are repeated in the addition operaiton.
+If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element `x` and the a new 10-element `z`. Notice how the values in x are repeated in the addition operation.
 
 ```{r}
 z <- 1:10
@@ -155,7 +155,7 @@ If the two vectors are not multiples of each other in length, it will still recy
 x + 1:8
 ```
 
-The operations used are dependent upon the base data type. For example, the following `character` values can be passed along to the `paste()` function to put each of the elements in the first vectoer with the corresponding values in the second vector (and specifying the separator).
+The operations used are dependent upon the base data type. For example, the following `character` values can be passed along to the `paste()` function to put each of the elements in the first vector with the corresponding values in the second vector (and specifying the separator).
 
 ```{r}
 a <- c("Bob","Alice","Thomas")
@@ -178,7 +178,7 @@ It is a bit redundant to have both `nrow` and `ncol` with `nrow * ncol = length(
 
 ### Indexing
 
-Just like a vector, matrices use square brackets and the row & column number (in that order) to access indiviudal elements. Also, just like vectors, both rows and columns start at 1 (not zero). So to replace the value in the second row and second column with the number `42`, we do this.
+Just like a vector, matrices use square brackets and the row & column number (in that order) to access individual elements. Also, just like vectors, both rows and columns start at 1 (not zero). So to replace the value in the second row and second column with the number `42`, we do this.
 
 ```{r}
 X[2,2] <- 42
@@ -194,12 +194,12 @@ Y <- t(X)
 Y
 ```
 
-Binary operators using the normal operators in the top row of your keyboard are generally element-wise operations. Here the addition of these two matrices require:\
+Binary operators using the normal operators in the top row of your keyboard are generally element-wise operations. Here the addition of these two matrices requires:\
 1. Both matrices have the same number of rows.\
 2. Both matrices have the same number of columns.\
 3. Both matrices have the same internal data types.
 
-Here is an example of addition (notic how the resulting \[1,1\] object is equal to X\[1,1\] + Y\[1,1\])
+Here is an example of addition (notice how the resulting \[1,1\] object is equal to X\[1,1\] + Y\[1,1\])
 
 ```{r}
 X + Y
@@ -211,7 +211,7 @@ The same for element-wise multiplication.
 X * Y
 ```
 
-However, there is another kind of matrix mutliplication that sums the product or rows and columns. Since this is also a variety of multiplication but is carried out differently, we need to use a different operator. Here the matrix mutliplication operator is denoted as the combination of characters `%*%`.
+However, there is another kind of matrix multiplication that sums the product of rows and columns. Since this is also a variety of multiplication but is carried out differently, we need to use a different operator. Here the matrix multiplication operator is denoted as the combination of characters `%*%`.
 
 ```{r}
 X %*% Y
@@ -222,13 +222,13 @@ This operation has a few different constraints:
 1.  The number of columns in the left matrix must equal the number of rows in the right one.
 2.  The resulting matrix will have the number of rows equal to that of the right matrix.
 3.  The resulting matrix will have the number of columns equal to that of the left matrix.
-4.  The resulting element at the $i$ $j$ position is the sum of the multipliation of the elements in the $i^{th}$ row of the left matrix and the $j^{th}$ column of the right one.
+4.  The resulting element at the $i$ $j$ position is the sum of the multiplication of the elements in the $i^{th}$ row of the left matrix and the $j^{th}$ column of the right one.
 
 So the resulting element in `[1,3]` position is found by $1*3 + 4*6 + 7*9 = 90$.
 
 ## Lists
 
-Lists are a more flexible container type. Here, lists can contain different types of data in a single list. Here is an example of a list made with a few `character` vluaes, a `numeric`, a `constant`, and a `logical` value.
+Lists are a more flexible container type. Here, lists can contain different types of data in a single list. Here is an example of a list made with a few `character` values, a `numeric`, a `constant`, and a `logical` value.
 
 ```{r}
 lst <- list("A","B",323423.3, pi, TRUE)
@@ -251,7 +251,7 @@ lst
 
 ### Named Lists
 
-Lists can be more valuable if we use names for the *keys* instead of just numbers. Here, I make an empty list and then assign values to it using names (as character values) in square brakets.
+Lists can be more valuable if we use names for the *keys* instead of just numbers. Here, I make an empty list and then assign values to it using names (as character values) in square brackets.
 
 ```{r}
 myInfo <- list()
@@ -266,13 +266,13 @@ When showing named lists, it prints included items as:
 myInfo
 ```
 
-In addition to the square bracket approach, we can also use as \$ notation to add elements to the list (like shown above).
+In addition to the square bracket approach, we can also use \$ notation to add elements to the list (like shown above).
 
 ```{r}
-myInfo$Vegitarian <- FALSE
+myInfo$Vegetarian <- FALSE
 ```
 
-Both are equivallent.
+Both are equivalent.
 
 ```{r}
 myInfo
@@ -297,11 +297,11 @@ When elements in a list are defined using named keys, the list itself can be ask
 names(myInfo)
 ```
 
-This can be helpful at times when you did not create the list yourself and want to see what is inside of them.
+This can be helpful at times when you did not create the list yourself and want to see what is inside of it.
 
 ### Spaces in Names
 
-As you see above, this list has *keys* such as "First Name" and "Vegitarian". The first one has a *space* inside of it whereas the second one does not. This is a challenge. If we were to try to use the first key as
+As you see above, this list has *keys* such as "First Name" and "Vegetarian". The first one has a *space* inside of it whereas the second one does not. This is a challenge. If we were to try to use the first key as
 
 ```{r}
 #| error: true
@@ -309,7 +309,7 @@ As you see above, this list has *keys* such as "First Name" and "Vegitarian". Th
 myInfo$First Name
 ```
 
-Would give you an error (if I ran the chunck but I cannot because it is an error and won't let me compile this document if I do). For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).
+Would give you an error (if I ran the chunk but I cannot because it is an error and won't let me compile this document if I do). For names that have spaces, we need to enclose them inside back-ticks (as shown in the output above).
 
 ```{r}
 myInfo$`First Name`
@@ -319,7 +319,7 @@ So feel free to use names that make sense, but if you do, you'll need to treat t
 
 ### Analysis Output
 
-By far, the most common location for lists is when you do some kind of analysis. Almost all analyses return the restuls as a special kind of list.
+By far, the most common location for lists is when you do some kind of analysis. Almost all analyses return the results as a special kind of list.
 
 Here is an example looking at some data from three species of Iris on the lengths and width of sepal and petals. The data look like:
 
@@ -354,7 +354,7 @@ However, the elements in the `iris.test` are simply a list.
 names(iris.test)
 ```
 
-If fact, the contents of the output are just keys and values, even though when we printed it all out, it was formatted as a much more informative output.
+In fact, the contents of the output are just keys and values, even though when we printed it all out, it was formatted as a much more informative output.
 
 ```{r}
 #| echo: false
@@ -363,7 +363,7 @@ names(df) <- "Values"
 gt::gt(df, rownames_to_stub = TRUE)
 ```
 
-We will come back to this special kind of printing later when discussing functions but for now, lets just consider how cool this is because we can access the raw values of the analysis directly. We an also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as in-text r citation. Here is an example where I include the values of:
+We will come back to this special kind of printing later when discussing functions but for now, let's just consider how cool this is because we can access the raw values of the analysis directly. We can also easily incorporate the findings of analyses, such as this simple correlation test, and insert the content into the text. All you have to do is address the components of the analysis as an in-text r citation. Here is an example where I include the values of:
 
 ```{r}
 iris.test$estimate
@@ -407,7 +407,7 @@ And depending upon the data type, the output may give numerical, counts, or just
 
 ### Indexing
 
-Just like a list, a `data.frame` can be defined as having named columns. The distinction here is that each column should have the same number of elements in it, whereas a list may have differnet lengths to the elements.
+Just like a list, a `data.frame` can be defined as having named columns. The distinction here is that each column should have the same number of elements in it, whereas a list may have different lengths to the elements.
 
 ```{r}
 names( df )
@@ -437,7 +437,7 @@ ncol( df )
 
 ### Loading Data
 
-By far, you will most often NOT be making data by hand but instead will be loading it from external locations. here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic. As this is a public repository, we can get a direct URL to the file. For simplicity, I'll load in tidyverse and use some helper functions contained therein.
+By far, you will most often NOT be making data by hand but instead will be loading it from external locations. Here is an example of how we can load in a CSV file that is located in the GitHub repository for this topic. As this is a public repository, we can get a direct URL to the file. For simplicity, I'll load in tidyverse and use some helper functions contained therein.
 
 ```{r}
 library( tidyverse )
@@ -455,7 +455,7 @@ And we can read it in directly (as long as we have an internet connection) as:
 beetles <- read_csv( url )
 ```
 
-Notice how the funtion tells us a few things about the data.
+Notice how the function tells us a few things about the data.
 
 The data itself consists of:
 
