@@ -1,7 +1,6 @@
 ---
 title: "Basic Data Containers in R"
 format: html
-editor: visual
 ---
 
 > Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. <mark>In this topic, we examine some of the more basic</mark>

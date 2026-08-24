@@ -1,10 +1,6 @@
 ---
 title: "In Class Components - Data Containers"
-format: 
-  html:
-    code-tools: true
-    toc: false
-editor: visual
+format: html
 ---
 
 ## Examples

@@ -1,11 +1,7 @@
 ---
 title: "Topic Homework"
 author: "YOUR NAME HERE"
-format: 
-  html:
-    toc: false
-    code-tools: true 
-editor: visual
+format: html
 ---
 
 ## Homework

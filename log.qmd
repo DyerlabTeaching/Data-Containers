@@ -1,6 +1,6 @@
 ---
 title: "Teaching Log"
-editor: visual
+format: html
 ---
 
 ## Population Genetics
