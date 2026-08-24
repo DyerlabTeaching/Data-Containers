@@ -39,6 +39,11 @@ vignettes/*.pdf
 .Renviron
 .DS_Store
 *.icloud
+
+# iCloud conflict-duplicate files (e.g. "file 2.md", "narrative 12.qmd")
+* [0-9].*
+* [0-9][0-9].*
+* [0-9][0-9][0-9].*
 README.html
 
 /.quarto/
