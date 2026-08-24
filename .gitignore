@@ -45,9 +45,15 @@ vignettes/*.pdf
 * [0-9].*
 * [0-9][0-9].*
 * [0-9][0-9][0-9].*
-README.html
 
 /.quarto/
 
-*_files/
+# Quarto renders each .qmd to an HTML file plus a matching *_files/
+# support directory. With output-dir: docs, real output lives under
+# docs/ only -- anything with these names at the project root is a
+# stray one-off render (e.g. from `quarto render some.qmd` outside
+# the project). Root-only (not recursive), so docs/ is never touched.
+/*.html
+/*_files/
+
 **/*.quarto_ipynb
