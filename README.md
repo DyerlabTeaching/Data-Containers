@@ -1,6 +1,6 @@
 # Data Containers in R
 
-![](media/teng-yuhong-qMehmIyaXvY-unsplash.jpg)
+![Photo by <a href="https://unsplash.com/@live_for_photo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teng Yuhong</a> on <a href="https://unsplash.com/photos/qMehmIyaXvY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](media/teng-yuhong-qMehmIyaXvY-unsplash.jpg)
 
 ## Impetus
 
@@ -34,6 +34,14 @@ We rarely work with a single datum and instead work with tons of data. As such, 
 - [Slides](https://dyerlabteaching.github.io/Data-Containers/slides.html#/title-slide) covering data containers.
 - A longer [narrative](https://dyerlabteaching.github.io/Data-Containers/narrative.html) that goes into more depth on each of the constituent container types.
 - An [In Class](https://dyerlabteaching.github.io/Data-Containers/in-class.html) activity.
+
+## Assessment
+
+- A [homework](https://dyerlabteaching.github.io/Data-Containers/homework.html) assignment on the topic.
+
+## Logistics
+
+- A [Teaching Log](https://dyerlabteaching.github.io/Data-Containers/log.html) record of delivery and notes.
 
 ## Contact Information
 
