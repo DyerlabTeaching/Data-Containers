@@ -3,7 +3,7 @@ title: "Data Containers"
 format: html
 ---
 
-> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. <mark>In this topic, we examine some of the more basic</mark>
+> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. In this topic, we examine some of the more basic data containers in `R`, though in your practice, you will most likely use `data.frame` objects for almost all data interaction and lists as they are the default output from most statistical anlayses.  
 
 ## Vectors
 

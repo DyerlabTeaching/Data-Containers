@@ -3,25 +3,21 @@ title: "Teaching Log"
 format: html
 ---
 
-## Population Genetics
+## 2025.09.11
+- ENVS543: Walked through the lecture and did in-class activities
 
--   9-4: Got to [here](https://dyerlabteaching.github.io/Data-Containers/slides.html#/example-data-1) in the lecture. Started talking about the fig/fig wasp system and stopped.
--   9-9: Pick up at the end of the slides and walk through examples for in-class activity (start \@ 43). Finished.
--   
+## 2025.09.09
+- BIOL516: Pick up at the end of the slides and walk through examples for in-class activity (start \@ 43). Finished.
+- ENVS543: Start talking about Containers. Do the in-class activity along the way. Got to Tidyverse (not loading yet).
 
-## Data Literacy
+## 2025.09.04
+- BIOL516: Got to [here](https://dyerlabteaching.github.io/Data-Containers/slides.html#/example-data-1) in the lecture. Started talking about the fig/fig wasp system and stopped.
 
--   9-9: Start talking about Containers. Do the in-class activity along the way. Got to Tidyverse (not loading yet).
--   9-11: Walked through the lecture and did in-class activities
 
-## Copy-Edit Log — Data-Containers
 
-Tracks copy-editing passes over this module's `.qmd` documents. Clear-cut
-typos/grammar/spelling errors are corrected directly in the source. Items
-that need an author decision are left in place but wrapped in
-`<mark>...</mark>` so they show up highlighted in the rendered HTML.
 
-### narrative.qmd — 2026-08-15
+### 2026-08-15
+- Annual update and copy-edit for consistency.
 
 #### Fixed directly (typos, spelling, grammar)
 
@@ -54,8 +50,4 @@ that need an author decision are left in place but wrapped in
 | 440 | "here is an example" (sentence-initial lowercase) | "Here is an example" |
 | 458 | "the funtion tells us" | "the function tells us" |
 
-#### Flagged for your review (highlighted with `<mark>` in the source)
 
-| Line | Text | Why it's flagged |
-|---|---|---|
-| ~7 | "In this topic, we examine some of the more basic" | The intro blockquote cuts off — "the more basic" what? Container types, presumably, but I didn't want to put words in your mouth. |

@@ -4,7 +4,7 @@
 
 ## Impetus
 
-We rarely work with a single datum and instead work with tons of data. As such, we need to be facile in how we deal with lots of data, how it is stored, and how we can efficiently work with it. In this topic, the basics of the following container types are explored.
+We rarely work with a single datum; instead, we work with large volumes of data. As such, we need to be adept at handling large volumes of data, understanding how it is stored, and working with it efficiently. In this topic, the basics of the following container types are explored.
 
 - Vectors
 - Matrices
