@@ -5,9 +5,11 @@ project:
     - "*.qmd"
 
 format:
-  dyerlab-html: default
-  dyerlab-revealjs: default
+  html: 
+    code-tools: true
+  dyerlab-html: 
+    code-tools: true
 
 execute:
-  warning: false
-  message: false
+  warning: true
+  message: true

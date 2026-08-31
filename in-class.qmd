@@ -1,6 +1,8 @@
 ---
 title: "In Class Activity - Data Containers"
-format: html
+format: 
+    html:
+        code-tools: true
 ---
 
 ## Examples
@@ -13,27 +15,32 @@ There are two data sets used for this example;
 
 -   The *iris* data set (that comes with R) that describes the sepal and pedal sizes on three species of *Iris*. This is a classic data set found in a wide variety of data sets and is a great example of having several sample measurements on several individuals in different groups.
 
-    ![Measurements of sepal and pedal lengths and width for three species of iris.](https://flickr.com/photo_download.gne?id=52436835869&secret=1804e00ce8&size=w&source=photoPageEngagement){#fig-iris}
+![Measurements of sepal and pedal lengths and width for three species of iris.](https://flickr.com/photo_download.gne?id=52436835869&secret=1804e00ce8&size=w&source=photoPageEngagement){#fig-iris}
 
 -   Environmental suitability and census data collected by the Dyer lab at various sampling site locales for a species of bark beetle, *Araptus attenuatus* that we will be using throughout the semester. For this creature, we will be using some data I have stored on Google Drive in a spreadsheet. Instead of downloading the data for everyone, I have shared a URL to it where we can get to it in `R` directly. In terms of reproducable research, this is *a good thing.*™
 
-    ```{r}
-    url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
-    ```
+```{r}
+url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+```
 
-    ![The Sonoran desert bark beetle, *Araptus attenuatus*.](https://www.flickr.com/photo_download.gne?id=53265526303&secret=d41e1a61fd&size=s&source=photoPageEngagement){#fig-araptus}
+![The Sonoran desert bark beetle, *Araptus attenuatus*.](https://www.flickr.com/photo_download.gne?id=53265526303&secret=d41e1a61fd&size=s&source=photoPageEngagement){#fig-araptus}
 
 ## Vectors
 
 A vector is a list of elements that **must** be the same class of variable.
 
+
+
 ## Matrices
 
 Matrices are a collection of data types in a 2- or 3-dimensional configuration, often used for mathematical modeling.
 
+
+
 ## Lists
 
 Lists are a structure that allows you to have *named* variables. Elements may be of different class and sizes.
+
 
 ## Data Frames
 

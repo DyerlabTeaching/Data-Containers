@@ -289,21 +289,21 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 2 5 0 2</code></pre>
+<pre><code>[1] 1 1 1 2 2</code></pre>
 </div>
 </div>
 <p>Mathematics operations are done element-wise. Here is an example using addition.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4 4 8 4 7</code></pre>
+<pre><code>[1] 2 3 4 6 7</code></pre>
 </div>
 </div>
 <p>as well as exponents.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]   1   4 243   1  25</code></pre>
+<pre><code>[1]  1  2  3 16 25</code></pre>
 </div>
 </div>
 <p>If the lengths of the vectors are not the same <code>R</code> will implement a <em>recycling rule</em> where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element <code>x</code> and the a new 10-element <code>z</code>. Notice how the values in x are repeated in the addition operation.</p>
@@ -618,23 +618,23 @@ sample estimates:
 <p>In fact, the contents of the output are just keys and values, even though when we printed it all out, it was formatted as a much more informative output.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="lwjtetxhlk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lwjtetxhlk table {
+<div id="hxbrksiexc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hxbrksiexc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lwjtetxhlk thead, #lwjtetxhlk tbody, #lwjtetxhlk tfoot, #lwjtetxhlk tr, #lwjtetxhlk td, #lwjtetxhlk th {
+#hxbrksiexc thead, #hxbrksiexc tbody, #hxbrksiexc tfoot, #hxbrksiexc tr, #hxbrksiexc td, #hxbrksiexc th {
   border-style: none;
 }
 
-#lwjtetxhlk p {
+#hxbrksiexc p {
   margin: 0;
   padding: 0;
 }
 
-#lwjtetxhlk .gt_table {
+#hxbrksiexc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -660,12 +660,12 @@ sample estimates:
   border-left-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_caption {
+#hxbrksiexc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lwjtetxhlk .gt_title {
+#hxbrksiexc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -677,7 +677,7 @@ sample estimates:
   border-bottom-width: 0;
 }
 
-#lwjtetxhlk .gt_subtitle {
+#hxbrksiexc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -689,7 +689,7 @@ sample estimates:
   border-top-width: 0;
 }
 
-#lwjtetxhlk .gt_heading {
+#hxbrksiexc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -701,13 +701,13 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_bottom_border {
+#hxbrksiexc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_col_headings {
+#hxbrksiexc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -722,7 +722,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_col_heading {
+#hxbrksiexc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -742,7 +742,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#lwjtetxhlk .gt_column_spanner_outer {
+#hxbrksiexc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -754,15 +754,15 @@ sample estimates:
   padding-right: 4px;
 }
 
-#lwjtetxhlk .gt_column_spanner_outer:first-child {
+#hxbrksiexc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lwjtetxhlk .gt_column_spanner_outer:last-child {
+#hxbrksiexc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lwjtetxhlk .gt_column_spanner {
+#hxbrksiexc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -774,11 +774,11 @@ sample estimates:
   width: 100%;
 }
 
-#lwjtetxhlk .gt_spanner_row {
+#hxbrksiexc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lwjtetxhlk .gt_group_heading {
+#hxbrksiexc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -804,7 +804,7 @@ sample estimates:
   text-align: left;
 }
 
-#lwjtetxhlk .gt_empty_group_heading {
+#hxbrksiexc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -819,15 +819,15 @@ sample estimates:
   vertical-align: middle;
 }
 
-#lwjtetxhlk .gt_from_md > :first-child {
+#hxbrksiexc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lwjtetxhlk .gt_from_md > :last-child {
+#hxbrksiexc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lwjtetxhlk .gt_row {
+#hxbrksiexc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -846,7 +846,7 @@ sample estimates:
   overflow-x: hidden;
 }
 
-#lwjtetxhlk .gt_stub {
+#hxbrksiexc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -859,7 +859,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#lwjtetxhlk .gt_stub_row_group {
+#hxbrksiexc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -873,15 +873,15 @@ sample estimates:
   vertical-align: top;
 }
 
-#lwjtetxhlk .gt_row_group_first td {
+#hxbrksiexc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lwjtetxhlk .gt_row_group_first th {
+#hxbrksiexc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lwjtetxhlk .gt_summary_row {
+#hxbrksiexc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -891,16 +891,16 @@ sample estimates:
   padding-right: 5px;
 }
 
-#lwjtetxhlk .gt_first_summary_row {
+#hxbrksiexc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_first_summary_row.thick {
+#hxbrksiexc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lwjtetxhlk .gt_last_summary_row {
+#hxbrksiexc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -910,7 +910,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_grand_summary_row {
+#hxbrksiexc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -920,7 +920,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#lwjtetxhlk .gt_first_grand_summary_row {
+#hxbrksiexc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -930,7 +930,7 @@ sample estimates:
   border-top-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_last_grand_summary_row_top {
+#hxbrksiexc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -940,11 +940,11 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_striped {
+#hxbrksiexc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lwjtetxhlk .gt_table_body {
+#hxbrksiexc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -953,7 +953,7 @@ sample estimates:
   border-bottom-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_footnotes {
+#hxbrksiexc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -967,7 +967,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_footnote {
+#hxbrksiexc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -976,7 +976,7 @@ sample estimates:
   padding-right: 5px;
 }
 
-#lwjtetxhlk .gt_sourcenotes {
+#hxbrksiexc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -990,7 +990,7 @@ sample estimates:
   border-right-color: #D3D3D3;
 }
 
-#lwjtetxhlk .gt_sourcenote {
+#hxbrksiexc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -998,72 +998,72 @@ sample estimates:
   padding-right: 5px;
 }
 
-#lwjtetxhlk .gt_left {
+#hxbrksiexc .gt_left {
   text-align: left;
 }
 
-#lwjtetxhlk .gt_center {
+#hxbrksiexc .gt_center {
   text-align: center;
 }
 
-#lwjtetxhlk .gt_right {
+#hxbrksiexc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lwjtetxhlk .gt_font_normal {
+#hxbrksiexc .gt_font_normal {
   font-weight: normal;
 }
 
-#lwjtetxhlk .gt_font_bold {
+#hxbrksiexc .gt_font_bold {
   font-weight: bold;
 }
 
-#lwjtetxhlk .gt_font_italic {
+#hxbrksiexc .gt_font_italic {
   font-style: italic;
 }
 
-#lwjtetxhlk .gt_super {
+#hxbrksiexc .gt_super {
   font-size: 65%;
 }
 
-#lwjtetxhlk .gt_footnote_marks {
+#hxbrksiexc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lwjtetxhlk .gt_asterisk {
+#hxbrksiexc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lwjtetxhlk .gt_indent_1 {
+#hxbrksiexc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lwjtetxhlk .gt_indent_2 {
+#hxbrksiexc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lwjtetxhlk .gt_indent_3 {
+#hxbrksiexc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lwjtetxhlk .gt_indent_4 {
+#hxbrksiexc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lwjtetxhlk .gt_indent_5 {
+#hxbrksiexc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lwjtetxhlk .katex-display {
+#hxbrksiexc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lwjtetxhlk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hxbrksiexc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1165,14 +1165,14 @@ sample estimates:
 <pre><code>   TheNums TheLetters    TF
 1        1          K  TRUE
 2        2          L FALSE
-3        3          M FALSE
+3        3          M  TRUE
 4        4          N  TRUE
-5        5          O FALSE
-6        6          P  TRUE
-7        7          Q  TRUE
-8        8          R FALSE
-9        9          S  TRUE
-10      10          T FALSE</code></pre>
+5        5          O  TRUE
+6        6          P FALSE
+7        7          Q FALSE
+8        8          R  TRUE
+9        9          S FALSE
+10      10          T  TRUE</code></pre>
 </div>
 </div>
 <p>Since each column is its own ‘type’ we can easily get a summary of the elements within it using <code>summary()</code>.</p>
@@ -1181,8 +1181,8 @@ sample estimates:
 <div class="cell-output cell-output-stdout">
 <pre><code>    TheNums       TheLetters            TF         
  Min.   : 1.00   Length:10          Mode :logical  
- 1st Qu.: 3.25   Class :character   FALSE:5        
- Median : 5.50   Mode  :character   TRUE :5        
+ 1st Qu.: 3.25   Class :character   FALSE:4        
+ Median : 5.50   Mode  :character   TRUE :6        
  Mean   : 5.50                                     
  3rd Qu.: 7.75                                     
  Max.   :10.00                                     </code></pre>
@@ -1313,8 +1313,8 @@ dbl (2): Longitude, Latitude
 <span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> providers<span class="sc">$</span>Esri.WorldTopo) <span class="sc">%&gt;%</span></span>
 <span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>( <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,<span class="at">popup =</span> <span class="sc">~</span>Stratum )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-d3dd1da3bdbd711cb42f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d3dd1da3bdbd711cb42f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-db4d9e35583ac0fb0f8d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-db4d9e35583ac0fb0f8d">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

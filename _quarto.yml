@@ -4,5 +4,7 @@ project:
   pre-render: _extensions/dyerlab/update-extension.sh
 
 format:
-  dyerlab-html: default
-  dyerlab-revealjs: default
+  html: default
+  revealjs: default
+
+

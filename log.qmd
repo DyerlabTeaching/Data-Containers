@@ -3,6 +3,10 @@ title: "Teaching Log"
 format: html
 ---
 
+## 2026.09.01
+- BIOL516: 
+
+
 ## 2025.09.11
 - ENVS543: Walked through the lecture and did in-class activities
 
@@ -12,8 +16,6 @@ format: html
 
 ## 2025.09.04
 - BIOL516: Got to [here](https://dyerlabteaching.github.io/Data-Containers/slides.html#/example-data-1) in the lecture. Started talking about the fig/fig wasp system and stopped.
-
-
 
 
 ### 2026-08-15
