@@ -3,9 +3,16 @@ title: "Teaching Log"
 format: html
 ---
 
+## 2026.09.07
+- ENVS543: In-class activity to
+
+## 2026.09.03
+- ENVS543: Got through slides.
+
+
 ## 2026.09.01
 - BIOL516: Finished slides on this, go through in-class or homework next time to have them do the work with it and get some points.
-- ENVS543: Started slides
+
 
 
 ## 2025.09.11

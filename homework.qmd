@@ -11,15 +11,14 @@ format:
 This activity is designed to allow you to show your abilities to load in, manipulate, and describe data in vectors, lists, and data frames.
 
 
+```{r}
+summary( iris )
+```
+
 
 ## Apply and Analyze Data Container Structures
 
 
-
-```{r}
-
-
-```
 
 
 
