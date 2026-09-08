@@ -3,7 +3,7 @@ title: "Data Containers"
 format: html
 ---
 
-> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. In this topic, we examine some of the more basic data containers in `R`, though in your practice, you will most likely use `data.frame` objects for almost all data interaction and lists as they are the default output from most statistical anlayses.  
+> Data needs to be contained within objects so that we can examine, manipulate, sort, analyze, and communicate about it. In this topic, we examine some of the more basic data containers in `R`, though in your practice, you will most likely use `data.frame` objects for almost all data interaction and lists as they are the default output from most statistical analyses.  
 
 ## Vectors
 
@@ -46,7 +46,7 @@ class(y)
 class(z)
 ```
 
-however, a `vector` is also a data type. As such, it has the `is.vector()` function. So this `x` can be both a vector and a numeric.
+However, a `vector` is also a data type. As such, it has the `is.vector()` function. So this `x` can be both a vector and a numeric.
 
 ```{r}
 is.vector( x ) && is.numeric( x )
@@ -75,7 +75,7 @@ However, it is only available to make a sequence where the increment from one va
 3.2:5.7
 ```
 
-For more fine-grained control, we can use the function `seq()` to iterate across a range of values and specify either the step size (here from 1-10 by 3's)
+For more fine-grained control, we can use the function `seq()` to iterate across a range of values and specify either the step size (here from 1-10 by 3s)
 
 ```{r}
 seq(1,10,by=3)
@@ -140,14 +140,14 @@ as well as exponents.
 x^y
 ```
 
-If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element `x` and the a new 10-element `z`. Notice how the values in x are repeated in the addition operation.
+If the lengths of the vectors are not the same `R` will implement a *recycling rule* where the shorter of the vectors is repeated until you fill up the size of the longer vector. Here is an example with the 5-element `x` and a new 10-element `z`. Notice how the values in x are repeated in the addition operation.
 
 ```{r}
 z <- 1:10
 x + z
 ```
 
-If the two vectors are not multiples of each other in length, it will still recycle the shorter one but will also give you a warning that the two vectors are not conformant (just a FYI).
+If the two vectors are not multiples of each other in length, it will still recycle the shorter one but will also give you a warning that the two vectors are not conformant (just an FYI).
 
 ```{r}
 #| warning: true
@@ -166,7 +166,7 @@ So, in addition to being able to work on individual values, *all functions are a
 
 ## Matrices
 
-A `matrix` is a 2-dimensional container for the same kind of data as well. The two dimensions are represented as *rows* and *columns* in a rectangular configuration. Here I will make a 3x3 vector consisting of a sequence of numbers from 1 to 9.
+A `matrix` is a 2-dimensional container for the same kind of data as well. The two dimensions are represented as *rows* and *columns* in a rectangular configuration. Here I will make a 3x3 matrix consisting of a sequence of numbers from 1 to 9.
 
 ```{r}
 X <- matrix( 1:9, nrow=3, ncol=3 )
@@ -320,7 +320,7 @@ So feel free to use names that make sense, but if you do, you'll need to treat t
 
 By far, the most common location for lists is when you do some kind of analysis. Almost all analyses return the results as a special kind of list.
 
-Here is an example looking at some data from three species of Iris on the lengths and width of sepal and petals. The data look like:
+Here is an example looking at some data from three species of Iris on the lengths and widths of sepals and petals. The data look like:
 
 ```{r}
 #| echo: false
@@ -335,7 +335,7 @@ iris |>
   theme_minimal()
 ```
 
-We can look at the correlation between two variable using the built-in `cor.test()` function.
+We can look at the correlation between two variables using the built-in `cor.test()` function.
 
 ```{r}
 iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )

@@ -20,7 +20,7 @@ This assignment has you practice that habit on a small analysis of the `iris` da
 
 ### Methods
 
-> **Data.** We used Edgar Anderson's *iris* measurements, distributed with R as the `iris` data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a pair of vectors.
+> **Data.** We used Edgar Anderson's *iris* measurements, distributed with R as the `iris` data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimeters — recorded on 150 specimens, 50 from each of three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a pair of vectors.
 
 ```{r}
 data("iris")
@@ -28,7 +28,7 @@ sepal_length <- iris$Sepal.Length
 petal_length <- iris$Petal.Length
 ```
 
-> **Analysis.** We summarised each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using `cor.test()`. We report the correlation coefficient, the *t*-statistic, and the *p*-value.
+> **Analysis.** We summarized each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using `cor.test()`. We report the correlation coefficient, the *t*-statistic, and the *p*-value.
 
 ```{r}
 mean( sepal_length )

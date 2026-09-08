@@ -109,50 +109,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-data">The Data</h2>
 <p>There are two data sets used for this example;</p>
 <ul>
-<li>The <em>iris</em> data set (that comes with R) that describes the sepal and pedal sizes on three species of <em>Iris</em>. This is a classic data set found in a wide variety of data sets and is a great example of having several sample measurements on several individuals in different groups.</li>
+<li>The <em>iris</em> data set (that comes with R) that describes the sepal and petal sizes on three species of <em>Iris</em>. This is a classic data set found in a wide variety of courses and textbooks and is a great example of having several sample measurements on several individuals in different groups.</li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( iris )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
+</div>
+</div>
 <div id="fig-iris" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://flickr.com/photo_download.gne?id=52436835869&amp;secret=1804e00ce8&amp;size=w&amp;source=photoPageEngagement" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Measurements of sepal and pedal lengths and width for three species of iris.
-</figcaption>
-</figure>
-</div>
-<ul>
-<li>Environmental suitability and census data collected by the Dyer lab at various sampling site locales for a species of bark beetle, <em>Araptus attenuatus</em> that we will be using throughout the semester. For this creature, we will be using some data I have stored on Google Drive in a spreadsheet. Instead of downloading the data for everyone, I have shared a URL to it where we can get to it in <code>R</code> directly. In terms of reproducable research, this is <em>a good thing.</em>™</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="fig-araptus" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-araptus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://www.flickr.com/photo_download.gne?id=53265526303&amp;secret=d41e1a61fd&amp;size=s&amp;source=photoPageEngagement" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-araptus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The Sonoran desert bark beetle, <em>Araptus attenuatus</em>.
+Figure&nbsp;1: Measurements of sepal and petal lengths and width for three species of iris.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
-<p>A vector is a list of elements that <strong>must</strong> be the same class of variable.</p>
+<p>A vector is a list of elements that <strong>must</strong> be the same class of variable. Key skills include, creating, manipulating, changing the values in, and analyzing the contents of <code>vector</code> objects.</p>
 </section>
 <section id="matrices" class="level2">
 <h2 class="anchored" data-anchor-id="matrices">Matrices</h2>
-<p>Matrices are a collection of data types in a 2- or 3-dimensional configuration, often used for mathematical modeling.</p>
+<p>Matrices are a collection of data types in a 2- or 3-dimensional configuration, often used for mathematical modeling. Key skills are creating, accessing, and changing values in matrices.</p>
 </section>
 <section id="lists" class="level2">
 <h2 class="anchored" data-anchor-id="lists">Lists</h2>
-<p>Lists are a structure that allows you to have <em>named</em> variables. Elements may be of different class and sizes.</p>
+<p>Lists are a structure that allows you to have <em>named</em> variables. Elements may be of different class and sizes. Key skills are extracting information from list-like objects (mostly from calling functions.)</p>
 </section>
 <section id="data-frames" class="level2">
 <h2 class="anchored" data-anchor-id="data-frames">Data Frames</h2>
-<p>A <code>data.frame</code> is a dense data container similar to that of a spreadsheet where each column has data of the same type (e..g, Latitude, or Temperature) and each row represents a single record of measurements taken together (same time, same individual, etc.).</p>
+<p>A <code>data.frame</code> is a dense data container similar to that of a spreadsheet where each column has data of the same type (e.g., Latitude, or Temperature) and each row represents a single record of measurements taken together (same time, same individual, etc.). The key skills here are creating (mostly loading from file), manipulating, extracting data from, and summarizing data contained in a <code>data.frame</code>.</p>
+</section>
+<section id="communicating-about-data" class="level2">
+<h2 class="anchored" data-anchor-id="communicating-about-data">Communicating About Data</h2>
+<p>A main focus for this course is to be able to not only perform data analytics but to effectively communicate these results. This means that we need to develop skills necessary for including inferences from the data into our narrative.</p>
 <!-- -->
 
 </section>
@@ -610,53 +617,56 @@ Figure&nbsp;2: The Sonoran desert bark beetle, <em>Araptus attenuatus</em>.
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "In Class Activity - Data Containers"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        code-tools: true</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>This in-class file is used for demonstrating individual examples related to this topic and is kept as a persistent record of examples provided during lectures.</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Data</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>There are two data sets used for this example;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The *iris* data set (that comes with R) that describes the sepal and pedal sizes on three species of *Iris*. This is a classic data set found in a wide variety of data sets and is a great example of having several sample measurements on several individuals in different groups.</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="al">![Measurements of sepal and pedal lengths and width for three species of iris.](https://flickr.com/photo_download.gne?id=52436835869&amp;secret=1804e00ce8&amp;size=w&amp;source=photoPageEngagement)</span>{#fig-iris}</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Environmental suitability and census data collected by the Dyer lab at various sampling site locales for a species of bark beetle, *Araptus attenuatus* that we will be using throughout the semester. For this creature, we will be using some data I have stored on Google Drive in a spreadsheet. Instead of downloading the data for everyone, I have shared a URL to it where we can get to it in `R` directly. In terms of reproducable research, this is *a good thing.*™</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="al">![The Sonoran desert bark beetle, *Araptus attenuatus*.](https://www.flickr.com/photo_download.gne?id=53265526303&amp;secret=d41e1a61fd&amp;size=s&amp;source=photoPageEngagement)</span>{#fig-araptus}</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>A vector is a list of elements that **must** be the same class of variable.</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrices</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>Matrices are a collection of data types in a 2- or 3-dimensional configuration, often used for mathematical modeling.</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lists</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>Lists are a structure that allows you to have *named* variables. Elements may be of different class and sizes.</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frames</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>A <span class="in">`data.frame`</span> is a dense data container similar to that of a spreadsheet where each column has data of the same type (e..g, Latitude, or Temperature) and each row represents a single record of measurements taken together (same time, same individual, etc.).</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "In Class Activity - Data Containers"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">        code-tools: true</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Examples</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>This in-class file is used for demonstrating individual examples related to this topic and is kept as a persistent record of examples provided during lectures.</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Data</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>There are two data sets used for this example;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The *iris* data set (that comes with R) that describes the sepal and petal sizes on three species of *Iris*. This is a classic data set found in a wide variety of courses and textbooks and is a great example of having several sample measurements on several individuals in different groups.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( iris )</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="al">![Measurements of sepal and petal lengths and width for three species of iris.](https://flickr.com/photo_download.gne?id=52436835869&amp;secret=1804e00ce8&amp;size=w&amp;source=photoPageEngagement)</span>{#fig-iris}</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vectors</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>A vector is a list of elements that **must** be the same class of variable.  Key skills include, creating, manipulating, changing the values in, and analyzing the contents of <span class="in">`vector`</span> objects.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrices</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>Matrices are a collection of data types in a 2- or 3-dimensional configuration, often used for mathematical modeling.  Key skills are creating, accessing, and changing values in matrices.</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lists</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>Lists are a structure that allows you to have *named* variables. Elements may be of different class and sizes. Key skills are extracting information from list-like objects (mostly from calling functions.)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frames</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>A <span class="in">`data.frame`</span> is a dense data container similar to that of a spreadsheet where each column has data of the same type (e.g., Latitude, or Temperature) and each row represents a single record of measurements taken together (same time, same individual, etc.).  The key skills here are creating (mostly loading from file), manipulating, extracting data from, and summarizing data contained in a <span class="in">`data.frame`</span>.  </span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Communicating About Data</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>A main focus for this course is to be able to not only perform data analytics but to effectively communicate these results.  This means that we need to develop skills necessary for including inferences from the data into our narrative.  </span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
