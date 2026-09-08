@@ -2209,6 +2209,7 @@ vertical-align: -.125em;
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Data Containers Homework</h1>
+<p class="subtitle lead">Building a manuscript and its analysis together</p>
 </div>
 
 
@@ -2231,12 +2232,157 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>This activity is designed to allow you to show your abilities to load in, manipulate, and describe data in vectors, lists, and data frames.</p>
+<section id="the-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-idea">The Idea</h2>
+<p>One of the central habits of reproducible research is that the <strong>words and the code that produces them are written together</strong>. A paragraph of <em>Methods</em> is followed immediately by the chunk that carries out what it describes. A statement in <em>Results</em> is backed by a value, table, or figure generated in the chunk beside it — and for numbers reported in the running text, the value is read straight from a variable in memory using an inline <code>`r `</code> expression, never typed by hand.</p>
+<p>This assignment has you practice that habit on a small analysis of the <code>iris</code> data set. First read the worked example, then reproduce its structure for a different pair of variables and extend it.</p>
+</section>
+<section id="a-worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-worked-example">A Worked Example</h2>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<blockquote class="blockquote">
+<p><strong>Data.</strong> We used Edgar Anderson’s <em>iris</em> measurements, distributed with R as the <code>iris</code> data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (<em>Iris setosa</em>, <em>I. versicolor</em>, <em>I. virginica</em>). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a working data frame.</p>
+</blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>morph <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sepal_length =</span> iris<span class="sc">$</span>Sepal.Length,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">petal_length =</span> iris<span class="sc">$</span>Petal.Length</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<blockquote class="blockquote">
+<p><strong>Analysis.</strong> We summarised each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using <code>cor.test()</code>. We report the correlation coefficient, the <em>t</em>-statistic, and the <em>p</em>-value.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( morph<span class="sc">$</span>sepal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.843333</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( morph<span class="sc">$</span>petal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.758</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( morph<span class="sc">$</span>sepal_length, morph<span class="sc">$</span>petal_length )</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  morph$sepal_length and morph$petal_length
+t = 21.646, df = 148, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.8270363 0.9055080
+sample estimates:
+      cor 
+0.8717538 </code></pre>
+</div>
+</div>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<blockquote class="blockquote">
+<p>Across all 150 specimens, mean sepal length was 5.84 cm and mean petal length was 3.76 cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, <em>r</em> = 0.872, <em>t</em> = 21.6, <em>P</em> = 1.04e-47).</p>
+</blockquote>
+<p>Look at the source of that paragraph: every number is an inline call to a variable already computed in the chunk above it. Nothing is hard-typed, so if the data changed, the paragraph would rewrite itself on the next render.</p>
+</section>
+</section>
+<section id="your-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="your-assignment">Your Assignment</h2>
+<p>Reproduce this pattern for <strong>sepal width and petal width</strong>, then extend it.</p>
+<p>Use <strong>all 150 specimens</strong> for the main analysis — do not filter by species yet (selective filtering with <code>filter()</code> and friends is the next module, Tidyverse).</p>
+<section id="methods-1" class="level3">
+<h3 class="anchored" data-anchor-id="methods-1">1. Methods</h3>
+<p>Write <strong>two short paragraphs, each followed immediately by the chunk that implements it</strong>:</p>
+<ol type="a">
+<li>A <strong>Data</strong> paragraph saying what you extracted, followed by a chunk that pulls <code>iris$Sepal.Width</code> and <code>iris$Petal.Width</code> (and, for Part 3, <code>iris$Species</code>) into a data frame of your own.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build your data frame here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="a">
+<li>An <strong>Analysis</strong> paragraph describing the summary and the test, followed by a chunk that computes the mean of each width column and runs <code>cor.test()</code> on the two.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the means and run cor.test() here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="results-1" class="level3">
+<h3 class="anchored" data-anchor-id="results-1">2. Results</h3>
+<p>Write <strong>one paragraph</strong> reporting the two means and the correlation (<em>r</em>, <em>t</em>, and <em>P</em>). Report every value with an inline <code>`r `</code> expression using <code>format(..., digits = 3)</code>, exactly as in the worked example. This section contains <strong>no printed chunk output, no tables, and no figures</strong> — just the prose and its inline values.</p>
+</section>
+<section id="compare-a-species-pair" class="level3">
+<h3 class="anchored" data-anchor-id="compare-a-species-pair">3. Compare a species pair</h3>
+<p>Now ask whether the association you found across all three species looks the same <em>within</em> a narrower group.</p>
+<ul>
+<li>Add <code>iris$Species</code> to your data frame if you have not already.</li>
+<li>Pick <strong>one pair of species</strong> (for example <em>versicolor</em> and <em>virginica</em>) and subset your data frame to just those rows using logical indexing, e.g. <code>df[ df$species %in% c(&quot;versicolor&quot;, &quot;virginica&quot;), ]</code>.</li>
+<li>Run <code>cor.test()</code> on sepal width vs petal width <strong>within that pair</strong>.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to your species pair and run cor.test() on the subset.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then add <strong>one or two sentences to your Results paragraph</strong> (still inline values only) that report the within-pair correlation and state whether it is <strong>stronger or weaker</strong> than the all-species correlation, and by roughly how much.</p>
+</section>
+<section id="container-check" class="level3">
+<h3 class="anchored" data-anchor-id="container-check">4. Container check</h3>
+<p>Short answers — these make sure you can name and handle each container.</p>
+<ol type="1">
+<li>Run <code>class()</code>, <code>length()</code>, and <code>is.vector()</code> on one of your width columns.</li>
+<li>Use <code>cbind()</code> to build a matrix from your two width vectors. Report its <code>dim()</code>, then show the first row (<code>M[1, ]</code>) and the second column (<code>M[, 2]</code>).</li>
+<li><code>names(fit)</code> shows that the object returned by <code>cor.test()</code> is a list. In one sentence, why does <code>cor.test()</code> return a <strong>list</strong> rather than a <strong>data frame</strong>?</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># class(), length(), is.vector(), cbind(), names() here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">5. Reflection</h3>
+<p>Two or three sentences each:</p>
+<ol type="1">
+<li>Name the container type of <code>iris</code>, your width data frame, the two mean values, and <code>fit</code>, and say why each is the right container for what it holds.</li>
+<li>In this course you were told you will really only use a list in one situation. What is it, and does anything in this assignment match that description?</li>
+<li>When a within-pair correlation differs from the pooled one, what does that tell you about combining groups before analysis?</li>
+</ol>
+</section>
+</section>
+<section id="what-you-turn-in" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-turn-in">What You Turn In</h2>
+<p>A rendered, self-contained HTML file containing: the worked example (unchanged), your two Methods paragraphs with their chunks, your Results paragraph with inline values only, your species-pair comparison, and your answers to the container check and reflection.</p>
+</section>
+<section id="how-this-is-graded" class="level2">
+<h2 class="anchored" data-anchor-id="how-this-is-graded">How This Is Graded</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Module Learning Objective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data frame built from <code>iris</code> vectors; container check (Part 4)</td>
+<td>Apply &amp; Analyze Data Container Structures</td>
+</tr>
+<tr class="even">
+<td>Analysis chunk; Results paragraph reported entirely with inline references</td>
+<td>Integrate Data Containers into Reproducible Workflows</td>
+</tr>
+<tr class="odd">
+<td>Species-pair subset and comparison (Part 3)</td>
+<td>Both — data-frame manipulation and reproducible reporting</td>
+</tr>
+<tr class="even">
+<td>Reflection (Part 5)</td>
+<td>The <em>Analyze</em> dimension of both objectives</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 </main>

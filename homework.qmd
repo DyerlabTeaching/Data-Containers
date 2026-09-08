@@ -1,26 +1,167 @@
 ---
 title: "Data Containers Homework"
+subtitle: "Building a manuscript and its analysis together"
 author: "YOUR NAME HERE"
-format: 
+format:
     html:
         self-contained: true
 ---
 
-## Learning Objectives
+## The Idea
 
-This activity is designed to allow you to show your abilities to load in, manipulate, and describe data in vectors, lists, and data frames.
+One of the central habits of reproducible research is that the **words and the
+code that produces them are written together**. A paragraph of *Methods* is
+followed immediately by the chunk that carries out what it describes. A statement
+in *Results* is backed by a value, table, or figure generated in the chunk beside
+it — and for numbers reported in the running text, the value is read straight
+from a variable in memory using an inline `` `r ` `` expression, never typed by
+hand.
 
+This assignment has you practice that habit on a small analysis of the `iris`
+data set. First read the worked example, then reproduce its structure for a
+different pair of variables and extend it.
+
+## A Worked Example
+
+### Methods
+
+> **Data.** We used Edgar Anderson's *iris* measurements, distributed with R as
+> the `iris` data set (Anderson 1935): four floral traits — sepal and petal
+> length and width, in centimetres — recorded on 150 specimens, 50 from each of
+> three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this
+> example we pulled sepal length and petal length for all 150 specimens, all
+> species pooled, into a working data frame.
 
 ```{r}
-summary( iris )
+data("iris")
+morph <- data.frame(
+  sepal_length = iris$Sepal.Length,
+  petal_length = iris$Petal.Length
+)
 ```
 
+> **Analysis.** We summarised each trait by its mean and tested the association
+> between the two traits with a Pearson product-moment correlation using
+> `cor.test()`. We report the correlation coefficient, the *t*-statistic, and the
+> *p*-value.
 
-## Apply and Analyze Data Container Structures
+```{r}
+mean( morph$sepal_length )
+mean( morph$petal_length )
+fit <- cor.test( morph$sepal_length, morph$petal_length )
+fit
+```
 
+### Results
 
+> Across all 150 specimens, mean sepal length was
+> `r format(mean(morph$sepal_length), digits=3)` cm and mean petal length was
+> `r format(mean(morph$petal_length), digits=3)` cm. Sepal and petal length were
+> strongly and positively correlated (Pearson correlation, *r* =
+> `r format(fit["estimate"], digits=3)`, *t* =
+> `r format(fit["statistic"], digits=3)`, *P* =
+> `r format(fit["p.value"], digits=3)`).
 
+Look at the source of that paragraph: every number is an inline call to a
+variable already computed in the chunk above it. Nothing is hard-typed, so if the
+data changed, the paragraph would rewrite itself on the next render.
 
+## Your Assignment
 
-## Integration of Data contained in Various Containers into Reproducible Workflows
+Reproduce this pattern for **sepal width and petal width**, then extend it.
 
+Use **all 150 specimens** for the main analysis — do not filter by species yet
+(selective filtering with `filter()` and friends is the next module, Tidyverse).
+
+### 1. Methods
+
+Write **two short paragraphs, each followed immediately by the chunk that
+implements it**:
+
+a. A **Data** paragraph saying what you extracted, followed by a chunk that pulls
+   `iris$Sepal.Width` and `iris$Petal.Width` (and, for Part 3, `iris$Species`)
+   into a data frame of your own.
+
+```{r}
+#| label: assignment-data
+# Build your data frame here.
+```
+
+b. An **Analysis** paragraph describing the summary and the test, followed by a
+   chunk that computes the mean of each width column and runs `cor.test()` on the
+   two.
+
+```{r}
+#| label: assignment-analysis
+# Compute the means and run cor.test() here.
+```
+
+### 2. Results
+
+Write **one paragraph** reporting the two means and the correlation (*r*, *t*,
+and *P*). Report every value with an inline `` `r ` `` expression using
+`format(..., digits = 3)`, exactly as in the worked example. This section
+contains **no printed chunk output, no tables, and no figures** — just the prose
+and its inline values.
+
+### 3. Compare a species pair
+
+Now ask whether the association you found across all three species looks the same
+*within* a narrower group.
+
+- Add `iris$Species` to your data frame if you have not already.
+- Pick **one pair of species** (for example *versicolor* and *virginica*) and
+  subset your data frame to just those rows using logical indexing, e.g.
+  `df[ df$species %in% c("versicolor", "virginica"), ]`.
+- Run `cor.test()` on sepal width vs petal width **within that pair**.
+
+```{r}
+#| label: assignment-pair
+# Subset to your species pair and run cor.test() on the subset.
+```
+
+Then add **one or two sentences to your Results paragraph** (still inline values
+only) that report the within-pair correlation and state whether it is
+**stronger or weaker** than the all-species correlation, and by roughly how much.
+
+### 4. Container check
+
+Short answers — these make sure you can name and handle each container.
+
+1. Run `class()`, `length()`, and `is.vector()` on one of your width columns.
+2. Use `cbind()` to build a matrix from your two width vectors. Report its
+   `dim()`, then show the first row (`M[1, ]`) and the second column (`M[, 2]`).
+3. `names(fit)` shows that the object returned by `cor.test()` is a list. In one
+   sentence, why does `cor.test()` return a **list** rather than a **data frame**?
+
+```{r}
+#| label: assignment-containers
+# class(), length(), is.vector(), cbind(), names() here.
+```
+
+### 5. Reflection
+
+Two or three sentences each:
+
+1. Name the container type of `iris`, your width data frame, the two mean values,
+   and `fit`, and say why each is the right container for what it holds.
+2. In this course you were told you will really only use a list in one situation.
+   What is it, and does anything in this assignment match that description?
+3. When a within-pair correlation differs from the pooled one, what does that tell
+   you about combining groups before analysis?
+
+## What You Turn In
+
+A rendered, self-contained HTML file containing: the worked example (unchanged),
+your two Methods paragraphs with their chunks, your Results paragraph with inline
+values only, your species-pair comparison, and your answers to the container
+check and reflection.
+
+## How This Is Graded
+
+| Component | Module Learning Objective |
+|---|---|
+| Data frame built from `iris` vectors; container check (Part 4) | Apply & Analyze Data Container Structures |
+| Analysis chunk; Results paragraph reported entirely with inline references | Integrate Data Containers into Reproducible Workflows |
+| Species-pair subset and comparison (Part 3) | Both — data-frame manipulation and reproducible reporting |
+| Reflection (Part 5) | The *Analyze* dimension of both objectives |
