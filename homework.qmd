@@ -5,163 +5,119 @@ author: "YOUR NAME HERE"
 format:
     html:
         self-contained: true
+        code-tools: true
 ---
 
 ## The Idea
 
-One of the central habits of reproducible research is that the **words and the
-code that produces them are written together**. A paragraph of *Methods* is
-followed immediately by the chunk that carries out what it describes. A statement
-in *Results* is backed by a value, table, or figure generated in the chunk beside
-it — and for numbers reported in the running text, the value is read straight
-from a variable in memory using an inline `` `r ` `` expression, never typed by
-hand.
+One of the central habits of reproducible research is that the **words and the code that produce them are written together**. A paragraph of *Methods* is followed immediately by the chunk that carries out what it describes. A statement in *Results* is backed by a value generated in the chunk beside it, and for numbers reported in the running text the value is read straight from a variable in memory using an inline `` `r ` `` expression, never typed by hand.[^ref-inline]
 
-This assignment has you practice that habit on a small analysis of the `iris`
-data set. First read the worked example, then reproduce its structure for a
-different pair of variables and extend it.
+[^ref-inline]: For a fuller treatment of pulling values out of an analysis and citing them inline, see the narrative section [Analysis Output](https://dyerlabteaching.github.io/Data-Containers/narrative.html#analysis-output) and the slide [Benefits](https://dyerlabteaching.github.io/Data-Containers/slides.html#/benefits).
+
+This assignment has you practice that habit on a small analysis of the `iris` data set. Read the worked example, then reproduce its structure for sepal width and petal width.
 
 ## A Worked Example
 
 ### Methods
 
-> **Data.** We used Edgar Anderson's *iris* measurements, distributed with R as
-> the `iris` data set (Anderson 1935): four floral traits — sepal and petal
-> length and width, in centimetres — recorded on 150 specimens, 50 from each of
-> three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this
-> example we pulled sepal length and petal length for all 150 specimens, all
-> species pooled, into a working data frame.
+> **Data.** We used Edgar Anderson's *iris* measurements, distributed with R as the `iris` data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a pair of vectors.
 
 ```{r}
 data("iris")
-morph <- data.frame(
-  sepal_length = iris$Sepal.Length,
-  petal_length = iris$Petal.Length
-)
+sepal_length <- iris$Sepal.Length
+petal_length <- iris$Petal.Length
 ```
 
-> **Analysis.** We summarised each trait by its mean and tested the association
-> between the two traits with a Pearson product-moment correlation using
-> `cor.test()`. We report the correlation coefficient, the *t*-statistic, and the
-> *p*-value.
+> **Analysis.** We summarised each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using `cor.test()`. We report the correlation coefficient, the *t*-statistic, and the *p*-value.
 
 ```{r}
-mean( morph$sepal_length )
-mean( morph$petal_length )
-fit <- cor.test( morph$sepal_length, morph$petal_length )
+mean( sepal_length )
+mean( petal_length )
+fit <- cor.test( sepal_length, petal_length )
 fit
+```
+
+### Preparing the reporting values
+
+Before writing a word of the Results, spend a moment pulling the numbers you are going to report out of the `fit` object and formatting them. You *could* write each one inline — `` `r format(fit$estimate, digits = 3)` `` — but a paragraph full of `format()` calls is hard to read and harder to revise: every time you reread the sentence you have to step over the code to find the prose. Doing that work in one small chunk, and giving each value a short name, keeps the writing clean.
+
+```{r}
+mean_sepal <- format( mean(sepal_length), digits = 3 )
+mean_petal <- format( mean(petal_length), digits = 3 )
+
+r <- format( fit$estimate,  digits = 3 )
+t <- format( fit$statistic, digits = 3 )
+p <- format( fit$p.value,   digits = 3 )
+N <- length( sepal_length )
 ```
 
 ### Results
 
-> Across all 150 specimens, mean sepal length was
-> `r format(mean(morph$sepal_length), digits=3)` cm and mean petal length was
-> `r format(mean(morph$petal_length), digits=3)` cm. Sepal and petal length were
-> strongly and positively correlated (Pearson correlation, *r* =
-> `r format(fit["estimate"], digits=3)`, *t* =
-> `r format(fit["statistic"], digits=3)`, *P* =
-> `r format(fit["p.value"], digits=3)`).
+> Across all `r N` specimens, mean sepal length was `r mean_sepal` cm and mean petal length was `r mean_petal` cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, *r* = `r r`, *t* = `r t`, *P* = `r p`).
 
-Look at the source of that paragraph: every number is an inline call to a
-variable already computed in the chunk above it. Nothing is hard-typed, so if the
-data changed, the paragraph would rewrite itself on the next render.
+Now the source of that paragraph reads almost exactly as the rendered sentence will, and if the analysis changes you edit only the chunk above, never the prose.
+
+Here is the raw text that produced it:
+
+```{verbatim}
+Across all `r N` specimens, mean sepal length was `r mean_sepal` cm and mean petal length was `r mean_petal` cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, *r* = `r r`, *t* = `r t`, *P* = `r p`).
+```
 
 ## Your Assignment
 
-Reproduce this pattern for **sepal width and petal width**, then extend it.
+Following the worked example, produce a standalone **Methods** and **Results** write-up for the correlation between **sepal width and petal width** across all 150 *iris* specimens.[^ref]
 
-Use **all 150 specimens** for the main analysis — do not filter by species yet
-(selective filtering with `filter()` and friends is the next module, Tidyverse).
+Your document should have:
 
-### 1. Methods
+1. **Methods** — a *Data* paragraph followed by the chunk that pulls the two width vectors out of `iris`, then an *Analysis* paragraph followed by the chunk that takes the mean of each and runs `cor.test()`.
+2. **A reporting-values chunk** — `format()` the two means and the correlation's *r*, *t*, and *p*, and give each a short name.
+3. **Results** — one paragraph reporting those numbers as bare inline values (`` `r r` ``), with no `format()` in the prose.
 
-Write **two short paragraphs, each followed immediately by the chunk that
-implements it**:
+Then answer briefly, a sentence or two each:
 
-a. A **Data** paragraph saying what you extracted, followed by a chunk that pulls
-   `iris$Sepal.Width` and `iris$Petal.Width` (and, for Part 3, `iris$Species`)
-   into a data frame of your own.
+- Name the container type of `iris`, your width vectors, and `fit`, and say why each suits what it holds.
+- Why does `cor.test()` return a list rather than a data frame?
 
-```{r}
-#| label: assignment-data
-# Build your data frame here.
-```
-
-b. An **Analysis** paragraph describing the summary and the test, followed by a
-   chunk that computes the mean of each width column and runs `cor.test()` on the
-   two.
-
-```{r}
-#| label: assignment-analysis
-# Compute the means and run cor.test() here.
-```
-
-### 2. Results
-
-Write **one paragraph** reporting the two means and the correlation (*r*, *t*,
-and *P*). Report every value with an inline `` `r ` `` expression using
-`format(..., digits = 3)`, exactly as in the worked example. This section
-contains **no printed chunk output, no tables, and no figures** — just the prose
-and its inline values.
-
-### 3. Compare a species pair
-
-Now ask whether the association you found across all three species looks the same
-*within* a narrower group.
-
-- Add `iris$Species` to your data frame if you have not already.
-- Pick **one pair of species** (for example *versicolor* and *virginica*) and
-  subset your data frame to just those rows using logical indexing, e.g.
-  `df[ df$species %in% c("versicolor", "virginica"), ]`.
-- Run `cor.test()` on sepal width vs petal width **within that pair**.
-
-```{r}
-#| label: assignment-pair
-# Subset to your species pair and run cor.test() on the subset.
-```
-
-Then add **one or two sentences to your Results paragraph** (still inline values
-only) that report the within-pair correlation and state whether it is
-**stronger or weaker** than the all-species correlation, and by roughly how much.
-
-### 4. Container check
-
-Short answers — these make sure you can name and handle each container.
-
-1. Run `class()`, `length()`, and `is.vector()` on one of your width columns.
-2. Use `cbind()` to build a matrix from your two width vectors. Report its
-   `dim()`, then show the first row (`M[1, ]`) and the second column (`M[, 2]`).
-3. `names(fit)` shows that the object returned by `cor.test()` is a list. In one
-   sentence, why does `cor.test()` return a **list** rather than a **data frame**?
-
-```{r}
-#| label: assignment-containers
-# class(), length(), is.vector(), cbind(), names() here.
-```
-
-### 5. Reflection
-
-Two or three sentences each:
-
-1. Name the container type of `iris`, your width data frame, the two mean values,
-   and `fit`, and say why each is the right container for what it holds.
-2. In this course you were told you will really only use a list in one situation.
-   What is it, and does anything in this assignment match that description?
-3. When a within-pair correlation differs from the pooled one, what does that tell
-   you about combining groups before analysis?
+[^ref]: The mechanics — pulling vectors out of a data frame, `cor.test()` output as a list, reporting values inline — are all in the module [narrative](https://dyerlabteaching.github.io/Data-Containers/narrative.html) and [slides](https://dyerlabteaching.github.io/Data-Containers/slides.html).
 
 ## What You Turn In
 
-A rendered, self-contained HTML file containing: the worked example (unchanged),
-your two Methods paragraphs with their chunks, your Results paragraph with inline
-values only, your species-pair comparison, and your answers to the container
-check and reflection.
+**One file: the rendered, self-contained `.html`.** Not the `.qmd`, and not a copy of this page. Make a *new* Quarto document that contains only your own work — your Methods and Results sections with their chunks, the reporting-values chunk, and your brief answers to the two questions.
+
+The worked example above is a model to imitate, not text to paste into your document.
+
+### Making the document
+
+1. In RStudio: **File ▸ New File ▸ Quarto Document…**
+2. In the dialog, enter a title and your name, leave the engine set to **Knitr**, and click **Create**.
+3. Delete everything RStudio puts below the header (the "Quarto" boilerplate and its example chunk).
+4. Replace the header it generated with the one below.
+5. Save the file into your course project folder as `Data-Containers-Homework.qmd`.
+6. Write your content, then click **Render** to produce the `.html`. That HTML file is what you submit.
+
+### The full YAML header
+
+```yaml
+---
+title: "Data Containers Homework"
+author: "Your Name"
+date: today
+abstract: |
+  A sentence or two saying what the document does: the data, the question, and what you found.
+format:
+  html:
+    self-contained: true
+    code-tools: true
+---
+```
+
+- **`title` / `author` / `date` / `abstract`** — complete front matter, including a short summary where a scientific paper would put its abstract. `date: today` fills itself in at render time.
+- **`format: html`** — render to a single web page I can open in any browser.
+- **`self-contained: true`** — bundle every image, style, and script *into* that one `.html` file. Without it the file depends on a sibling `*_files/` folder that never makes it into the upload, and your figures and formatting arrive broken.
+- **`code-tools: true`** — adds the "</> Code" button in the top-right that lets a reader view the full source. **This is not optional.** If I cannot see the code behind a wrong answer, I cannot tell whether you were one typo away or lost the plot entirely — which means I cannot give partial credit, point out where it went sideways, or help you fix it. A rendered page with no visible code is graded only on what rendered.
+
+Use this same header layout for every document you turn in this course.
 
 ## How This Is Graded
 
-| Component | Module Learning Objective |
-|---|---|
-| Data frame built from `iris` vectors; container check (Part 4) | Apply & Analyze Data Container Structures |
-| Analysis chunk; Results paragraph reported entirely with inline references | Integrate Data Containers into Reproducible Workflows |
-| Species-pair subset and comparison (Part 3) | Both — data-frame manipulation and reproducible reporting |
-| Reflection (Part 5) | The *Analyze* dimension of both objectives |
+This assignment is scored with the **Online Homework Rubric** on the Canvas site — the same rubric used for every online homework in this course. It covers online access to the published document, front matter, formatting, and whether the document stands on its own; the remaining points come from the assignment-specific work above.

@@ -2208,7 +2208,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Containers Homework</h1>
+<div class="quarto-title-block"><div><h1 class="title">Data Containers Homework</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Building a manuscript and its analysis together</p>
 </div>
 
@@ -2234,42 +2234,40 @@ vertical-align: -.125em;
 
 <section id="the-idea" class="level2">
 <h2 class="anchored" data-anchor-id="the-idea">The Idea</h2>
-<p>One of the central habits of reproducible research is that the <strong>words and the code that produces them are written together</strong>. A paragraph of <em>Methods</em> is followed immediately by the chunk that carries out what it describes. A statement in <em>Results</em> is backed by a value, table, or figure generated in the chunk beside it — and for numbers reported in the running text, the value is read straight from a variable in memory using an inline <code>`r `</code> expression, never typed by hand.</p>
-<p>This assignment has you practice that habit on a small analysis of the <code>iris</code> data set. First read the worked example, then reproduce its structure for a different pair of variables and extend it.</p>
+<p>One of the central habits of reproducible research is that the <strong>words and the code that produce them are written together</strong>. A paragraph of <em>Methods</em> is followed immediately by the chunk that carries out what it describes. A statement in <em>Results</em> is backed by a value generated in the chunk beside it, and for numbers reported in the running text the value is read straight from a variable in memory using an inline <code>`r `</code> expression, never typed by hand.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>This assignment has you practice that habit on a small analysis of the <code>iris</code> data set. Read the worked example, then reproduce its structure for sepal width and petal width.</p>
 </section>
 <section id="a-worked-example" class="level2">
 <h2 class="anchored" data-anchor-id="a-worked-example">A Worked Example</h2>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
 <blockquote class="blockquote">
-<p><strong>Data.</strong> We used Edgar Anderson’s <em>iris</em> measurements, distributed with R as the <code>iris</code> data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (<em>Iris setosa</em>, <em>I. versicolor</em>, <em>I. virginica</em>). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a working data frame.</p>
+<p><strong>Data.</strong> We used Edgar Anderson’s <em>iris</em> measurements, distributed with R as the <code>iris</code> data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (<em>Iris setosa</em>, <em>I. versicolor</em>, <em>I. virginica</em>). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a pair of vectors.</p>
 </blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>morph <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sepal_length =</span> iris<span class="sc">$</span>Sepal.Length,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">petal_length =</span> iris<span class="sc">$</span>Petal.Length</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sepal_length <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>petal_length <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>Analysis.</strong> We summarised each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using <code>cor.test()</code>. We report the correlation coefficient, the <em>t</em>-statistic, and the <em>p</em>-value.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( morph<span class="sc">$</span>sepal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( sepal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.843333</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( morph<span class="sc">$</span>petal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( petal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.758</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( morph<span class="sc">$</span>sepal_length, morph<span class="sc">$</span>petal_length )</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( sepal_length, petal_length )</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson&#39;s product-moment correlation
 
-data:  morph$sepal_length and morph$petal_length
+data:  sepal_length and petal_length
 t = 21.646, df = 148, p-value &lt; 2.2e-16
 alternative hypothesis: true correlation is not equal to 0
 95 percent confidence interval:
@@ -2280,112 +2278,96 @@ sample estimates:
 </div>
 </div>
 </section>
+<section id="preparing-the-reporting-values" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-the-reporting-values">Preparing the reporting values</h3>
+<p>Before writing a word of the Results, spend a moment pulling the numbers you are going to report out of the <code>fit</code> object and formatting them. You <em>could</em> write each one inline — <code>0.872</code> — but a paragraph full of <code>format()</code> calls is hard to read and harder to revise: every time you reread the sentence you have to step over the code to find the prose. Doing that work in one small chunk, and giving each value a short name, keeps the writing clean.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mean_sepal <span class="ot">&lt;-</span> <span class="fu">format</span>( <span class="fu">mean</span>(sepal_length), <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_petal <span class="ot">&lt;-</span> <span class="fu">format</span>( <span class="fu">mean</span>(petal_length), <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>estimate,  <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>statistic, <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>p.value,   <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">length</span>( sepal_length )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 <section id="results" class="level3">
 <h3 class="anchored" data-anchor-id="results">Results</h3>
 <blockquote class="blockquote">
 <p>Across all 150 specimens, mean sepal length was 5.84 cm and mean petal length was 3.76 cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, <em>r</em> = 0.872, <em>t</em> = 21.6, <em>P</em> = 1.04e-47).</p>
 </blockquote>
-<p>Look at the source of that paragraph: every number is an inline call to a variable already computed in the chunk above it. Nothing is hard-typed, so if the data changed, the paragraph would rewrite itself on the next render.</p>
+<p>Now the source of that paragraph reads almost exactly as the rendered sentence will, and if the analysis changes you edit only the chunk above, never the prose.</p>
+<p>Here is the raw text that produced it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Across all `r N` specimens, mean sepal length was `r mean_sepal` cm and mean petal length was `r mean_petal` cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, *r* = `r r`, *t* = `r t`, *P* = `r p`).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="your-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="your-assignment">Your Assignment</h2>
-<p>Reproduce this pattern for <strong>sepal width and petal width</strong>, then extend it.</p>
-<p>Use <strong>all 150 specimens</strong> for the main analysis — do not filter by species yet (selective filtering with <code>filter()</code> and friends is the next module, Tidyverse).</p>
-<section id="methods-1" class="level3">
-<h3 class="anchored" data-anchor-id="methods-1">1. Methods</h3>
-<p>Write <strong>two short paragraphs, each followed immediately by the chunk that implements it</strong>:</p>
-<ol type="a">
-<li>A <strong>Data</strong> paragraph saying what you extracted, followed by a chunk that pulls <code>iris$Sepal.Width</code> and <code>iris$Petal.Width</code> (and, for Part 3, <code>iris$Species</code>) into a data frame of your own.</li>
+<p>Following the worked example, produce a standalone <strong>Methods</strong> and <strong>Results</strong> write-up for the correlation between <strong>sepal width and petal width</strong> across all 150 <em>iris</em> specimens.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Your document should have:</p>
+<ol type="1">
+<li><strong>Methods</strong> — a <em>Data</em> paragraph followed by the chunk that pulls the two width vectors out of <code>iris</code>, then an <em>Analysis</em> paragraph followed by the chunk that takes the mean of each and runs <code>cor.test()</code>.</li>
+<li><strong>A reporting-values chunk</strong> — <code>format()</code> the two means and the correlation’s <em>r</em>, <em>t</em>, and <em>p</em>, and give each a short name.</li>
+<li><strong>Results</strong> — one paragraph reporting those numbers as bare inline values (<code>0.872</code>), with no <code>format()</code> in the prose.</li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build your data frame here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol start="2" type="a">
-<li>An <strong>Analysis</strong> paragraph describing the summary and the test, followed by a chunk that computes the mean of each width column and runs <code>cor.test()</code> on the two.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the means and run cor.test() here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="results-1" class="level3">
-<h3 class="anchored" data-anchor-id="results-1">2. Results</h3>
-<p>Write <strong>one paragraph</strong> reporting the two means and the correlation (<em>r</em>, <em>t</em>, and <em>P</em>). Report every value with an inline <code>`r `</code> expression using <code>format(..., digits = 3)</code>, exactly as in the worked example. This section contains <strong>no printed chunk output, no tables, and no figures</strong> — just the prose and its inline values.</p>
-</section>
-<section id="compare-a-species-pair" class="level3">
-<h3 class="anchored" data-anchor-id="compare-a-species-pair">3. Compare a species pair</h3>
-<p>Now ask whether the association you found across all three species looks the same <em>within</em> a narrower group.</p>
+<p>Then answer briefly, a sentence or two each:</p>
 <ul>
-<li>Add <code>iris$Species</code> to your data frame if you have not already.</li>
-<li>Pick <strong>one pair of species</strong> (for example <em>versicolor</em> and <em>virginica</em>) and subset your data frame to just those rows using logical indexing, e.g. <code>df[ df$species %in% c(&quot;versicolor&quot;, &quot;virginica&quot;), ]</code>.</li>
-<li>Run <code>cor.test()</code> on sepal width vs petal width <strong>within that pair</strong>.</li>
+<li>Name the container type of <code>iris</code>, your width vectors, and <code>fit</code>, and say why each suits what it holds.</li>
+<li>Why does <code>cor.test()</code> return a list rather than a data frame?</li>
 </ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to your species pair and run cor.test() on the subset.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Then add <strong>one or two sentences to your Results paragraph</strong> (still inline values only) that report the within-pair correlation and state whether it is <strong>stronger or weaker</strong> than the all-species correlation, and by roughly how much.</p>
-</section>
-<section id="container-check" class="level3">
-<h3 class="anchored" data-anchor-id="container-check">4. Container check</h3>
-<p>Short answers — these make sure you can name and handle each container.</p>
-<ol type="1">
-<li>Run <code>class()</code>, <code>length()</code>, and <code>is.vector()</code> on one of your width columns.</li>
-<li>Use <code>cbind()</code> to build a matrix from your two width vectors. Report its <code>dim()</code>, then show the first row (<code>M[1, ]</code>) and the second column (<code>M[, 2]</code>).</li>
-<li><code>names(fit)</code> shows that the object returned by <code>cor.test()</code> is a list. In one sentence, why does <code>cor.test()</code> return a <strong>list</strong> rather than a <strong>data frame</strong>?</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># class(), length(), is.vector(), cbind(), names() here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="reflection" class="level3">
-<h3 class="anchored" data-anchor-id="reflection">5. Reflection</h3>
-<p>Two or three sentences each:</p>
-<ol type="1">
-<li>Name the container type of <code>iris</code>, your width data frame, the two mean values, and <code>fit</code>, and say why each is the right container for what it holds.</li>
-<li>In this course you were told you will really only use a list in one situation. What is it, and does anything in this assignment match that description?</li>
-<li>When a within-pair correlation differs from the pooled one, what does that tell you about combining groups before analysis?</li>
-</ol>
-</section>
 </section>
 <section id="what-you-turn-in" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-turn-in">What You Turn In</h2>
-<p>A rendered, self-contained HTML file containing: the worked example (unchanged), your two Methods paragraphs with their chunks, your Results paragraph with inline values only, your species-pair comparison, and your answers to the container check and reflection.</p>
+<p><strong>One file: the rendered, self-contained <code>.html</code>.</strong> Not the <code>.qmd</code>, and not a copy of this page. Make a <em>new</em> Quarto document that contains only your own work — your Methods and Results sections with their chunks, the reporting-values chunk, and your brief answers to the two questions.</p>
+<p>The worked example above is a model to imitate, not text to paste into your document.</p>
+<section id="making-the-document" class="level3">
+<h3 class="anchored" data-anchor-id="making-the-document">Making the document</h3>
+<ol type="1">
+<li>In RStudio: <strong>File ▸ New File ▸ Quarto Document…</strong></li>
+<li>In the dialog, enter a title and your name, leave the engine set to <strong>Knitr</strong>, and click <strong>Create</strong>.</li>
+<li>Delete everything RStudio puts below the header (the “Quarto” boilerplate and its example chunk).</li>
+<li>Replace the header it generated with the one below.</li>
+<li>Save the file into your course project folder as <code>Data-Containers-Homework.qmd</code>.</li>
+<li>Write your content, then click <strong>Render</strong> to produce the <code>.html</code>. That HTML file is what you submit.</li>
+</ol>
+</section>
+<section id="the-full-yaml-header" class="level3">
+<h3 class="anchored" data-anchor-id="the-full-yaml-header">The full YAML header</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Data Containers Homework&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abstract</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  A sentence or two saying what the document does: the data, the question, and what you found.</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">self-contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><strong><code>title</code> / <code>author</code> / <code>date</code> / <code>abstract</code></strong> — complete front matter, including a short summary where a scientific paper would put its abstract. <code>date: today</code> fills itself in at render time.</li>
+<li><strong><code>format: html</code></strong> — render to a single web page I can open in any browser.</li>
+<li><strong><code>self-contained: true</code></strong> — bundle every image, style, and script <em>into</em> that one <code>.html</code> file. Without it the file depends on a sibling <code>*_files/</code> folder that never makes it into the upload, and your figures and formatting arrive broken.</li>
+<li><strong><code>code-tools: true</code></strong> — adds the “&lt;/&gt; Code” button in the top-right that lets a reader view the full source. <strong>This is not optional.</strong> If I cannot see the code behind a wrong answer, I cannot tell whether you were one typo away or lost the plot entirely — which means I cannot give partial credit, point out where it went sideways, or help you fix it. A rendered page with no visible code is graded only on what rendered.</li>
+</ul>
+<p>Use this same header layout for every document you turn in this course.</p>
+</section>
 </section>
 <section id="how-this-is-graded" class="level2">
 <h2 class="anchored" data-anchor-id="how-this-is-graded">How This Is Graded</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Module Learning Objective</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Data frame built from <code>iris</code> vectors; container check (Part 4)</td>
-<td>Apply &amp; Analyze Data Container Structures</td>
-</tr>
-<tr class="even">
-<td>Analysis chunk; Results paragraph reported entirely with inline references</td>
-<td>Integrate Data Containers into Reproducible Workflows</td>
-</tr>
-<tr class="odd">
-<td>Species-pair subset and comparison (Part 3)</td>
-<td>Both — data-frame manipulation and reproducible reporting</td>
-</tr>
-<tr class="even">
-<td>Reflection (Part 5)</td>
-<td>The <em>Analyze</em> dimension of both objectives</td>
-</tr>
-</tbody>
-</table>
+<p>This assignment is scored with the <strong>Online Homework Rubric</strong> on the Canvas site — the same rubric used for every online homework in this course. It covers online access to the published document, front matter, formatting, and whether the document stands on its own; the remaining points come from the assignment-specific work above.</p>
+<!-- -->
+
 </section>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>For a fuller treatment of pulling values out of an analysis and citing them inline, see the narrative section <a href="https://dyerlabteaching.github.io/Data-Containers/narrative.html#analysis-output">Analysis Output</a> and the slide <a href="https://dyerlabteaching.github.io/Data-Containers/slides.html#/benefits">Benefits</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The mechanics — pulling vectors out of a data frame, <code>cor.test()</code> output as a list, reporting values inline — are all in the module <a href="https://dyerlabteaching.github.io/Data-Containers/narrative.html">narrative</a> and <a href="https://dyerlabteaching.github.io/Data-Containers/slides.html">slides</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2457,6 +2439,57 @@ sample estimates:
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -2786,7 +2819,132 @@ sample estimates:
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Data Containers Homework&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> &quot;Building a manuscript and its analysis together&quot;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;YOUR NAME HERE&quot;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">        self-contained: true</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">        code-tools: true</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Idea</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>One of the central habits of reproducible research is that the **words and the code that produce them are written together**. A paragraph of *Methods* is followed immediately by the chunk that carries out what it describes. A statement in *Results* is backed by a value generated in the chunk beside it, and for numbers reported in the running text the value is read straight from a variable in memory using an inline `<span class="in">` `</span>r ` `` expression, never typed by hand.<span class="ot">[^ref-inline]</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ot">[^ref-inline]: </span>For a fuller treatment of pulling values out of an analysis and citing them inline, see the narrative section <span class="co">[</span><span class="ot">Analysis Output</span><span class="co">](https://dyerlabteaching.github.io/Data-Containers/narrative.html#analysis-output)</span> and the slide <span class="co">[</span><span class="ot">Benefits</span><span class="co">](https://dyerlabteaching.github.io/Data-Containers/slides.html#/benefits)</span>.</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>This assignment has you practice that habit on a small analysis of the <span class="in">`iris`</span> data set. Read the worked example, then reproduce its structure for sepal width and petal width.</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## A Worked Example</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Methods</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Data.** We used Edgar Anderson&#39;s *iris* measurements, distributed with R as the `iris` data set (Anderson 1935): four floral traits — sepal and petal length and width, in centimetres — recorded on 150 specimens, 50 from each of three species (*Iris setosa*, *I. versicolor*, *I. virginica*). For this example we pulled sepal length and petal length for all 150 specimens, all species pooled, into a pair of vectors.</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>sepal_length <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>petal_length <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Analysis.** We summarised each trait by its mean and tested the association between the two traits with a Pearson product-moment correlation using </span><span class="in">`cor.test()`</span><span class="at">. We report the correlation coefficient, the *t*-statistic, and the *p*-value.</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( sepal_length )</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( petal_length )</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( sepal_length, petal_length )</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>fit</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preparing the reporting values</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>Before writing a word of the Results, spend a moment pulling the numbers you are going to report out of the <span class="in">`fit`</span> object and formatting them. You *could* write each one inline — `<span class="in">` `</span>r format(fit$estimate, digits = 3)` `<span class="in">` — but a paragraph full of `</span>format()` calls is hard to read and harder to revise: every time you reread the sentence you have to step over the code to find the prose. Doing that work in one small chunk, and giving each value a short name, keeps the writing clean.</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>mean_sepal <span class="ot">&lt;-</span> <span class="fu">format</span>( <span class="fu">mean</span>(sepal_length), <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>mean_petal <span class="ot">&lt;-</span> <span class="fu">format</span>( <span class="fu">mean</span>(petal_length), <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>estimate,  <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>statistic, <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">format</span>( fit<span class="sc">$</span>p.value,   <span class="at">digits =</span> <span class="dv">3</span> )</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">length</span>( sepal_length )</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Results</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Across all </span><span class="in">`r N`</span><span class="at"> specimens, mean sepal length was </span><span class="in">`r mean_sepal`</span><span class="at"> cm and mean petal length was </span><span class="in">`r mean_petal`</span><span class="at"> cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, *r* = `r r`, *t* = `r t`, *P* = </span><span class="in">`r p`</span><span class="at">).</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>Now the source of that paragraph reads almost exactly as the rendered sentence will, and if the analysis changes you edit only the chunk above, never the prose.</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>Here is the raw text that produced it:</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{verbatim}</span></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="in">Across all `r N` specimens, mean sepal length was `r mean_sepal` cm and mean petal length was `r mean_petal` cm. Sepal and petal length were strongly and positively correlated (Pearson correlation, *r* = `r r`, *t* = `r t`, *P* = `r p`).</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your Assignment</span></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>Following the worked example, produce a standalone **Methods** and **Results** write-up for the correlation between **sepal width and petal width** across all 150 *iris* specimens.<span class="ot">[^ref]</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>Your document should have:</span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Methods** — a *Data* paragraph followed by the chunk that pulls the two width vectors out of `iris`, then an *Analysis* paragraph followed by the chunk that takes the mean of each and runs <span class="in">`cor.test()`</span>.</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**A reporting-values chunk** — <span class="in">`format()`</span> the two means and the correlation&#39;s *r*, *t*, and *p*, and give each a short name.</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Results** — one paragraph reporting those numbers as bare inline values (`<span class="in">` `</span>r r` `<span class="in">`), with no `</span>format()` in the prose.</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>Then answer briefly, a sentence or two each:</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Name the container type of <span class="in">`iris`</span>, your width vectors, and <span class="in">`fit`</span>, and say why each suits what it holds.</span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Why does <span class="in">`cor.test()`</span> return a list rather than a data frame?</span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="ot">[^ref]: </span>The mechanics — pulling vectors out of a data frame, <span class="in">`cor.test()`</span> output as a list, reporting values inline — are all in the module <span class="co">[</span><span class="ot">narrative</span><span class="co">](https://dyerlabteaching.github.io/Data-Containers/narrative.html)</span> and <span class="co">[</span><span class="ot">slides</span><span class="co">](https://dyerlabteaching.github.io/Data-Containers/slides.html)</span>.</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## What You Turn In</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>**One file: the rendered, self-contained `.html`.** Not the <span class="in">`.qmd`</span>, and not a copy of this page. Make a *new* Quarto document that contains only your own work — your Methods and Results sections with their chunks, the reporting-values chunk, and your brief answers to the two questions.</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>The worked example above is a model to imitate, not text to paste into your document.</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Making the document</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>In RStudio: **File ▸ New File ▸ Quarto Document…**</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>In the dialog, enter a title and your name, leave the engine set to **Knitr**, and click **Create**.</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Delete everything RStudio puts below the header (the &quot;Quarto&quot; boilerplate and its example chunk).</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Replace the header it generated with the one below.</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Save the file into your course project folder as <span class="in">`Data-Containers-Homework.qmd`</span>.</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Write your content, then click **Render** to produce the <span class="in">`.html`</span>. That HTML file is what you submit.</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### The full YAML header</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Data Containers Homework&quot;</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="fu">abstract</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>  A sentence or two saying what the document does: the data, the question, and what you found.</span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">self-contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`title` / `author` / `date` / `abstract`** — complete front matter, including a short summary where a scientific paper would put its abstract. <span class="in">`date: today`</span> fills itself in at render time.</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`format: html`** — render to a single web page I can open in any browser.</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`self-contained: true`** — bundle every image, style, and script *into* that one `.html` file. Without it the file depends on a sibling `*_files/` folder that never makes it into the upload, and your figures and formatting arrive broken.</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`code-tools: true`** — adds the &quot;&lt;/&gt; Code&quot; button in the top-right that lets a reader view the full source. **This is not optional.** If I cannot see the code behind a wrong answer, I cannot tell whether you were one typo away or lost the plot entirely — which means I cannot give partial credit, point out where it went sideways, or help you fix it. A rendered page with no visible code is graded only on what rendered.</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>Use this same header layout for every document you turn in this course.</span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## How This Is Graded</span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>This assignment is scored with the **Online Homework Rubric** on the Canvas site — the same rubric used for every online homework in this course. It covers online access to the published document, front matter, formatting, and whether the document stands on its own; the remaining points come from the assignment-specific work above.</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
