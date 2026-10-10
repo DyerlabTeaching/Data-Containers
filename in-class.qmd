@@ -17,7 +17,7 @@ There are two data sets used for this example;
 summary( iris )
 ```
 
-![Measurements of sepal and petal lengths and width for three species of iris.](https://flickr.com/photo_download.gne?id=52436835869&secret=1804e00ce8&size=w&source=photoPageEngagement){#fig-iris}
+![Measurements of sepal and petal lengths and width for three species of iris.](media/measurements_of_sepal_and_petal_lengths.jpg){#fig-iris}
 
 
 ## Vectors
