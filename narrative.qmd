@@ -445,7 +445,7 @@ library( tidyverse )
 The URL for this repository is
 
 ```{r}
-url <- "https://dyerlabteaching.github.io/Data-Containers/data/arapat.csv"
+url <- "https://dyerlabteaching.github.io/CourseData/Spatial/arapat.csv"
 ```
 
 And we can read it in directly (as long as we have an internet connection) as:

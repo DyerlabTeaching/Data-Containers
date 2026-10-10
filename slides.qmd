@@ -567,7 +567,7 @@ library( tidyverse )
 Here is a CSV file that is contained in this repository.  Since it is a public repository, we can access it from within GitHub using a URL.
 
 ```{r}
-url <- "https://dyerlabteaching.github.io/Data-Containers/data/arapat.csv"
+url <- "https://dyerlabteaching.github.io/CourseData/Spatial/arapat.csv"
 beetles <- read_csv( url )
 ```
 
