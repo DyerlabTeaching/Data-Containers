@@ -98,7 +98,7 @@ c( 1, TRUE, "FALSE", 23)
 
 ## Sequences
 
-Sometimes it is helpful to make a a sequence of values in a vector.  `R` has some built-in functionality here for that.
+Sometimes it is helpful to make a sequence of values in a vector.  `R` has some built-in functionality here for that.
 
 &nbsp;
 
@@ -141,7 +141,7 @@ z
 
 ## Vector Operators
 
-Data within vectors can be subjected to unary opertors.
+Data within vectors can be subjected to unary operators.
 
 &nbsp;
 
@@ -214,7 +214,7 @@ matrix( LETTERS[1:9], nrow=3)
 
 ## {{< fa blender >}} 2-Dimensional Vectors
 
-Creating matrices are done columnwise, if you want them to be rowwise, you have to ask for it.
+Creating matrices is done columnwise; if you want them to be rowwise, you have to ask for it.
 
 ::: {layout-ncol="2"}
 ```{r}
@@ -276,7 +276,7 @@ X[1,]
 
 ## Matrix Operators
 
-Arithamatic operators on matrices work the same way (as long as they are matrices of the proper number of rows and columns).
+Arithmetic operators on matrices work the same way (as long as they are matrices of the proper number of rows and columns).
 
 &nbsp;
 
@@ -336,7 +336,7 @@ lst
 
 ## Double Square Brackets
 
-Notice that lists use two sets of square brackets instead of one—to differentiate itself from a normal vector
+Notice that lists use two sets of square brackets instead of one—to differentiate themselves from a normal vector
 
 ```{r}
 lst[[1]] 
@@ -346,7 +346,7 @@ lst
 ## Why The Double Brackets?
 
 
-This is because *technically*, the first element in the list is an also a list and what we are trying to get from that is the first element inside that contained list.  
+This is because *technically*, the first element in the list is also a list and what we are trying to get from that is the first element inside that contained list.  
 
 ```{r}
 c( class(lst), class(lst[1]), class(lst[[1]]) )
@@ -417,7 +417,7 @@ summary( iris )
 
 ## Correlation
 
-Here is a quick correlation between the sepal and pedal lengths in some `iris` data set.
+Here is a quick correlation between the sepal and petal lengths in some `iris` data set.
 
 ```{r}
 iris.test <- cor.test( iris$Sepal.Length, iris$Petal.Length )
@@ -478,7 +478,7 @@ The main container that almost all of your data will be contained in is the `dat
 
 ## Example
 
-Lets consider the following data as indiviudal vectors.
+Let's consider the following data as individual vectors.
 
 ```{r}
 names <- c("Bob","Alice","Jane")

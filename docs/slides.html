@@ -311,7 +311,7 @@ Rodney J. Dyer
 </section>
 <section id="sequences" class="slide level2">
 <h2>Sequences</h2>
-<p>Sometimes it is helpful to make a a sequence of values in a vector. <code>R</code> has some built-in functionality here for that.</p>
+<p>Sometimes it is helpful to make a sequence of values in a vector. <code>R</code> has some built-in functionality here for that.</p>
 <p>&nbsp;</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>w <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
 <span id="cb17-2"><a href=""></a>w</span>
@@ -359,7 +359,7 @@ Rodney J. Dyer
 </section>
 <section id="vector-operators" class="slide level2">
 <h2>Vector Operators</h2>
-<p>Data within vectors can be subjected to unary opertors.</p>
+<p>Data within vectors can be subjected to unary operators.</p>
 <p>&nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="sc">-</span>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -445,7 +445,7 @@ Rodney J. Dyer
 </section>
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120626c656e646572203e7d7d-2-dimensional-vectors-1" class="slide level2">
 <h2><i class="fa-solid fa-blender" aria-hidden="true"></i> 2-Dimensional Vectors</h2>
-<p>Creating matrices are done columnwise, if you want them to be rowwise, you have to ask for it.</p>
+<p>Creating matrices is done columnwise; if you want them to be rowwise, you have to ask for it.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">matrix</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol=</span><span class="dv">3</span> )</span>
 <span id="cb38-2"><a href=""></a><span class="fu">matrix</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
@@ -534,7 +534,7 @@ Rodney J. Dyer
 </section>
 <section id="matrix-operators" class="slide level2">
 <h2>Matrix Operators</h2>
-<p>Arithamatic operators on matrices work the same way (as long as they are matrices of the proper number of rows and columns).</p>
+<p>Arithmetic operators on matrices work the same way (as long as they are matrices of the proper number of rows and columns).</p>
 <p>&nbsp;</p>
 <div class="{.layout-ncol=&quot;2&quot;}">
 <div class="cell">
@@ -616,7 +616,7 @@ Rodney J. Dyer
 </section>
 <section id="double-square-brackets" class="slide level2">
 <h2>Double Square Brackets</h2>
-<p>Notice that lists use two sets of square brackets instead of one—to differentiate itself from a normal vector</p>
+<p>Notice that lists use two sets of square brackets instead of one—to differentiate themselves from a normal vector</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>lst[[<span class="dv">1</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -637,7 +637,7 @@ Rodney J. Dyer
 </section>
 <section id="why-the-double-brackets" class="slide level2">
 <h2>Why The Double Brackets?</h2>
-<p>This is because <em>technically</em>, the first element in the list is an also a list and what we are trying to get from that is the first element inside that contained list.</p>
+<p>This is because <em>technically</em>, the first element in the list is also a list and what we are trying to get from that is the first element inside that contained list.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">c</span>( <span class="fu">class</span>(lst), <span class="fu">class</span>(lst[<span class="dv">1</span>]), <span class="fu">class</span>(lst[[<span class="dv">1</span>]]) )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -736,7 +736,7 @@ $PassedDyersClass
 </section>
 <section id="correlation" class="slide level2">
 <h2>Correlation</h2>
-<p>Here is a quick correlation between the sepal and pedal lengths in some <code>iris</code> data set.</p>
+<p>Here is a quick correlation between the sepal and petal lengths in some <code>iris</code> data set.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>iris.test <span class="ot">&lt;-</span> <span class="fu">cor.test</span>( iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length )</span>
 <span id="cb77-2"><a href=""></a>iris.test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -833,7 +833,7 @@ sample estimates:
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
-<p>Lets consider the following data as indiviudal vectors.</p>
+<p>Let’s consider the following data as individual vectors.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bob"</span>,<span class="st">"Alice"</span>,<span class="st">"Jane"</span>)</span>
 <span id="cb88-2"><a href=""></a>homework<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.78</span>, <span class="fl">0.95</span>, <span class="fl">0.82</span>)</span>
@@ -860,14 +860,14 @@ sample estimates:
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">summary</span>( gradebook )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       names     homework.1      homework.2    
- Length   :3   Min.   :0.780   Min.   :0.8900  
- N.unique :3   1st Qu.:0.800   1st Qu.:0.8975  
- N.blank  :0   Median :0.820   Median :0.9050  
- Min.nchar:3   Mean   :0.850   Mean   :0.9050  
- Max.nchar:5   3rd Qu.:0.885   3rd Qu.:0.9125  
-               Max.   :0.950   Max.   :0.9200  
-                               NAs    :1       </code></pre>
+<pre><code>    names             homework.1      homework.2    
+ Length:3           Min.   :0.780   Min.   :0.8900  
+ Class :character   1st Qu.:0.800   1st Qu.:0.8975  
+ Mode  :character   Median :0.820   Median :0.9050  
+                    Mean   :0.850   Mean   :0.9050  
+                    3rd Qu.:0.885   3rd Qu.:0.9125  
+                    Max.   :0.950   Max.   :0.9200  
+                                    NA's   :1       </code></pre>
 </div>
 </div>
 </section>
@@ -1007,8 +1007,8 @@ sample estimates:
 <span id="cb119-4"><a href=""></a>  <span class="fu">addProviderTiles</span>(<span class="at">provider =</span> leaflet<span class="sc">::</span>providers<span class="sc">$</span>Esri.WorldTopo) <span class="sc">%&gt;%</span></span>
 <span id="cb119-5"><a href=""></a>  <span class="fu">addMarkers</span>( <span class="sc">~</span>Longitude, <span class="sc">~</span>Latitude,<span class="at">popup =</span> <span class="sc">~</span>Stratum )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-a4d3ab0e0b6ef23f2263" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a4d3ab0e0b6ef23f2263">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-e301750971a75c14959a" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e301750971a75c14959a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[29.32541,29.01457,28.96651,28.72796,28.66056,28.40846,28.22308,28.03661,27.52944,27.3632,27.40498,27.2028,27.18232,27.0367,26.94589,26.24905,26.20876,26.0155,25.91409,25.60521,25.55757,25.34819,25.0247,24.87611,24.74642,24.58843,24.2115,24.45879,24.13389,24.21441,24.0438,24.0195,24.00789,23.2855,23.08984,23.0757,27.90509,26.63783,26.38014],[-114.2935,-113.9449,-113.6679,-113.4897,-113.9914,-112.8698,-113.1826,-113.3999,-113.3161,-112.964,-112.5296,-112.408,-112.6655,-112.986,-112.0461,-112.4095,-111.3783,-111.3547,-112.0806,-111.3264,-111.2156,-111.6006,-111.675,-110.6917,-111.5441,-110.746,-110.951,-110.3686,-110.4624,-110.2725,-109.989,-110.096,-109.8507,-110.1043,-110.1091,-109.6487,-110.5744,-109.327,-109.1263],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["88","9","84","175","177","173","171","89","159","SFr","160","162","12","161","93","165","169","58","166","64","168","51","Const","77","164","75","163","ESan","153","48","156","157","73","Aqu","Mat","98","101","32","102"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[23.0757,29.32541],"lng":[-114.2935,-109.1263]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
