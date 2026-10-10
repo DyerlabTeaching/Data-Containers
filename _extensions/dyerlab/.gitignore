@@ -1,2 +1,9 @@
 /.quarto/
 **/*.quarto_ipynb
+.DS_Store
+/demo/_extensions/
+/demo/.quarto/
+# demo previews render here, never committed — this repo is copied into
+# every module as a subtree, so rendered output would bloat all of them
+/demo/_site/
+/docs/

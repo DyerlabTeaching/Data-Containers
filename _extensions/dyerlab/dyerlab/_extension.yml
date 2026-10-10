@@ -1,0 +1,21 @@
+title: Dyerlab Branding
+author: Rodney Dyer
+version: 2.0.0-stock
+quarto-required: ">=1.6.0"
+# STOCK MODE (Fall 2026): these formats are deliberately plain Quarto `html` /
+# `revealjs` so modules can switch to the dyerlab-* names mid-semester without
+# any visual change. The full branded definition is in _extension.branded.yml;
+# to activate branding, replace this file with it (and do the same in
+# ../dyerlab-narrative/), preview with demo/render.sh, then push.
+#
+# Formats:
+#   dyerlab-html      homework, in-class, log — self-contained, with code-tools
+#                     so students can grab the source of the document.
+#   dyerlab-revealjs  slides.
+contributes:
+  formats:
+    html:
+      embed-resources: true
+      code-tools: true
+    revealjs:
+      format-links: false

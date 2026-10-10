@@ -1,0 +1,36 @@
+title: Dyerlab Narrative
+author: Rodney Dyer
+version: 2.0.0-stock
+quarto-required: ">=1.6.0"
+# STOCK MODE (Fall 2026): dyerlab-narrative-html is plain Quarto `html` so the
+# switch is invisible mid-semester. The full branded definition is in
+# _extension.branded.yml. The PDF format is already final — it is only used by
+# books, not by anything students currently see.
+#
+# Formats:
+#   dyerlab-narrative-html  a module's narrative.qmd, and the HTML edition of any
+#                           book compiled from narratives. No code-tools.
+#   dyerlab-narrative-pdf   the PDF edition of a book (or a standalone narrative).
+contributes:
+  formats:
+    html:
+      code-tools: false
+    pdf:
+      pdf-engine: xelatex
+      fontsize: 11pt
+      mainfont: "Helvetica Neue"
+      monofont: "Menlo"
+      papersize: letter
+      geometry:
+        - margin=1in
+      colorlinks: true
+      toc: true
+      toc-depth: 2
+      fig-pos: "H"
+      # Wrap long lines in both code and plain-text output (code-overflow
+      # only affects highlighted source in PDF).
+      include-in-header:
+        text: |
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+          \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
