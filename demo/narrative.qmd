@@ -1,6 +1,6 @@
 ---
 title: "Learning Module Narrative"
-format: dyerlab-html
+format: dyerlab-narrative-html
 ---
 
 ```{r}

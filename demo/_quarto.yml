@@ -1,10 +1,12 @@
 project:
   title: "Dyerlab Branding"
-  output-dir: docs
+  output-dir: _site
   render:
     - "*.qmd"
 
+# Each document picks exactly one of these formats in its own frontmatter.
 format:
+  dyerlab-narrative-html: default
   dyerlab-html: default
   dyerlab-revealjs: default
 
