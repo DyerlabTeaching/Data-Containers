@@ -2,10 +2,7 @@
 title: "Data Containers Homework"
 subtitle: "Building a manuscript and its analysis together"
 author: "YOUR NAME HERE"
-format:
-    html:
-        self-contained: true
-        code-tools: true
+format: dyerlab-html
 ---
 
 ## The Idea

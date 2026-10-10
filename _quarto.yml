@@ -2,9 +2,13 @@ project:
   title: "Data Containers"
   output-dir: docs
   pre-render: _extensions/dyerlab/update-extension.sh
+  resources:
+    - media/
+    - data/
 
 format:
-  html: default
-  revealjs: default
+  dyerlab-narrative-html: default
+  dyerlab-html: default
+  dyerlab-revealjs: default
 
 

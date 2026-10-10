@@ -2,8 +2,8 @@
 title: "Data Containers"
 subtitle: "A place for everything"
 author: Rodney J. Dyer
-format: 
-  revealjs:
+format:
+  dyerlab-revealjs:
     background-transition: fade
     theme: default
 editor: source
@@ -567,7 +567,7 @@ library( tidyverse )
 Here is a CSV file that is contained in this repository.  Since it is a public repository, we can access it from within GitHub using a URL.
 
 ```{r}
-url <- "https://raw.githubusercontent.com/DyerlabTeaching/Data-Containers/main/data/arapat.csv"
+url <- "https://dyerlabteaching.github.io/Data-Containers/data/arapat.csv"
 beetles <- read_csv( url )
 ```
 

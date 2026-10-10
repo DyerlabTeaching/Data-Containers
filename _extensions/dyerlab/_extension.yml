@@ -18,7 +18,6 @@ contributes:
       link-external-icon: true
       self-contained: true
       format-links: false
-      code-tools: true
     revealjs:
       resources:
         - assets/contour.png

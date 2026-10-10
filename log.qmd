@@ -1,6 +1,6 @@
 ---
 title: "Teaching Log"
-format: html
+format: dyerlab-html
 ---
 
 ## 2026.09.07
