@@ -57,3 +57,9 @@ vignettes/*.pdf
 /*_files/
 
 **/*.quarto_ipynb
+
+# In-class demo/scratch copies: only in-class.qmd is tracked or published
+/[Ii]n[-_][Cc]lass*.qmd
+!/in-class.qmd
+/docs/[Ii]n[-_][Cc]lass?*.html
+/docs/[Ii]n[-_][Cc]lass?*_files/
