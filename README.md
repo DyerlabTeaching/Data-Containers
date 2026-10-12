@@ -1,6 +1,10 @@
 # Data Containers
 
-![Photo by <a href="https://unsplash.com/@live_for_photo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Teng Yuhong</a> on <a href="https://unsplash.com/photos/qMehmIyaXvY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>](media/teng-yuhong-qMehmIyaXvY-unsplash.jpg)
+<!-- BEGIN module:header — generated from module.yml; edit that, not this -->
+
+![A forested hillside in autumn.](https://dyerlabteaching.github.io/Data-Containers/media/module_image.jpg)
+
+<!-- END module:header -->
 
 ## Impetus
 
@@ -31,9 +35,13 @@ We rarely work with a single datum; instead, we work with large volumes of data.
 
 ## Content
 
-- [Slides](https://dyerlabteaching.github.io/Data-Containers/slides.html#/title-slide) covering data containers.
-- A longer [narrative](https://dyerlabteaching.github.io/Data-Containers/narrative.html) that goes into more depth on each of the constituent container types.
-- An [In Class](https://dyerlabteaching.github.io/Data-Containers/in-class.html) activity.
+<!-- BEGIN module:resources — generated from module.yml; edit that, not this -->
+
+- The [slides](https://dyerlabteaching.github.io/Data-Containers/slides.html) for this topic.
+- A longer [narrative](https://dyerlabteaching.github.io/Data-Containers/narrative.html) that goes into more depth.
+- An [in-class](https://dyerlabteaching.github.io/Data-Containers/in-class.html) activity.
+
+<!-- END module:resources -->
 
 ## Assessment
 
