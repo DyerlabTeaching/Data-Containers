@@ -15,3 +15,11 @@ REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
 cd "$REPO_ROOT"
 
 git subtree pull --prefix="$PREFIX" "$REMOTE" main --squash --quiet 2>/dev/null || true
+
+# Fill the generated module:* regions in README.md and narrative.qmd from
+# module.yml (module-standards §11). Runs after the pull so it uses the
+# newest generator; writes only when something changed.
+GEN="$PREFIX/generate-module-blocks.R"
+if [ -f module.yml ] && [ -f "$GEN" ] && command -v Rscript >/dev/null 2>&1; then
+  Rscript "$GEN" . || true
+fi
