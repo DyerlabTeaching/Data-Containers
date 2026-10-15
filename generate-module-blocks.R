@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # generate-module-blocks.R
 # Fill the generated regions of a module from its module.yml
-# (Modules/module-standards.md §11):
+# (Course-Tooling/module-standards.md §11):
 #
 #   README.md      <!-- BEGIN module:header -->              header image (+ credit)
 #   README.md      <!-- BEGIN module:resources -->           the ## Content bullet list
