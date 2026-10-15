@@ -478,8 +478,8 @@ We can quickly use these data and make an interactive labeled map of it in a few
 
 ```{r}
 library( leaflet )
-beetles %>%
-  leaflet() %>%
-  addProviderTiles(provider = providers$Esri.WorldTopo) %>%
+beetles |>
+  leaflet() |>
+  addProviderTiles(provider = providers$Esri.WorldTopo) |>
   addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
 ```

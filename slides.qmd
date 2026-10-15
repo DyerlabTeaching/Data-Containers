@@ -605,9 +605,9 @@ install.packages("leaflet")
 
 ```{r}
 library( leaflet )
-beetles %>%
-  leaflet() %>%
-  addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) %>%
+beetles |>
+  leaflet() |>
+  addProviderTiles(provider = leaflet::providers$Esri.WorldTopo) |>
   addMarkers( ~Longitude, ~Latitude,popup = ~Stratum )
 ```
 
