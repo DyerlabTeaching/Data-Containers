@@ -11,7 +11,7 @@ format: dyerlab-narrative-html
 
 <!-- END module:header -->
 
-## Vectors
+## Vectors {.application}
 
 Vectors are the most basic data container in `R`. They *must* contain data of the exact same type and are constructed using the `combine()` function, which is abbreviated as `c()` because good programmers are lazy programmers. [^1]
 
@@ -170,7 +170,7 @@ paste( a, b, sep=" is a ")
 
 So, in addition to being able to work on individual values, *all functions are also vector functions*.
 
-## Matrices
+## Matrices {.application}
 
 A `matrix` is a 2-dimensional container for the same kind of data as well. The two dimensions are represented as *rows* and *columns* in a rectangular configuration. Here I will make a 3x3 matrix consisting of a sequence of numbers from 1 to 9.
 
@@ -231,7 +231,7 @@ This operation has a few different constraints:
 
 So the resulting element in `[1,3]` position is found by $1*3 + 4*6 + 7*9 = 90$.
 
-## Lists
+## Lists {.application}
 
 Lists are a more flexible container type. Here, lists can contain different types of data in a single list. Here is an example of a list made with a few `character` values, a `numeric`, a `constant`, and a `logical` value.
 
@@ -380,7 +380,7 @@ Here is an example paragraph (see the raw quarto document to see the formatting)
 
 > There was a significant relationship between sepal and petal length (Pearson Correlation, $\rho =$ `r format(iris.test["estimate"], digits=3)`, $t =$ `r format(iris.test["statistic"], digits=3)`, P = `r format(iris.test["p.value"],digits=3)`).
 
-## Data Frames
+## Data Frames {.application}
 
 The `data.frame` is the most common container for all the data you'll be working with in `R`. It is *kind of* like a spreadsheet in that each column of data is the same kind of data measured on all objects (e.g., weight, survival, population, etc.) and each row represents one observation that has a bunch of different kinds of measurements associated with it.
 
