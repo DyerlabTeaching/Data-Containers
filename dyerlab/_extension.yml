@@ -18,4 +18,6 @@ contributes:
       embed-resources: true
       code-tools: true
     revealjs:
+      filters:
+        - ../fragment-rows.lua
       format-links: false
