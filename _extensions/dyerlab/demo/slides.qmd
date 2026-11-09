@@ -134,3 +134,13 @@ ggplot(data.frame(gen = seq_along(ret), freq = ret), aes(gen, freq)) +
   labs(title = "Allele Frequency over Time",
        x = "Generation", y = "Frequency")
 ```
+
+## Revealing Table Rows
+
+::: {.fragment-rows}
+| Mother | Offspring | Excluded Dads |
+|--------|:---------:|:-------------:|
+| $A_1A_1$ | $A_1A_1$ | $A_2A_2$ |
+| $A_1A_1$ | $A_1A_2$ | $A_1A_1$ |
+| $A_1A_2$ | $A_1A_2$ | – |
+:::

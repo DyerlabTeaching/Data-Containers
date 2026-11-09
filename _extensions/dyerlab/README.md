@@ -44,13 +44,16 @@ _extensions/dyerlab/            ← this repo
 ├── themes/                           palette definitions
 ├── assets/contour.png                slide background
 ├── theme_dyerlab.R                   matching ggplot2 theme
+├── fragment-rows.lua                 slides: ::: {.fragment-rows} reveals table rows one at a time
+├── figures_dyerlab.R                 shared teaching figures (e.g. variable_types_grid())
 ├── update-extension.sh               module pre-render hook (subtree pull)
 ├── switch-theme.sh / new-theme.sh    palette tools
 └── demo/                             sample documents for previewing formats
 ```
 
 Shared files stay at the repo root because modules reference them by path
-(`_extensions/dyerlab/theme_dyerlab.R`, `_extensions/dyerlab/update-extension.sh`,
+(`_extensions/dyerlab/theme_dyerlab.R`, `_extensions/dyerlab/figures_dyerlab.R`,
+`_extensions/dyerlab/update-extension.sh`,
 `_extensions/dyerlab/assets/contour.png`) — don't move them.
 
 ## Updating modules

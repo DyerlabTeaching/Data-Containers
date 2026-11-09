@@ -27,6 +27,8 @@ contributes:
       embed-resources: true
       code-tools: true
     revealjs:
+      filters:
+        - ../fragment-rows.lua
       resources:
         - ../assets/contour.png
       title-slide-attributes:
